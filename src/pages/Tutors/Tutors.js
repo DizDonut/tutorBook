@@ -5,9 +5,9 @@ class Tutors extends Component {
 
   render(){
     return(
-      <Container fluid>
+      <Container>
         <Row>
-          <Col size="md-6">
+          <Col size="s6">
             This is a column
           </Col>
         </Row>
