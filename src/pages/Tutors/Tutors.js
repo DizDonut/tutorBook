@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../../components/Grid";
+import { Col, Row, Container } from "react-materialize";
 
 class Tutors extends Component {
 
@@ -7,7 +7,7 @@ class Tutors extends Component {
     return(
       <Container>
         <Row>
-          <Col size="s6">
+          <Col s={6}>
             This is a column
           </Col>
         </Row>

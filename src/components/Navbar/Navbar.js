@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
+import { Navbar, NavItem } from "react-materialize";
 
-const Navbar = props =>
+const Nav = props =>
 
 <Navbar brand='Bao Bao Book' right>
 	<NavItem href='get-started.html'>page name</NavItem>
 	<NavItem href='components.html'>page name</NavItem>
 </Navbar>
-export default Navbar;
+
+export default Nav;

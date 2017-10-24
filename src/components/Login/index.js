@@ -1,9 +1,1 @@
-export * from "./Login";
-export * from "./Login_form";
-
-
-
-
-
-
-
+export { default } from "./Login_form";

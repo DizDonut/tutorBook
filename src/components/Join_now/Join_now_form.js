@@ -1,6 +1,7 @@
 import React from "react";
+import { Button, Input, Modal, Row } from "react-materialize";
 
-export const Join_now_from = ()=> 
+const Join_now_form = ()=>
 <Modal
 	header='Join Now'
 	trigger={<Button>submit</Button>}>
@@ -10,7 +11,7 @@ export const Join_now_from = ()=>
         <Input s={3} label="username" />
 		<Input type="password" label="password" s={3} />
 		<Input type="email" label="Email" s={3} />
-</Row>
+	</Row>
 </Modal>
 
 export default Join_now_form;
