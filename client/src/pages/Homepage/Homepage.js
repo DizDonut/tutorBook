@@ -19,8 +19,14 @@ const Homepage = () =>
       <Col s={12}>
         <p>Filler Text</p>
         <div className="row center">
-         <Login />
-         <Join />
+          <Row>
+            <Col s={6}>
+            <Login />
+            </Col>
+            <Col s={6}>
+            <Join />
+            </Col>
+          </Row>
         </div>
       </Col>
     </Row>
