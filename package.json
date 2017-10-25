@@ -1,17 +1,30 @@
 {
-  "name": "tutor",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-materialize": "^1.0.16",
-    "react-scripts": "1.0.14"
-  },
+  "name": "tutorbook",
+  "version": "1.0.0",
+  "description": "student directory and tutoring app",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DizDonut/tutorBook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
+  "bugs": {
+    "url": "https://github.com/DizDonut/tutorBook/issues"
+  },
+  "homepage": "https://github.com/DizDonut/tutorBook#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.12.4",
+    "path": "^0.12.7"
   }
 }
