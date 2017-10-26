@@ -13,7 +13,7 @@ state = {
     studentCity:"Cherryville",
     classVideo:"",
     friendFamDescription:"One brother. All kinds of friends.",
-    favorites: "Movies, Coding, Coffee, lots of Coffee, all types of ill shit",
+    favorites: "Movies, Coding, Coffee, lots of Coffee, all the Coffee",
     birthday:"January 30"
 };
 
@@ -30,36 +30,36 @@ render(){
             <Row>
                 <Col s={6}>
                     <h1>{this.state.studentName}</h1>
-                    <h2>{this.state.studentAge}</h2>
-                    <h2>{this.state.studentCity}</h2>
+                    <h3>{this.state.studentAge}</h3>
+                    <h3>{this.state.studentCity}</h3>
                 </Col>
                 <Col s={6}>
                     <h2>Description:</h2>
-                    <p>{this.state.studentDescription}</p>
+                    <h3>{this.state.studentDescription}</h3>
                 </Col>
             </Row>
             <Row>
                 <Col s={6}>
                     <img src={"https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png"} alt={"Video Pic"} />
                     <h2>Class Video:</h2>
-                    <Link to={"#"}>Click Here</Link>
+                    <Link to={this.state.classVideo}>Click Here</Link>
                 </Col >
                 <Col s={6}>
                     <img src={"http://riverpodcast.com/wp-content/uploads/2017/08/Family-Silhouette-3.jpg"} alt={"Family/Friends Pic"}/>
                     <h2>Family and Friends:</h2>
-                        <p>{this.state.friendFamDescription}</p>
+                        <h3>{this.state.friendFamDescription}</h3>
                 </Col>
             </Row>
             <Row>
                 <Col s={6}>
                 <img src={"https://s7d2.scene7.com/is/image/aeo/favorites_title"} alt={"Likes Pic"} />
                     <h2>Likes/Favorites:</h2>
-                        <p>{this.state.favorites}</p>
+                        <h3>{this.state.favorites}</h3>
                 </Col>
                 <Col s={6}>
                 <img src={"http://minimotives.com/wp-content/uploads/2016/09/birthdays.jpg"} alt={"Birthday Pic"} />
                     <h2>Birthday:</h2>
-                        <p>{this.state.birthday}</p>
+                        <h3>{this.state.birthday}</h3>
                 </Col>
             </Row>
         </Container>
