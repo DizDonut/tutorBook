@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/DizDonut/tutorBook#readme",
   "dependencies": {
+    "axios": "^0.17.0",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "materialize-css": "^0.100.2",

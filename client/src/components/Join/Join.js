@@ -8,10 +8,10 @@ const Join = () =>
 	<Collapsible>
 	 <CollapsibleItem header='Register Now!' icon='toys'>
 		 <Row>
-		 	 <Input placeholder="" s={3} label="Email Address" />
-			 <Input placeholder="" s={3} label="Username" />
-			 <Input placeholder="" type="password" label="Password" s={3} />
-			 <Input placeholder="" type="password" label="Confirm Password" s={3} />
+		 	 <Input placeholder="" s={12} label="Email Address" />
+			 <Input placeholder="" s={12} label="Username" />
+			 <Input placeholder="" type="password" label="Password" s={12} />
+			 <Input placeholder="" type="password" label="Confirm Password" s={12} />
 		 </Row>
 		 <Row>
 		 	<Button waves="light">Submit</Button>

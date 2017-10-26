@@ -8,8 +8,8 @@ const Login = () =>
 	<Collapsible>
 		<CollapsibleItem header='Login Here' icon='perm_identity'>
 			<Row>
-				<Input placeholder="username" s={3} label="username" />
-				<Input type="password" label="password" s={3} />
+				<Input placeholder="username" s={12} label="username" />
+				<Input type="password" label="password" s={12} />
 			</Row>
 			<Row>
 			 <Button waves="light">Submit</Button>

@@ -2,36 +2,43 @@ import React, { Component } from "react";
 import Nav from "../../components/Navbar";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
-import { Button, Card, CardTitle, Container, Input, Modal, Row, Col } from "react-materialize";
+import { Card, CardTitle, Container, Row, Col } from "react-materialize";
 
 
-const Homepage = () =>
-<div>
- <img src="../../../Images/Working-it.mp4.url" />
- <Container>
+class Homepage extends Component {
 
-   <Card className="large"
-      header={<CardTitle><h1>Welcome To Bao Bao Book!</h1></CardTitle>}
-      >
-   </Card>
+  render(){
+    return (
+      <div>
+       <img src={"../../../Images/Working-it.mp4.url"} />
+       
+       <Container>
 
-    <Row>
-      <Col s={12}>
-        <p>Filler Text</p>
-        <div className="row center">
+         <Card className="large"
+            header={<CardTitle><h1>Welcome To Bao Bao Book!</h1></CardTitle>}
+            >
+         </Card>
+
           <Row>
-            <Col s={6}>
-            <Login />
-            </Col>
-            <Col s={6}>
-            <Join />
+            <Col s={12}>
+              <p>Filler Text</p>
+              <div className="row center">
+                <Row>
+                  <Col s={6}>
+                    <Login />
+                  </Col>
+                  <Col s={6}>
+                    <Join />
+                  </Col>
+                </Row>
+              </div>
             </Col>
           </Row>
-        </div>
-      </Col>
-    </Row>
- </Container>
+       </Container>
+      </div>
+    );
+  };
+};
 
-</div>;
 
 export default Homepage;
