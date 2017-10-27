@@ -26,10 +26,16 @@
   "homepage": "https://github.com/DizDonut/tutorBook#readme",
   "dependencies": {
     "axios": "^0.17.0",
+    "bcrypt-nodejs": "0.0.3",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "http": "0.0.0",
     "materialize-css": "^0.100.2",
     "mongoose": "^4.12.4",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "react-materialize": "^1.0.16"
   }
