@@ -5,9 +5,9 @@ module.exports = {
     register: function(req, res) {
         db.Tutor
         .findOneAndUpdate({email: req.body.email }, req.body,{upsert:true})
-        .addHash(req.body,function(err,user) {
-          if(err) throw err;
-        })
+        // .addHash(req.body,function(err,user) {
+        //   if(err) throw err;
+        // })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     }, 

@@ -3,6 +3,7 @@ import API from "../../utils/API.js";
 import { Card, CardTitle, Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
 import StudentCard from "../../components/StudentCard";
+import TutorCard from "../../components/TutorCard";
 
 class Tutors extends Component {
 
@@ -15,8 +16,14 @@ state = {
   teacherName:"",
   teacherPic:"",
   contract:"",
-  totalStudents:"",
+
+  totalStudents:""
 };
+
+//
+
+
+
 
 //
 // componentDidMount(){
@@ -43,7 +50,9 @@ state = {
                   <Card className="medium"
                     header={<CardTitle image="../../../Images/background.jpg">Tutor Name Goes Here</CardTitle>}
                     >
-                    Info about the teacher
+                      <TutorCard
+                        content= {this.props.body}
+                      />
                   </Card>
                 </Col>
               </Row>
