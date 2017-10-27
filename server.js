@@ -20,8 +20,6 @@ app.use(express.static("client"));
 // Add routes, both API and view
 app.use(routes);
 
-
-
 //PASSPORT.JS related
 app.use(session({
   secret: 'baobaorocks',
@@ -45,10 +43,6 @@ mongoose.connect(
     useMongoClient: true
   }
 ).then(function(err){
-    // if (err) {
-    // 	throw err[0]
-    // } else {
-
     //create a tutor document, and add it if one isn't in db already.
     //use this for testing purposes
     var devTutor = new db.Tutor({
@@ -56,20 +50,20 @@ mongoose.connect(
       email:'admin@test.com',
       password:'admin'
     });
-    db.Tutor.findOne({username: "admin"}).then(function (user) {
-    // .update({username: 'admin'},{devTutor},{upsert:true}).then(function (user){
-			if (!user) {
-				db.Tutor.addHash(devTutor,function(err) {
-          if (err) return handleError(err);
-          // saved!
-        })
-      }
-		});
     // Start the API server
-
-    app.listen(PORT, function() {
-      console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+    db.Tutor.findOne({username: "admin"}).then(function (user) {
+      // .update({username: 'admin'},{devTutor},{upsert:true}).then(function (user){
+        if (!user) {
+          db.Tutor.addHash(devTutor,function(err,user) {
+            if (err) return handleError(err);
+            // saved!
+            console.log(`logged in with ${user}`)
+          })
+        }
     });
-  })
-
-
+      // Start the API server
+  
+      app.listen(PORT, function() {
+        console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+      });
+})
