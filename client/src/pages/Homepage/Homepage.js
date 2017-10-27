@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Nav from "../../components/Navbar";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
 import { Card, CardTitle, Container, Row, Col } from "react-materialize";
@@ -11,7 +10,7 @@ class Homepage extends Component {
     return (
       <div>
        <img src={"../../../Images/Working-it.mp4.url"} />
-       
+
        <Container>
 
          <Card className="large"
