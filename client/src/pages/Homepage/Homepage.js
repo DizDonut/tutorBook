@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import Nav from "../../components/Navbar";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
 import { Card, CardTitle, Container, Row, Col } from "react-materialize";
@@ -9,34 +11,36 @@ class Homepage extends Component {
   render(){
     return (
       <div>
-       <img src={"../../../Images/Working-it.mp4.url"} />
+      <Nav />
 
-       <Container>
+     <Container>
+  
+       <Card className="large red lighten-5"
+        header={<CardTitle image="../../../Images/homepage.jpg" ><h2>Welcome To Bao Bao Book!</h2> </CardTitle>}
+        >
+        <p>Lorem ipsum dolor sit amet, integer quis vulputate, vel purus nullam consectetuer, nullam interdum dapibus, amet sed sagittis tincidunt libero eros amet, quam mattis. Sem orci arcu ipsum vitae consectetuer lorem. Et arcu vitae habitant, leo ut quam condimentum mollis, augue enim ultrices,Lorem ipsum dolor sit amet, integer quis vulputate, vel purus nullam consectetuer, nullam interdum dapibus, amet sed sagittis tincidunt libero eros amet, quam mattis. Sem orci arcu ipsum vitae consectetuer lorem. Et arcu vitae habitant, leo ut quam condimentum mollis, augue enim.Lorem ipsum dolor sit amet, integer quis vulputate, vel purus nullam consectetuer, nullam interdum dapibus, amet sed sagittis tincidunt libero eros amet, quam mattis. Sem orci arcu ipsum vitae consectetuer lorem. Et arcu vitae habitant, leo ut quam condimentum mollis, augue enim ultrices,Lorem ipsum dolor sit amet, integer quis vulputate, vel purus nullam consectetuer, nullam interdum dapibus, amet sed sagittis tincidunt libero eros amet, quam mattis. Sem orci arcu ipsum vitae consectetuer lorem. Et arcu vitae habitant </p>
+       </Card>
 
-         <Card className="large"
-            header={<CardTitle><h1>Welcome To Bao Bao Book!</h1></CardTitle>}
-            >
-         </Card>
-
-          <Row>
-            <Col s={12}>
-              <p>Filler Text</p>
-              <div className="row center">
-                <Row>
-                  <Col s={6}>
-                    <Login />
-                  </Col>
-                  <Col s={6}>
-                    <Join />
-                  </Col>
-                </Row>
-              </div>
-            </Col>
-          </Row>
-       </Container>
-      </div>
-    );
-  };
+        <Row>
+          <Col s={12}>
+           
+            {/*<Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*//*}*/}
+            <div className="row center">
+              <Row>
+                <Col s={6}>
+                  <Login />
+                </Col>
+                <Col s={6}>
+                  <Join />
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
+     </Container>
+    </div>
+  );
+};
 };
 
 
