@@ -35,3 +35,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   }
 };
+
+//save notes to student models
+//remove notes
+//update notes
+//pop student model with all notes
+  //one note
