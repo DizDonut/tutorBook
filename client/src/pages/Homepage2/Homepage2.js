@@ -4,7 +4,7 @@ import Nav from "../../components/Navbar";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
 import Footer from "../../components/Footer";
-import "./homepage.css";
+//import "./homepage.css";
 import { Card, CardTitle, Container, Row, Col } from "react-materialize";
 
 
@@ -46,7 +46,8 @@ class Homepage2 extends Component {
 };
 
 
-export default Homepage2;import React, { Component } from "react";
+export default Homepage2;
+/*import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Nav from "../../components/Navbar";
 import Login from "../../components/Login";
@@ -72,7 +73,7 @@ class Homepage2 extends Component {
           <Row>
             <Col s={12}>
               <p>Filler Text</p>
-              <Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*/}
+              <Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*//*}
               <div className="row center">
                 <Row>
                   <Col s={6}>
@@ -93,3 +94,4 @@ class Homepage2 extends Component {
 
 
 export default Homepage2;
+*/
