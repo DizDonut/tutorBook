@@ -4,14 +4,12 @@ import Footer from "react-materialize";
 
 <Footer copyrights="Bao Bao; 2017 Copyright Text"
   moreLinks={
-    <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+    <a className="grey-text text-lighten-3 right" href="#!">More Links</a>
   }
   links={
     <ul>
-      <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>
-      <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
-      <li><a className="grey-text text-lighten-3" href="#!">Link 3</a></li>
-      <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+      <li><a className="grey-text text-lighten-3" href="#!">Homepage</a></li>
+      <li><a className="grey-text text-lighten-3" href="#!">Tutor Page</a></li>
     </ul>
   }
   className='example'
