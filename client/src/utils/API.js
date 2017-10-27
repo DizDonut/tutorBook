@@ -16,5 +16,11 @@ export default {
   // Saves a student to the database
   saveStudent: function(studentData) {
     return axios.post("/api/students", studentData);
-  }
+  },
+  register: function(registrationData) {
+    return axios.post("/api/authenticate/register",registrationData)
+  },
+  getTutor: function(id) {
+    return axios.get("/api/tutors/" + id);
+  },
 };

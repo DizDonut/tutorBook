@@ -2,13 +2,19 @@ import React, { Component } from "react";
 import API from "../../utils/API.js";
 import { Card, CardTitle, Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
+<<<<<<< Updated upstream
 
+=======
+import StudentCard from "../../components/StudentCard";
+import TutorCard from "../../components/TutorCard";
+>>>>>>> Stashed changes
 class Tutors extends Component {
 
 state = {
   teacherName:"",
   teacherPic:"",
   contract:"",
+<<<<<<< Updated upstream
   totalStudents:"",
   studentName:"",
   studentAge:"",
@@ -28,6 +34,27 @@ loadStudents = () => {
     )
     .catch(err => console.log(err));
 };
+=======
+  totalStudents:""
+};
+
+//
+
+
+
+//
+// componentDidMount(){
+//   this.loadStudents();
+// };
+//
+// loadStudents = () => {
+//   API.getStudents()
+//     .then(res =>
+//       this.setState({ studentResults: res.data })
+//     )
+//     .catch(err => console.log(err));
+// };
+>>>>>>> Stashed changes
 
   render(){
     return(
@@ -41,7 +68,9 @@ loadStudents = () => {
                   <Card className="medium"
                     header={<CardTitle image="../../../Images/background.jpg">Tutor Name Goes Here</CardTitle>}
                     >
-                    Info about the teacher
+                      <TutorCard
+                        content= {this.props.body}
+                      />
                   </Card>
                 </Col>
               </Row>

@@ -20,6 +20,7 @@ const Tutor = mongoose.model('Tutor', TutorSchema);
 
 module.exports = Tutor;
 
+
 Tutor.addHash = function(newTutor,callback) {
 // TutorSchema.pre('save', function(newTutor,callback) {//next arg
     bcrypt.genSalt(12, function(err,salt) {
