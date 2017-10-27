@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
+import "./Student.css";
 
 class Student extends Component {
 
@@ -38,26 +39,37 @@ render(){
                     <h3>{this.state.studentDescription}</h3>
                 </Col>
             </Row>
+         </Container>
+         <Container>
             <Row>
-                <Col s={6}>
-                    <img src={"https://blog.majestic.com/wp-content/uploads/2010/10/Video-Icon-crop.png"} alt={"Video Pic"} />
+           <Col l={2}>
+                   <img className="iconpic" src={"http://www.iconarchive.com/download/i99519/webalys/kameleon.pics/Video-Camera-2.ico"} alt={"Video Pic"} />
+                </Col> 
+                <Col l={4}>
                     <h2>Class Video:</h2>
                     <Link to={this.state.classVideo}>Click Here</Link>
+
                 </Col >
-                <Col s={6}>
-                    <img src={"http://riverpodcast.com/wp-content/uploads/2017/08/Family-Silhouette-3.jpg"} alt={"Family/Friends Pic"}/>
-                    <h2>Family and Friends:</h2>
+                <Col l={2}>
+                    <img className="iconpic" src={"https://cdn3.iconfinder.com/data/icons/family-5/512/family_parents_kids_children-512.png"} alt={"Family/Friends Pic"}/>
+                </Col>
+                <Col l={4}>    
+                    <h2 className="fandf">Family and Friends:</h2>
                         <h3>{this.state.friendFamDescription}</h3>
                 </Col>
             </Row>
             <Row>
-                <Col s={6}>
-                <img src={"https://s7d2.scene7.com/is/image/aeo/favorites_title"} alt={"Likes Pic"} />
+                <Col l={2}>
+                <img className="iconpic" src={"https://1.bp.blogspot.com/-d3LozscUMBY/Vtz13aLffMI/AAAAAAAALp0/Y9pFym980s0/s1600/love.png"} alt={"Likes Pic"} />
+                </Col>
+                <Col l={4}>
                     <h2>Likes/Favorites:</h2>
                         <h3>{this.state.favorites}</h3>
                 </Col>
-                <Col s={6}>
-                <img src={"http://minimotives.com/wp-content/uploads/2016/09/birthdays.jpg"} alt={"Birthday Pic"} />
+                <Col l={2}>
+                <img className="iconpic" src={"https://image.flaticon.com/icons/png/512/187/187450.png"} alt={"Birthday Pic"} />
+                </Col>
+                <Col l={4}>
                     <h2>Birthday:</h2>
                         <h3>{this.state.birthday}</h3>
                 </Col>
