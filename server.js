@@ -50,6 +50,7 @@ mongoose.connect(
       email:'admin@test.com',
       password:'admin'
     });
+
     // Start the API server
     db.Tutor.findOne({username: "admin"}).then(function (user) {
       // .update({username: 'admin'},{devTutor},{upsert:true}).then(function (user){
@@ -57,13 +58,34 @@ mongoose.connect(
           db.Tutor.addHash(devTutor,function(err,user) {
             if (err) return handleError(err);
             // saved!
+            devTutor.save(function(error,doc) {
+              if (error) {
+                console.log(error)
+              }
+            })
             console.log(`logged in with ${user}`)
           })
         }
+        var newStudent = new db.Student({
+          firstName: "Johnny"
+        });
+        newStudent.save(function(error,doc) {
+            if (error) {
+              console.log(error)
+            } 
+            db.Tutor.updateOne({ username: "admin" }, {$set: {"students": [doc._id] }})
+            .exec(function(err,doc) {
+              if (err) {
+                console.log(err);
+              }
+              console.log(`student added:`);
+              console.log(doc);
+              // Start the API server
+              app.listen(PORT, function() {
+                console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+              });
+            })
+        })
     });
-      // Start the API server
-  
-      app.listen(PORT, function() {
-        console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-      });
+
 })
