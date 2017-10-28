@@ -3,7 +3,7 @@ import API from "../../utils/API.js";
 import { Card, CardTitle, Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
 import StudentCard from "../../components/StudentCard";
-import TutorCard from "../../components/TutorCard";
+import TutorCard from "../../components/Tutor";
 
 class Tutors extends Component {
 
@@ -61,9 +61,9 @@ state = {
           <hr/>
           {this.state.studentResults.map(result =>(
             <StudentCard
-              header={this.state.studentResults.picture}
-              title={this.state.studentResults.name}
-              reveal={this.state.studentResults.description}
+              header={result.picture}
+              title={result.name}
+              reveal={result.description}
             />
           ))}
 
