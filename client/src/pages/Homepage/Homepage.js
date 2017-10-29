@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Nav from "../../components/Navbar";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
+
 import { Card, CardTitle, Container, Row, Col } from "react-materialize";
 
 
