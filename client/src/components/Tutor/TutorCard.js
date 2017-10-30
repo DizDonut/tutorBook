@@ -1,16 +1,17 @@
 import React from "react";
-import { Card, CardTitle, Col, Row } from "react-materialize";
+import { Card, CardTitle, Col } from "react-materialize";
 
 const TutorCard = props => {
-  <Row>
-    <Col s={3}>
-      <Card className="small">
-          <CardTitle reveal image={props} waves="light" />
-            {props.children}
-      </Card>
-    </Col>
-  </Row>
+  return(
+    <Card className="medium"
+      header={
+              <CardTitle image={props.header} waves="light">
+                  {props.title}
+              </CardTitle>
+              }>
+    </Card>
+  );
 
-} //end StudentCard const
+} //end TutorCard const
 
 export default TutorCard;

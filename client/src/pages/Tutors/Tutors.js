@@ -14,8 +14,8 @@ state = {
     picture: "Test Picture",
     description: "I like turtles",
   }],
-  teacherName:"",
-  teacherPic:"",
+  teacherName:"Mike Bechtel",
+  teacherPic:"Here is a Picture of Me",
   contract:"",
   totalStudents:""
 };
@@ -52,17 +52,17 @@ countStudents = () =>{
             <Col s={12}>
               <Row>
                 <Col s={6}>
-                  <Card className="medium"
-                    header={<CardTitle image="../../../Images/background.jpg">Tutor Name Goes Here</CardTitle>}
-                    >
-
-                  </Card>
+                  <TutorCard
+                    header={this.state.teacherPic}
+                    title={this.state.teacherName}
+                  >
+                  </TutorCard>
                 </Col>
                 <Container className="button-container">
                   <Col s={6}>
                     <ul>
                       <li>
-                        <Button large className="blue" waves="light">
+                        <Button small className="blue" waves="light">
                           Add a New Student
                         </Button>
                         <div onClick={this.countStudents()}></div>
