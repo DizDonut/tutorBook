@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3001;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
-app.use(express.static("client"));
+app.use(express.static("./client"));
 // Add routes, both API and view
 app.use(routes);
 
@@ -26,7 +26,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false}))
 app.use(passport.initialize())
-app.use(passport.session()) 
+app.use(passport.session())
 
 app.post('/authenticate',passport.authenticate('local',{
   successRedirect: '/login',
@@ -72,7 +72,7 @@ mongoose.connect(
         newStudent.save(function(error,doc) {
             if (error) {
               console.log(error)
-            } 
+            }
             db.Tutor.updateOne({ username: "admin" }, {$set: {"students": [doc._id] }})
             .exec(function(err,doc) {
               if (err) {
