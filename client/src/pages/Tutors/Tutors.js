@@ -9,11 +9,13 @@ import "./Tutors.css";
 class Tutors extends Component {
 
 state = {
-  studentResults: [{
-    name: "Mike Bechtel",
-    picture: "Test Picture",
-    description: "I like turtles",
-  }],
+  studentResults: [
+    {
+      name: "Mike Bechtel",
+      picture: "public/downloadTest.jpg",
+      description: "I like turtles",
+    }
+  ],
   teacherName:"Mike Bechtel",
   teacherPic:"Here is a Picture of Me",
   contract:"",
@@ -75,13 +77,15 @@ countStudents = () =>{
           </Row>
           <hr/>
           <Row>
-          {this.state.studentResults.map(result =>(
+
+          {this.state.studentResults.map(result => (
             <StudentCard
               header={result.picture}
               reveal={result.description}
               title={result.name}
             />
           ))}
+
           </Row>
         </Container>
       </div>

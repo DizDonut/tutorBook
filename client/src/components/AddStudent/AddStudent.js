@@ -13,7 +13,12 @@ state = {
   age:"",
   location:"",
   picture: "",
-  family:"",
+	family:[{
+		mom: "",
+		dad: "",
+		sister: "",
+		brother: ""
+	}]
   likes: "",
   notes: ""
 };
