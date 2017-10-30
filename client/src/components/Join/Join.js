@@ -35,7 +35,7 @@ handleFormSubmit = event => {
 render(){
     return (
 	<Collapsible>
-		<CollapsibleItem header='Register Now!' icon='toys'>
+		<CollapsibleItem header='Register Now!' icon='person add'>
 		<form>
 			<Row>
 				<Input name="email" onChange={this.handleInputChange} value={this.state.email} placeholder="" s={12} label="Email Address" />
