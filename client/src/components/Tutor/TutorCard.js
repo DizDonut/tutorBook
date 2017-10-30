@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { Card, CardTitle, Col, Container, Row } from "react-materialize";
+import React from "react";
+import { Card, CardTitle, Col, Row } from "react-materialize";
 
 const TutorCard = props => {
   <Row>
