@@ -19,8 +19,8 @@ state = {
 		sister: "",
 		brother: ""
 	}],
-  likes: "",
-  notes: ""
+  likes: [{}],
+  notes: [{}]
 };
 
 //handleinputchange
@@ -33,18 +33,22 @@ handleInputChange = event => {
 
 //submit form
 handleFormSubmit = event => {
-	event.preventDefault();
-	if(this.state.email) {
-		API.register({
-			email: this.state.email,
-			username:this.state.username,
-			password:this.state.password
-		}).then(res => {
-			window.location= "/Tutors"
-			// document.write(JSON.stringify(res));
-		})
-	}
-}
+  event.preventDefault();
+  if (this.state.firstName && this.state.lastName) {
+    API.saveStudent({
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      birthday: this.state.birthday,
+      age: this.state.age,
+      location: this.state.location,
+      family: this.state.family,
+      likes: this.state.likes,
+      notes: this.state.notes
+    })
+      .then(res => this.loadStudents())
+      .catch(err => console.log(err));
+  }
+};
 
 render(){
     return (
@@ -79,7 +83,7 @@ render(){
                     <Input name="family" type="checkbox" value="Brother" label="Brother" onChange={this.handleInputChange} value={this.state.family}/>
 
                   </Row>
-                  <Input className="fileInput" type="file" name="picture" onChange={this.handleInputChange} value={this.state.picture} placeholder="" s={12} label="Picture" />
+                  <Input name="picture" onChange={this.handleInputChange} value={this.state.picture} placeholder="" s={12} label="Picture" />
                 </Row>
               </form>
             </CollapsibleItem>
