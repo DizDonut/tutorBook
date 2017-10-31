@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 import API from "../../utils/API.js";
 import { Button, Card, CardTitle, Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
@@ -12,14 +13,15 @@ state = {
   studentResults: [
     {
       name: "Mike Bechtel",
-      picture: "public/downloadTest.jpg",
+      picture: "public/Images/downloadTest.jpg",
       description: "I like turtles",
     }
   ],
   teacherName:"Mike Bechtel",
-  teacherPic:"Here is a Picture of Me",
+  teacherPic:"public/downloadTest.jpg",
   contract:"",
-  totalStudents:""
+  totalStudents:"",
+  teacherKey:""
 };
 
 
@@ -56,22 +58,14 @@ countStudents = () =>{
                 <Col s={6}>
                   <TutorCard
                     header={this.state.teacherPic}
-                    title={this.state.teacherName}
-                  >
+                    title={this.state.teacherName}>
+
+                    <Link to={"/account/"}>
+                      <strong>Edit My Account Details</strong>
+                    </Link>
+
                   </TutorCard>
                 </Col>
-                <Container className="button-container">
-                  <Col s={6}>
-                    <ul>
-                      <li>
-                        <Button small className="blue" waves="light">
-                          Add a New Student
-                        </Button>
-                        <div onClick={this.countStudents()}></div>
-                      </li>
-                    </ul>
-                  </Col>
-                </Container>
               </Row>
             </Col>
           </Row>

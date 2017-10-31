@@ -6,7 +6,7 @@ class StudentCard extends React.Component {
     return(
       <Col s={4}>
         <Card className="small"
-          header={<CardTitle reveal image={this.props.header} waves="light" />}
+          header={<CardTitle reveal image={this.props.header} />}
           title={this.props.title}
           reveal={this.props.reveal}
         >

@@ -13,8 +13,8 @@ const App = () =>
       <Route exact path="/" component={Homepage} />
       <Route exact path="/Tutors/:id" component={Tutors} />
       <Route exact path="/Student" component={Student} />
-      <Route exact path="/Tutors/account/:id" component={TutorAccount} />
-      <Route exact path="/Tutors/addStudent/:id" component={AddStudentPage} />
+      <Route exact path="/Tutors/account" component={TutorAccount} />
+      <Route exact path="/Tutors/addStudent" component={AddStudentPage} />
       {/* <Route exact path="/books/:id" component={Detail} /> */}
     </Switch>
   </div>

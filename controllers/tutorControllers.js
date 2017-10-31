@@ -10,7 +10,7 @@ module.exports = {
         // })
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
-    }, 
+    },
     findAll: function(req, res) {
         db.Tutor
           .find(req.query)
@@ -45,7 +45,7 @@ module.exports = {
       }
 }
 
-//add student obj id to array of teacher's students 
+//add student obj id to array of teacher's students
 //populate teacher model with students array (all students)
 //populate teacher model with one student (by student Obj Id)
 //remove student from teacher model
