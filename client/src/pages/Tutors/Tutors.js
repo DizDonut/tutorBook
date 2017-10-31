@@ -17,7 +17,7 @@ state = {
     }
   ],
   teacherName:"Mike Bechtel",
-  teacherPic:"Here is a Picture of Me",
+  teacherPic:"public/downloadTest.jpg",
   contract:"",
   totalStudents:""
 };

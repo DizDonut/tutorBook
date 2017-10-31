@@ -5,7 +5,7 @@ const TutorCard = props => {
   return(
     <Card className="medium"
       header={
-              <CardTitle image={props.header} waves="light">
+              <CardTitle image={props.header}>
                   {props.title}
               </CardTitle>
               }>

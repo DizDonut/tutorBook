@@ -18,7 +18,7 @@ state = {
 		dad: "",
 		sister: "",
 		brother: ""
-	}]
+	}],
   likes: "",
   notes: ""
 };
@@ -73,9 +73,9 @@ render(){
                   <Input name="notes" type="textarea" onChange={this.handleInputChange} value={this.state.notes} placeholder="" s={12} label="Additional Notes" />
                   <Row>
                     <Input name="family" type="checkbox" value="Mom" label="Mom" onChange={this.handleInputChange} value={this.state.family}/>
-                    <Input name="family" type="checkbox" value="Mom" label="Dad" onChange={this.handleInputChange} value={this.state.family}/>
-                    <Input name="family" type="checkbox" value="Mom" label="Sister" onChange={this.handleInputChange} value={this.state.family}/>
-                    <Input name="family" type="checkbox" value="Mom" label="Brother" onChange={this.handleInputChange} value={this.state.family}/>
+                    <Input name="family" type="checkbox" value="Dad" label="Dad" onChange={this.handleInputChange} value={this.state.family}/>
+                    <Input name="family" type="checkbox" value="Sister" label="Sister" onChange={this.handleInputChange} value={this.state.family}/>
+                    <Input name="family" type="checkbox" value="Brother" label="Brother" onChange={this.handleInputChange} value={this.state.family}/>
                   </Row>
                   <Input className="fileInput" type="file" name="picture" onChange={this.handleInputChange} value={this.state.picture} placeholder="" s={12} label="Picture" />
                 </Row>
