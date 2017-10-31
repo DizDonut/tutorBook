@@ -6,6 +6,7 @@ const TutorCard = props => {
     <Card className="medium"
       header={
               <CardTitle image={props.header}>
+
               </CardTitle>
               }>
               {props.edit}
