@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardTitle, Col } from "react-materialize";
 
 class StudentCard extends React.Component {
+  
   render() {
     return(
       <Col s={4}>
