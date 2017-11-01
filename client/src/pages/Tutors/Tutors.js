@@ -13,12 +13,12 @@ state = {
   studentResults: [
     {
       name: "Mike Bechtel",
-      picture: "public/Images/downloadTest.jpg",
+      picture: "Images/downloadTest.jpg",
       description: "I like turtles",
     }
   ],
   teacherName:"Mike Bechtel",
-  teacherPic:"public/downloadTest.jpg",
+  teacherPic:"Images/downloadTest.jpg",
   contract:"",
   totalStudents:"",
   teacherKey:""
@@ -54,22 +54,15 @@ countStudents = () =>{
         <Container>
           <Row>
             <Col s={12}>
-              <Row>
-                <Col s={6}>
-                  <TutorCard
-                    header={this.state.teacherPic}
-                    title={this.state.teacherName}>
-
-                    <Link to={"/account/"}>
-                      <strong>Edit My Account Details</strong>
-                    </Link>
-
-                  </TutorCard>
-                </Col>
-              </Row>
+              <TutorCard
+                header={this.state.teacherPic}
+                title={this.state.teacherName}>
+              </TutorCard>
             </Col>
           </Row>
+
           <hr/>
+
           <Row>
 
           {this.state.studentResults.map(result => (

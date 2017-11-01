@@ -13,7 +13,7 @@ export default class footer extends React.Component {
                   <li><a className="grey-text text-lighten-3" href="#!">Link 2</a></li>
                 </ul>
               }
-              className='light-green'>
+              className='blue lighten-4'>
           <h3 className="white-text">Footer Content</h3>
           <p className="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
         </Footer>
