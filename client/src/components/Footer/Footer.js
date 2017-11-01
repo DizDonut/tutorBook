@@ -6,7 +6,6 @@ export default class footer extends React.Component {
       return (
 
         <Footer copyrights="&Bao Bao Book 2017" className='example'>
-          
         </Footer>
       );
     }
