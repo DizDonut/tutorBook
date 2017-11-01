@@ -20,6 +20,7 @@ class AddStudentPage extends Component {
               </Col>
             </Row>
           </Container>
+          <Footer />
       </div>
     )
   }
