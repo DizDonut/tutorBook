@@ -23,4 +23,7 @@ export default {
   getTutor: function(id) {
     return axios.get("/api/tutors/" + id);
   },
+  updateTutor: function(id){
+    return axios.put("/api/tutors" + id);
+  },
 };
