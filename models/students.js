@@ -2,18 +2,20 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
-  firstName: { type: String, required: true, trim:true },
-  age: { type: Number, required: false},
-  city: { type: String, required: false, trim:true },
-  studentId: {type:Number},
-  description: {type: String, required: false},
-  classVideo: {type:String},
-  favorites: [String],
+  firstName: { type: String, required: true, trim: true },
+  lastName: { type: String, required: true, trim: true },
   birthday: String,
+  age: { type: Number, required: false},
+  location: { type: String, required: false, trim: true },
+  // studentId: {type:Number},
+  description: {type: String, required: false},
+  classVideo: {type: String, required: false},
+  family: [String],
+  likes: [String],
   note: [{
     type: Schema.Types.ObjectId,
     ref: "Note",
-    required:false
+    required: false
   }]
 });
 

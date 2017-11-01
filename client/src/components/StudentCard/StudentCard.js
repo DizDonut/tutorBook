@@ -3,6 +3,7 @@ import { Card, CardTitle, Col } from "react-materialize";
 import "./StudentCard.css";
 
 class StudentCard extends React.Component {
+  
   render() {
     return(
       <Col s={4}>
