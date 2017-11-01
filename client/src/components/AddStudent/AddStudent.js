@@ -31,6 +31,19 @@ handleInputChange = event => {
 	})
 }
 
+// checkboxCheck = () => {
+//   const checkboxes = document.getElementsByName("family");
+//   console.log(checkboxes);
+//         const checkboxesChecked = [];
+
+//   for (let i=0; i<checkboxes.length; i++) {
+   
+//      if (checkboxes[i].checked) {
+//         checkboxesChecked.push(checkboxes[i].value);
+//      }
+//   }
+// }
+
 //submit form
 handleFormSubmit = event => {
   event.preventDefault();

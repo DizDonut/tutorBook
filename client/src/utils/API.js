@@ -15,7 +15,7 @@ export default {
   },
   // Saves a student to the database
   saveStudent: function(studentData) {
-    return axios.post("/api/student", studentData);
+    return axios.post("/Tutors/addStudent", studentData);
   },
   register: function(registrationData) {
     return axios.post("/api/authenticate/register",registrationData)
