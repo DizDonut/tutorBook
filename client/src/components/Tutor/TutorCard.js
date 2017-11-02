@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardTitle, Col, Container, Row } from "react-materialize";
+import { Card, CardTitle, Col, Row } from "react-materialize";
 import "./TutorCard.css";
 import AddEvent from "../../components/AddEvent";
 
@@ -25,6 +25,13 @@ const TutorCard = props => {
                     {props.title}
                   </CardTitle>
                   }>
+                  <p><a className="tutor-link" href="https://t.vipkid.com.cn/" target="_blank" rel="noopener noreferrer">VIP Kids Teacher Portal</a></p>
+                  <p className="content-content">
+                    {props.content}
+                  </p>
+                  <p className="content-content">
+                    Teacher Contract: {props.contract}
+                  </p>
           </Card>
           <AddEvent />
         </Col>
