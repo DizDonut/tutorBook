@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardTitle, Col, Container, Row } from "react-materialize";
 import "./TutorCard.css";
+import AddEvent from "../../components/AddEvent";
 
 // import dependencies for calendar
 import BigCalendar from "react-big-calendar";
@@ -35,6 +36,7 @@ const TutorCard = props => {
           />
         </Col>
       </Row>
+      <AddEvent />
     </div>
   );
 

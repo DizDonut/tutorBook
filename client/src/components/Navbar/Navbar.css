@@ -3,3 +3,7 @@ nav {
     background: #bbdefb;
     position: relative;
   }
+
+nav .brand-logo {
+  margin-left: 2%;
+}
