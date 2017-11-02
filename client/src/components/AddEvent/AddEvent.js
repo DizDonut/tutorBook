@@ -1,13 +1,22 @@
 import React from "react";
 import { Button, Collapsible, CollapsibleItem, Col, Input, Row } from "react-materialize";
 import API from "../../utils/API.js";
+import TimePicker from 'material-ui/TimePicker';
+import "./AddEvent.css";
 
 class AddEvent extends React.Component {
+
 state = {
 	title: "",
 	allday: false,
-	start: "",
-	end: ""
+	start: {
+		date: "",
+		time: ""
+	},
+	end: {
+		date:"",
+		time: ""
+	}
 };
 
 //handleinputchange
@@ -41,12 +50,34 @@ handleFormSubmit = event => {
           <CollapsibleItem header="Add New Event">
             <Row>
               <Input name="title" onChange={this.handleInputChange} value={this.state.title} placeholder="" s={12} label="Description" />
-              <Input name="allDay" type="checkbox" className="filled-in" onChange={this.handleInputChange} value={this.state.allDay} placeholder="" s={12} label="All Day Event?" />
-              <Input name="start" onChange={this.handleInputChange} value={this.state.start} type="date" label="Start Day" s={12} />
-              <Input name="end" onChange={this.handleInputChange} value={this.state.end} type="date" label="End Day" s={12} />
-            </Row>
+              <Input name="allDay" id="allDayCheck" type="checkbox" className="filled-in" onChange={this.handleInputChange} value={this.state.allDay} placeholder="" s={12} label="All Day Event?" />
+						</Row>
+						<Row>
+							<Input name="start" onChange={this.handleInputChange} value={this.state.start.date} type="date" label="Start Date" s={6} />
+							<Col s={6}>
+								<TimePicker
+									className="timepicker"
+									hintText="Start Time"
+									autoOk={true}
+									onChange={this.handleInputChange}
+									value={this.state.start.time}
+								/>
+							</Col>
+						</Row>
+						<Row>
+							<Input name="end" onChange={this.handleInputChange} value={this.state.end.date} type="date" label="End Date" s={6} />
+							<Col s={6}>
+								<TimePicker
+									className="timepicker"
+									hintText="End Time"
+									autoOk={true}
+									onChange={this.handleInputChange}
+									value={this.state.end.time}
+								/>
+							</Col>
+						</Row>
             <Row>
-              <Button onClick={this.handleFormSubmit}>Add Event</Button>
+              <Button className="blue" onClick={this.handleFormSubmit}>Add Event</Button>
             </Row>
           </CollapsibleItem>
         </Collapsible>

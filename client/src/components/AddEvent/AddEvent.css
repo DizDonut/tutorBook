@@ -1,0 +1,14 @@
+.timepicker {
+  width: 75% !important;
+  top: 19px;
+  word-break: break-all;
+  white-space: normal;
+  font-size: smaller !important;
+}
+
+button.btn.blue {
+  white-space: normal;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  margin-left: 10%;
+}

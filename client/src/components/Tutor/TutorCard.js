@@ -18,7 +18,7 @@ const TutorCard = props => {
   return(
     <div>
       <Row>
-        <Col m={6}>
+        <Col m={4}>
           <Card className="large"
             header={
                   <CardTitle image={props.header}>
@@ -26,6 +26,7 @@ const TutorCard = props => {
                   </CardTitle>
                   }>
           </Card>
+          <AddEvent />
         </Col>
         <Col m={6}>
           <BigCalendar
@@ -36,7 +37,6 @@ const TutorCard = props => {
           />
         </Col>
       </Row>
-      <AddEvent />
     </div>
   );
 
