@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
 import Footer from "../../components/Footer";

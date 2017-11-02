@@ -41,7 +41,7 @@ mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/baobaoBook",
   {
     useMongoClient: true
-  }
+  });
 // ).then(function(err){
 //     //create a tutor document, and add it if one isn't in db already.
 //     //use this for testing purposes
@@ -80,13 +80,13 @@ mongoose.connect(
 //               }
 //               console.log(`student added:`);
 //               console.log(doc);
-//               // Start the API server
-//               app.listen(PORT, function() {
-//                 console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-//               });
+              // Start the API server
+              app.listen(PORT, function() {
+                console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
+              });
 //             })
 //         })
     // });
 
 // })
-);
+// );

@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom";
-import API from "../../utils/API.js";
-import { Button, Card, CardTitle, Col, Row, Container } from "react-materialize";
+import { Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
 import StudentCard from "../../components/StudentCard";
 import TutorCard from "../../components/Tutor";
@@ -15,12 +13,27 @@ state = {
       name: "Mike Bechtel",
       picture: "Images/downloadTest.jpg",
       description: "I like turtles",
+    },
+    {
+      name: "Mike Bechtel",
+      picture: "Images/downloadTest.jpg",
+      description: "I like turtles",
+    },
+    {
+      name: "Mike Bechtel",
+      picture: "Images/downloadTest.jpg",
+      description: "I like turtles",
+    },
+    {
+      name: "Mike Bechtel",
+      picture: "Images/downloadTest.jpg",
+      description: "I like turtles",
     }
   ],
   teacherName:"Mike Bechtel",
   teacherPic:"Images/downloadTest.jpg",
-  contract:"",
-  totalStudents:"",
+  contract:"01/01/2017 - 12/31/2017",
+  totalStudents:0,
   teacherKey:""
 };
 
@@ -39,12 +52,12 @@ state = {
 // };
 
 //counts the number of students the tutor has taught/input
-countStudents = () =>{
+countStudents = () => {
   let len = this.state.studentResults.length;
   for (let i = 0; i < len; i++) {
     this.state.totalStudents++;
   }
-  return this.state.totalStudents;
+  return `Total Students: ${this.state.totalStudents}`;
 }
 
   render(){
@@ -56,7 +69,9 @@ countStudents = () =>{
             <Col s={12}>
               <TutorCard
                 header={this.state.teacherPic}
-                title={this.state.teacherName}>
+                title={this.state.teacherName}
+                content={this.countStudents()}
+                contract={this.state.contract}>
               </TutorCard>
             </Col>
           </Row>
