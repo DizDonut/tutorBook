@@ -21,7 +21,8 @@ export default {
     return axios.post("/api/authenticate/register",registrationData)
   },
   getTutor: function(id) {
-    return axios.get("/api/tutors/" + id);
+    var realID = id.id;
+    return axios.get("/api/tutors/" + realID);
   },
   updateTutor: function(id){
     return axios.put("/api/tutors" + id);
