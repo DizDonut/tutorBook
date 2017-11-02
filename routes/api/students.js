@@ -10,8 +10,7 @@ router.route("Tutors/addStudent")
   .post(studentsController.create);
 
 // Matches with "/api/students/:id"
-router
-  .route("/:id")
+router.route("/:id")
   .get(studentsController.findById)
   .put(studentsController.update)
   .delete(studentsController.remove);
