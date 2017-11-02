@@ -1,4 +1,17 @@
-
 .card.large {
   height: auto;
 }
+
+.rbc-calendar{
+  height: 400px !important;
+}
+
+.rbc-calendar *,
+.rbc-calendar *:before,
+.rbc-calendar *:after {
+  font-size: small !important;
+}
+
+/*.rbc-month-view, .rbc-agenda-view, .rbc-time-view {
+  width: 135% !important;
+}*/

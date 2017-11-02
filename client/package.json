@@ -4,6 +4,8 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "material-ui": "^0.19.4",
+    "materialize-clockpicker": "^1.0.1",
     "moment": "^2.19.1",
     "react": "^16.0.0",
     "react-big-calendar": "^0.16.1",

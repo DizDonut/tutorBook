@@ -32,6 +32,8 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "http": "0.0.0",
+    "material-ui": "^0.19.4",
+    "materialize-clockpicker": "^1.0.1",
     "materialize-css": "^0.100.2",
     "moment": "^2.19.1",
     "mongoose": "^4.12.4",
