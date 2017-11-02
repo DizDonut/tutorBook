@@ -26,4 +26,7 @@ export default {
   updateTutor: function(id){
     return axios.put("/api/tutors" + id);
   },
+  addEvent: function(id){
+    return axios.put("/api/tutors" + id);
+  },
 };

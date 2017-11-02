@@ -8,12 +8,17 @@ const TutorSchema = new Schema({
     email: {type:String, required: true},
     tutorPic: {type:String,required: false},
     contract: {type:String,required: false},
-    totalStudents: {type: String,required: false},
     students: [{
         type: Schema.Types.ObjectId,
         ref: "Student",
         required:false
-      }]
+      }],
+    events: [{
+      	title: {type: String, required: false},
+      	allday: {type: Boolean, default: false, required: false},
+      	start: {type: Date, default: Date.now},
+      	end: {type: Date, default: Date.now + 1}
+    }]
 });
 
 const Tutor = mongoose.model('Tutor', TutorSchema);
@@ -30,7 +35,7 @@ Tutor.addHash = function(newTutor,callback) {
         })
     })
     // next()
-    
+
 };
 
 Tutor.validPassword = function(password, passwd, done, user){

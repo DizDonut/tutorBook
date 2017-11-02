@@ -14,4 +14,7 @@ router
 .put(tutorController.update)
 .delete(tutorController.remove);
 
+router.route("/:id/addEvent")
+.put(tutorController.update);
+
 module.exports = router;
