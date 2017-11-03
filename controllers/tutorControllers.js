@@ -31,8 +31,10 @@ module.exports = {
           .catch(err => res.status(422).json(err));
       },
       update: function(req, res) {
+        console.log("tutorControllers");
+        console.log("data.username=", req.body);
         db.Tutor
-          .findOneAndUpdate({ _id: req.params.id }, req.body, {upsert:true})
+          .findOneAndUpdate({ username: req.body.username }, req.body, {upsert:true})
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       },
