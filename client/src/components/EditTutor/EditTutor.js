@@ -7,11 +7,11 @@ import "./EditTutor.css";
 class EditTutor extends Component {
 
     state = {
-        username: "",
-        password: "",
+        username: "admin",
+        password: "admin",
         email: "",
         tutorPic: "",
-        contract: "",
+        contract: "I don't have one",
         totalStudents: ""
     };
 
@@ -27,6 +27,7 @@ handleInputChange = event => {
 handleFormSubmit = event => {
   event.preventDefault();
   if (this.state.username && this.state.password) {
+    console.log("editTutor");
     API.updateTutor({
       username: this.state.username,
       password: this.state.password,

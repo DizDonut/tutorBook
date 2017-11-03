@@ -24,8 +24,9 @@ export default {
     var realID = id.id;
     return axios.get("/api/tutors/" + realID);
   },
-  updateTutor: function(id){
-    return axios.put("/api/tutors" + id);
+  updateTutor: function(data){
+    alert("updateTutor");
+    return axios.put("/api/tutors/" + data.username, data);
   },
   addEvent: function(id){
     return axios.put("/api/tutors" + id);
