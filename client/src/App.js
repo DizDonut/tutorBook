@@ -21,8 +21,8 @@ class App extends Component {
       id: null,
       redirectTo: ""
     }
-    // this._logout = this._logout.bind(this)
-    // this._login = this._login.bind(this)
+    this._logout = this._logout.bind(this)
+    this._login = this._login.bind(this)
   }
 
 //set localstorage when they register
@@ -70,6 +70,7 @@ class App extends Component {
     // alert(data)
     // })
     // sessionStorage.setItem('key', 'value');
+
   }
 
   render() {
