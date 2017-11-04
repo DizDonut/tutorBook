@@ -3,8 +3,10 @@ const db = require("../models");
 // Defining methods for the studentsController
 module.exports = {
     register: function(req, res) {
+      console.log(req.body)
         db.Tutor
-        .findOneAndUpdate({email: req.body.email }, req.body,{upsert:true})
+          .create(req.body)
+        // .findOneAndUpdate({email: req.body.email }, req.body,{upsert:true})
         // .addHash(req.body,function(err,user) {
         //   if(err) throw err;
         // })

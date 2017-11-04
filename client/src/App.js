@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
-import { Route, Switch, Redirect } from "react-router-dom"; //
+import { Route, Switch, Redirect, BrowserRouter as Router } from "react-router-dom"; //
 import Homepage from "./pages/Homepage";
 import Tutors from "./pages/Tutors";
 import Student from "./pages/Student";
 import AddStudentPage from "./pages/AddStudentPage";
+// import Footer from "./components/Footer";
 import TutorAccount from "./pages/TutorAccount";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import API from "./utils/API";
+// import Login from "./components/Login";
+// import Join from "./components/Join";
 
 class App extends Component {
   // const App = () =>
@@ -15,31 +18,17 @@ class App extends Component {
     this.state = {
       loggedIn: false,
       tutor:null,
+      id: null,
       redirectTo: ""
     }
     // this._logout = this._logout.bind(this)
     // this._login = this._login.bind(this)
   }
 
-  componentDidMount() {
-    // axios.get('/auth/user').then(response => {
-    //   console.log(response.data)
-    //   if (!!response.data.user) {
-    //     console.log('THERE IS A USER')
-    //     this.setState({
-    //       loggedIn: true,
-    //       user: response.data.user
-    //     })
-    //   } else {
-    //     this.setState({
-    //       loggedIn: false,
-    //       user: null
-    //     })
-    //   }
-    // })
-  }
-  
-
+//set localstorage when they register
+  //at app, get localStorage var
+  //at login (username === localstorage("tutor") => api login)
+  //
   // _logout(event) {
   //   API.logout().then(res => {
   //     console.log(res)
@@ -51,6 +40,8 @@ class App extends Component {
   //       })
   //     }
   //   })
+  //   // localStorage.removeItem("Tutor");
+
   // }
 
   // _login(username, password) {
@@ -69,17 +60,29 @@ class App extends Component {
   //     }
   //   })
   // }
+  componentDidMount() {
+    var getTutor = localStorage.getItem("id");//current tutor's id
+    this.setState({
+      id: getTutor
+    })
+    // API.getTutor(getTutor).then((res, err) => {
+    //  this.state.tutor=  res.data
+    // alert(data)
+    // })
+    // sessionStorage.setItem('key', 'value');
+  }
 
   render() {
-    if (!!this.state.redirectTo) {
-      return <Redirect to={{ pathname: this.state.redirectTo }} />
-    }
+    // if (!!this.state.redirectTo) {
+    //   return <Redirect to={{ pathname: this.state.redirectTo }} />
+    // }
     return (
-      <div>
+        <Router>
           <MuiThemeProvider>
             <div>
-              <Switch>}
-                <Route exact path="/" component={Homepage} /> {/* _logout={this._logout} loggedIn={this.state.loggedIn} tutor={this.state.tutor} */}
+              <Switch>
+                {/* _logout={this._logout} loggedIn={this.state.loggedIn} tutor={this.state.tutor} */}
+                <Route exact path="/" component={Homepage} />
                 <Route exact path="/Tutors" component={Tutors} />
                 <Route exact path="/Student" component={Student} />
                 <Route exact path="/Tutors/account" component={TutorAccount} />
@@ -88,8 +91,8 @@ class App extends Component {
               </Switch>
             </div>
           </MuiThemeProvider>
-      </div>
-    )
+        </Router> 
+    ) 
   }
 }
 
