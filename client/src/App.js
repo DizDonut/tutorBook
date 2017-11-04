@@ -17,8 +17,8 @@ class App extends Component {
       tutor:null,
       redirectTo: ""
     }
-    // this._logout = this._logout.bind(this)
-    // this._login = this._login.bind(this)
+    this._logout = this._logout.bind(this)
+    this._login = this._login.bind(this)
   }
 
   componentDidMount() {
@@ -40,35 +40,35 @@ class App extends Component {
   }
   
 
-  // _logout(event) {
-  //   API.logout().then(res => {
-  //     console.log(res)
-  //     if (res.status === 200) {
-  //       // update the state
-  //       this.setState({
-  //         loggedIn: false,
-  //         user: null
-  //       })
-  //     }
-  //   })
-  // }
+  _logout(event) {
+    API.logout().then(res => {
+      console.log(res)
+      if (res.status === 200) {
+        // update the state
+        this.setState({
+          loggedIn: false,
+          user: null
+        })
+      }
+    })
+  }
 
-  // _login(username, password) {
-  //   API.login({username,password}).then((res,err) => {
-  //     if (err) {
-  //       console.log(err)
-  //     };
-  //     console.log(res)
-  //     if (res.status === 200) {
-  //       // update the state
-  //       this.setState({
-  //         loggedIn: true,
-  //         user: res.data,
-  //         redirectTo: "/Tutors"
-  //       })
-  //     }
-  //   })
-  // }
+  _login(username, password) {
+    API.login({username,password}).then((res,err) => {
+      if (err) {
+        console.log(err)
+      };
+      console.log(res)
+      if (res.status === 200) {
+        // update the state
+        this.setState({
+          loggedIn: true,
+          user: res.data,
+          redirectTo: "/Tutors"
+        })
+      }
+    })
+  }
 
   render() {
     if (!!this.state.redirectTo) {
