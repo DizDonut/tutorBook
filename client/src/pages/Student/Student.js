@@ -17,13 +17,20 @@ state = {
     family:"One brother. All kinds of friends.",
     likes: "Movies, Coding, Coffee, lots of Coffee, all the Coffee",
     birthday:"January 30"
+    // tutor: null/
 };
 
+// componentDidMount() {
+//     this.setState({
+//         tutor: props.tutor
+//     })
+// }
 render(){
     return(
     <div>
         <Nav />
         <Container>
+        {/* map function goes here for this.state.tutor.student */}
             <Row>
                 <Col>
                 <img src={this.state.picture} alt={"Student Pic"} />

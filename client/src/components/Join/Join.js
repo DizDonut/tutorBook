@@ -12,7 +12,6 @@ constructor() {
         email: "",
         username: "",
         password: "",
-        confirmPass: "",
         redirectTo:""
     }
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
@@ -30,18 +29,22 @@ handleInputChange = event => {
 //submit form
 handleFormSubmit = event => {
     event.preventDefault();
+    alert(this.state.email)
         API.register({
             email: this.state.email,
-            username:this.state.username,
-            password:this.state.password
+            username: this.state.username,
+            password: this.state.password
         }).then((res,err) => {
             console.log(res)
             if (err) {
                 console.log(err)
             }
-            this.setState({
-                redirectTo:'/'
-            })
+            localStorage.setItem("id", res.data._id);
+            const data = localStorage.getItem('id');
+            alert(data)
+            // this.setState({
+            //     redirectTo:'/'
+            // })
             // document.write(JSON.stringify(res));
         })
 }
@@ -68,7 +71,7 @@ handleFormSubmit = event => {
                     <Input name="email" onChange={this.handleInputChange} value={this.state.email} placeholder="" s={12} label="Email Address" />
                     <Input name="username" onChange={this.handleInputChange} value={this.state.username} placeholder="" s={12} label="Username" />
                     <Input name="password" onChange={this.handleInputChange} value={this.state.password} placeholder="" type="password" label="Password" s={12} />
-                    <Input name="confirmPassword" onChange={this.handleInputChange} value={this.state.confirmPassword} placeholder=""  type="password" label="Confirm Password" s={12} />
+                    <Input name="confirmPassword" placeholder=""  type="password" label="Confirm Password" s={12} />
                 </Row>
                 <Row>
                     <Button onClick={this.handleFormSubmit}>Submit</Button>

@@ -15,8 +15,13 @@ class Homepage extends Component {
       tutor: null,
       redirectTo: ""
     }
+    this.handleInputChange = this.handleInputChange.bind(this);
     this._logout = this._logout.bind(this)
     this._login = this._login.bind(this)
+  }
+
+  handleInputChange(e) {
+    this.setState({ tutor: e.target.value });
   }
 
   _logout(event) {
