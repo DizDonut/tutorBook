@@ -29,7 +29,6 @@ handleInputChange = event => {
 //submit form
 handleFormSubmit = event => {
     event.preventDefault();
-    alert(this.state.email)
         API.register({
             email: this.state.email,
             username: this.state.username,
@@ -39,8 +38,13 @@ handleFormSubmit = event => {
             if (err) {
                 console.log(err)
             }
-            localStorage.setItem("id", res.data._id);
-            const data = localStorage.getItem('id');
+            var tutor = {
+                id: res.data._id,
+                loggedIn: Date.now(),
+                loggedOut: Date.now() + 60000
+            }
+            localStorage.setItem(res.data.username, JSON.stringify(tutor));
+            const data = localStorage.getItem(res.data.username);
             alert(data)
             // this.setState({
             //     redirectTo:'/'

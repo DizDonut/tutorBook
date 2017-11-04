@@ -21,56 +21,14 @@ class App extends Component {
       id: null,
       redirectTo: ""
     }
-    this._logout = this._logout.bind(this)
-    this._login = this._login.bind(this)
+
   }
 
-//set localstorage when they register
-  //at app, get localStorage var
-  //at login (username === localstorage("tutor") => api login)
-  //
-  // _logout(event) {
-  //   API.logout().then(res => {
-  //     console.log(res)
-  //     if (res.status === 200) {
-  //       // update the state
-  //       this.setState({
-  //         loggedIn: false,
-  //         user: null
-  //       })
-  //     }
-  //   })
-  //   // localStorage.removeItem("Tutor");
-
-  // }
-
-  // _login(username, password) {
-  //   API.login({username,password}).then((res,err) => {
-  //     if (err) {
-  //       console.log(err)
-  //     };
-  //     console.log(res)
-  //     if (res.status === 200) {
-  //       // update the state
-  //       this.setState({
-  //         loggedIn: true,
-  //         user: res.data,
-  //         redirectTo: "/Tutors"
-  //       })
-  //     }
-  //   })
-  // }
   componentDidMount() {
-    var getTutor = localStorage.getItem("id");//current tutor's id
-    this.setState({
-      id: getTutor
-    })
-    // API.getTutor(getTutor).then((res, err) => {
-    //  this.state.tutor=  res.data
-    // alert(data)
+    // var getTutor = localStorage.getItem("id");//current tutor's id
+    // this.setState({
+    //   id: getTutor
     // })
-    // sessionStorage.setItem('key', 'value');
-
   }
 
   render() {
