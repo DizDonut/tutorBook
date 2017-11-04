@@ -13,14 +13,13 @@ module.exports = {
     },
     findAll: function(req, res) {
         db.Tutor
-          .find(req.query)
-          .sort({ date: -1 })
+          .find(req.query).populate("students")
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       },
       findById: function(req, res) {
         db.Tutor
-          .findById(req.params.id)
+          .findById(req.params.id).populate("students")
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));
       },
@@ -31,8 +30,6 @@ module.exports = {
           .catch(err => res.status(422).json(err));
       },
       update: function(req, res) {
-        console.log("tutorControllers");
-        console.log("data.username=", req.body);
         db.Tutor
           .findOneAndUpdate({ username: req.body.username }, req.body, {upsert:true})
           .then(dbModel => res.json(dbModel))
