@@ -20,6 +20,12 @@ export default {
   register: function(registrationData) {
     return axios.post("/api/authenticate/register",registrationData)
   },
+  login: function(loginData) {
+    return axios.post("api/authenticate/login",loginData)
+  },
+  logout: function(logoutData) {
+    return axios.post("api/authenticate/logout",logoutData)
+  },
   getTutor: function(id) {
     var realID = id.id;
     return axios.get("/api/tutors/" + realID);

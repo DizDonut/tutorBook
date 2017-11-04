@@ -10,7 +10,12 @@ const studentSchema = new Schema({
   // studentId: {type:Number},
   description: {type: String, required: false},
   classVideo: {type: String, required: false},
-  family: [String],
+  family: {
+    mom: {type:Boolean, default:false},
+    dad: {type: Boolean, default: false },
+    brother: {type: Boolean, default: false },
+    sister: {type: Boolean, default: false }
+  },
   likes: [String],
   note: [{
     type: Schema.Types.ObjectId,

@@ -23,8 +23,8 @@ var newStudent = new db.Student({
   description: "Awesomeness! A joy to teach. Taught me everything I know!",
   location: "Cherryville",
   classVideo: "",
-  family: "One brother. All kinds of friends.",
-  likes: "Movies, Coding, Coffee, lots of Coffee, all the Coffee",
+  family: {mom:true, dad:true, sister:false,brother:false},
+  likes: ["Movies", "Coding", "Coffee", "lots of Coffee", "all the Coffee"],
   birthday: "January 30"
 });
 
@@ -174,4 +174,3 @@ db.Tutor
   //   },
   // ]
   
-  //this file does nothing yet...could seed some data to help with testing
