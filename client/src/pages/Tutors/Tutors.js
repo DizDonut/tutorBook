@@ -6,36 +6,39 @@ import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
 
 class Tutors extends Component {
+constructor(props) {
+  super(props)
+  this.state = {
+    studentResults: [
+      {
+        name: "Mike Bechtel",
+        picture: "Images/downloadTest.jpg",
+        description: "I like turtles",
+      },
+      {
+        name: "Mike Bechtel",
+        picture: "Images/downloadTest.jpg",
+        description: "I like turtles",
+      },
+      {
+        name: "Mike Bechtel",
+        picture: "Images/downloadTest.jpg",
+        description: "I like turtles",
+      },
+      {
+        name: "Mike Bechtel",
+        picture: "Images/downloadTest.jpg",
+        description: "I like turtles",
+      }
+    ],
+    teacherName: "Mike Bechtel",
+    teacherPic: "Images/downloadTest.jpg",
+    contract: "01/01/2017 - 12/31/2017",
+    totalStudents: 0,
+    teacherKey: ""
+  };
 
-state = {
-  studentResults: [
-    {
-      name: "Mike Bechtel",
-      picture: "Images/downloadTest.jpg",
-      description: "I like turtles",
-    },
-    {
-      name: "Mike Bechtel",
-      picture: "Images/downloadTest.jpg",
-      description: "I like turtles",
-    },
-    {
-      name: "Mike Bechtel",
-      picture: "Images/downloadTest.jpg",
-      description: "I like turtles",
-    },
-    {
-      name: "Mike Bechtel",
-      picture: "Images/downloadTest.jpg",
-      description: "I like turtles",
-    }
-  ],
-  teacherName:"Mike Bechtel",
-  teacherPic:"Images/downloadTest.jpg",
-  contract:"01/01/2017 - 12/31/2017",
-  totalStudents:0,
-  teacherKey:""
-};
+}
 
 
 

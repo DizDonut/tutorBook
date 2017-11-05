@@ -26,7 +26,7 @@ handleInputChange = event => {
     })
 }
 
-//submit form
+//submit form: TO DO: error handling when they are already registered. currenty returns json with a custom err message, but should return an error handler instead 
 handleFormSubmit = event => {
     event.preventDefault();
         API.register({
@@ -38,18 +38,6 @@ handleFormSubmit = event => {
             if (err) {
                 console.log(err)
             }
-            var tutor = {
-                id: res.data._id,
-                loggedIn: Date.now(),
-                loggedOut: Date.now() + 60000
-            }
-            localStorage.setItem(res.data.username, JSON.stringify(tutor));
-            const data = localStorage.getItem(res.data.username);
-            alert(data)
-            // this.setState({
-            //     redirectTo:'/'
-            // })
-            // document.write(JSON.stringify(res));
         })
 }
 
