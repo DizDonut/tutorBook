@@ -10,7 +10,7 @@ module.exports = {
             return res.json({
               error: `Sorry, already a user with the username: ${username}`
             })
-          } else {}
+          }
           const newTutor = new db.Tutor({
             'username': username,
             'password': password,
@@ -28,47 +28,30 @@ module.exports = {
     },
     login: function (req, res, done) {
       const {username, password} = req.body
-        //take the plain text pass and pass it into the bcrypt function
-        //return a json of the tutor data if it passes, else send a custom error
       db.Tutor
-        .findOne({ 'username': username }, (err,user) => {
-          // console.log(`User is ${user}`)
+        .findOne({ 'username': username })
+        .select("+password")
+        .then((user,err) => {
           if (user) {
             passwd = user ? user.password : ''
             user.validPassword(password, passwd, done, user).then(function (isMatch) {
               if (isMatch) {
-                console.log(`user passed the compare function ${user}`)
+                // console.log(`user passed the compare function ${user}`)
                 res.json({
                   id: user._id,
                   username: user.username,
-                  email: user.email,
-                  events: user.events,
-                  students: user.students,
                   loggedIn: isMatch
                 })
               } else {
-                console.log(`user did not pass the compare function ${password}`)
                 res.json({
                   loggedIn: false,
                   error: `Wrong pass for this user: ${password}`
                 })
               }
             })
-          } else {
-            res.json({
-              loggedIn: false,
-              err: `not registered yet : ${username}`
-            })
           }
-          // isMatch = user.validPassword(password, passwd, done, user)
-          // console.log(`passwd is ${passwd}`)
-          // console.log(
-          // `validPassword args are
-          // password: ${password}
-          // passwd: ${passwd}
-          // done: ${done}
-          // user: ${user}`)
         })
+        .catch(err => res.status(422).json(err));
     },
     findAll: (req, res) => {
       db.Tutor
