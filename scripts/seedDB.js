@@ -9,6 +9,57 @@ mongoose.connect(
     }
   );
 
+var devTutor = new db.Tutor({
+  username: 'admin',
+  email: 'admin@test.com',
+  password: 'admin'
+});
+
+var newStudent = new db.Student({
+  picture: "https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0001-CUSA05855_00-AV00000000000010/1508519815000/image?_version=00_09_000&platform=chihiro&w=225&h=225&bg_color=000000&opacity=100",
+  firstName: "Clay",
+  lastName: "Crawley",
+  age: "29",
+  description: "Awesomeness! A joy to teach. Taught me everything I know!",
+  location: "Cherryville",
+  classVideo: "",
+  family: {mom:true, dad:true, sister:false,brother:false},
+  likes: ["Movies", "Coding", "Coffee", "lots of Coffee", "all the Coffee"],
+  birthday: "January 30"
+});
+
+// Start the API server
+db.Tutor
+.findOne({ username: "admin" })
+.then(function (user) {
+  if (!user) {
+    devTutor
+    .addHash(devTutor, function (err, user) {
+      if (err) return handleError(err);
+        db.Student
+        .findOne({ firstName: "Clay" })
+        .then(function (student) {
+          if (!student) {
+            newStudent.save(function (error, doc) {
+              if (error) {
+                console.log(error)
+              }
+              db.Tutor
+              .updateOne({ username: "admin" }, { $set: { "students": [doc._id] } })
+              .exec(function (err, doc) {
+                  if (err) {
+                    console.log(err);
+                  }
+                  console.log(`student added:`);
+                  console.log(doc);
+              })
+            })
+          }
+      })
+      console.log(`logged in with ${user}`)
+    })
+  }
+})
   // const tutorSeeds = [
   //   {
   //   username: "sam",
@@ -115,4 +166,3 @@ mongoose.connect(
   //   },
   // ]
   
-  //this file does nothing yet...could seed some data to help with testing

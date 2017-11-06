@@ -4,6 +4,8 @@ import { Col, Row, Container, Carousel, Modal, Tag } from "react-materialize";
 import {Headline} from '../../components/Headline';
 // import Nav from "../../components/Navbar";
 import "./Student.css";
+import API from "../../utils/API";
+
 
 const display = {
     display: 'block'
@@ -56,7 +58,7 @@ class StudentApp extends React.Component {
             <h4 className="birthdate white-text" >{this.props.birthdate}</h4>
              </Col>
           </Row>      
-    </div>
+  </div>
 	<div className='grey'>
          <Row>
             <Col lg={5}>  
@@ -159,11 +161,19 @@ class StudentApp extends React.Component {
 //     // tutor: null/
 // };
 
-// // componentDidMount() {
-// //     this.setState({
-// //         tutor: props.tutor
-// //     })
-// // }
+//     componentDidMount() {
+//       const tutorSession = JSON.parse(localStorage.getItem("tutor"))
+//       if (tutorSession) {
+//         const query = tutorSession.id;
+//         API.getTutor(query)
+//           .then(res => {
+//             this.setState({
+//               tutor: res.data
+//             })
+//           })
+//       }
+//     }
+
 // render(){
 //     return(
 //     <div>

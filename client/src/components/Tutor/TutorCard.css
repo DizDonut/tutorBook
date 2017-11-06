@@ -1,0 +1,18 @@
+.card.large {
+  height: auto;
+}
+
+.tutor-link, .content-content {
+  font-size: smaller !important;
+}
+
+.rbc-calendar{
+  height: 400px !important;
+  width: 135% !important;
+}
+
+.rbc-calendar *,
+.rbc-calendar *:before,
+.rbc-calendar *:after {
+  font-size: small !important;
+}

@@ -1,5 +1,9 @@
-.navbar {
+nav {
     margin-bottom: 0;
-    background: #37474f;
+    background: #bbdefb;
     position: relative;
   }
+
+nav .brand-logo {
+  margin-left: 2%;
+}
