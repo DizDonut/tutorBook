@@ -3,28 +3,40 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
 import "./Student.css";
+import API from "../../utils/API";
 
 class Student extends Component {
+constructor(props) {
+    super(props)
+    this.state = {
+        picture: "https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0001-CUSA05855_00-AV00000000000010/1508519815000/image?_version=00_09_000&platform=chihiro&w=225&h=225&bg_color=000000&opacity=100",
+        firstName: "Clay",
+        lastName: "Crawley",
+        age: "29",
+        description: "Awesomeness! A joy to teach. Taught me everything I know!",
+        location: "Cherryville",
+        classVideo: "",
+        family: "One brother. All kinds of friends.",
+        likes: "Movies, Coding, Coffee, lots of Coffee, all the Coffee",
+        birthday: "January 30",
+        tutor: []
+    };
+}
 
-state = {
-    picture:"https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0001-CUSA05855_00-AV00000000000010/1508519815000/image?_version=00_09_000&platform=chihiro&w=225&h=225&bg_color=000000&opacity=100",
-    firstName:"Clay",
-    lastName:"Crawley",
-    age:"29",
-    description: "Awesomeness! A joy to teach. Taught me everything I know!",
-    location:"Cherryville",
-    classVideo:"",
-    family:"One brother. All kinds of friends.",
-    likes: "Movies, Coding, Coffee, lots of Coffee, all the Coffee",
-    birthday:"January 30"
-    // tutor: null/
-};
 
-// componentDidMount() {
-//     this.setState({
-//         tutor: props.tutor
-//     })
-// }
+componentDidMount() {
+  const tutorSession = JSON.parse(localStorage.getItem("tutor"))
+  if (tutorSession) {
+    const query = tutorSession.id;
+    API.getTutor(query)
+      .then(res => {
+        this.setState({
+          tutor: res.data
+        })
+      })
+  }
+}
+
 render(){
     return(
     <div>

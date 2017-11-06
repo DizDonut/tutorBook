@@ -27,8 +27,7 @@ export default {
     return axios.post("api/authenticate/logout",logoutData)
   },
   getTutor: function(id) {
-    var realID = id.id;
-    return axios.get("/api/tutors/" + realID);
+    return axios.get("/api/tutors/" + id);
   },
   updateTutor: function(data){
     alert("updateTutor");

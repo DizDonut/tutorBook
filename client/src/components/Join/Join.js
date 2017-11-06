@@ -56,6 +56,7 @@ handleFormSubmit = event => {
         return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
       return (
+        //   can you toggle this button, if submit clicked, send a confirmation message and collapse?
         <Collapsible>
             <CollapsibleItem header='Register Now!' icon='person add'>
             <form>

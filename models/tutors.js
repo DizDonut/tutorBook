@@ -5,7 +5,7 @@ mongoose.promise = Promise
 
 const TutorSchema = new Schema({
     username: {type:String, required: true, trim:true, unique:true },
-    password: {type:String, required: true, trim:true},
+    password: {type: String, required: true, trim: true, select: false},
     email: {type:String, required: true},
     tutorPic: {type:String,required: false},
     contract: {type:String,required: false},

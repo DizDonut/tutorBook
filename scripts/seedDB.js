@@ -32,17 +32,10 @@ var newStudent = new db.Student({
 db.Tutor
 .findOne({ username: "admin" })
 .then(function (user) {
-  // .update({username: 'admin'},{devTutor},{upsert:true}).then(function (user){
   if (!user) {
     devTutor
     .addHash(devTutor, function (err, user) {
       if (err) return handleError(err);
-      // saved!
-      // devTutor
-      // .save(function (error, doc) {
-      //   if (error) {
-      //     console.log(error)
-      //   }
         db.Student
         .findOne({ firstName: "Clay" })
         .then(function (student) {
@@ -62,7 +55,6 @@ db.Tutor
               })
             })
           }
-        // })
       })
       console.log(`logged in with ${user}`)
     })

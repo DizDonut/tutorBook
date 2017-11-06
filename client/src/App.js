@@ -21,31 +21,37 @@ class App extends Component {
       id: null,
       redirectTo: ""
     }
-
   }
 
+  //todo: how to prevent page access if you're not logged in/ or unregisterd without using passport. 
+
+  //creates a localstorage key and value. used to provide initial userdata 
   componentDidMount() {
-    // var getTutor = localStorage.getItem("id");//current tutor's id
-    // this.setState({
-    //   id: getTutor
-    // })
+    const tutorSession = JSON.parse(localStorage.getItem("tutor"))
+    if (tutorSession) {
+      const query = tutorSession.id;
+      API.getTutor(query)
+      .then(res => {
+        this.setState({
+          tutor: res.data,
+          loggedIn: true
+        })
+      })
+    }
   }
 
   render() {
-    // if (!!this.state.redirectTo) {
-    //   return <Redirect to={{ pathname: this.state.redirectTo }} />
-    // }
     return (
         <Router>
           <MuiThemeProvider>
             <div>
               <Switch>
                 {/* _logout={this._logout} loggedIn={this.state.loggedIn} tutor={this.state.tutor} */}
-                <Route exact path="/" component={Homepage} />
-                <Route exact path="/Tutors" component={Tutors} />
-                <Route exact path="/Student" component={Student} />
-                <Route exact path="/Tutors/account" component={TutorAccount} />
-                <Route exact path="/Tutors/addStudent" component={AddStudentPage} />
+                <Route exact path="/"  tutor={this.state.tutor} component={Homepage} />
+                <Route exact path="/Tutors" tutor={this.state.tutor} component={Tutors} />
+                <Route exact path="/Student" tutor={this.state.tutor} component={Student} />
+                <Route exact path="/Tutors/account" tutor={this.state.tutor} component={TutorAccount} />
+                <Route exact path="/Tutors/addStudent" tutor={this.state.tutor} component={AddStudentPage} />
                 {/* <Route exact path="/books/:id" component={Detail} /> */}
               </Switch>
             </div>

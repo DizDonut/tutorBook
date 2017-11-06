@@ -47,6 +47,8 @@ handleInputChange = event => {
 // }
 
 //submit form
+//API function itself needs to move to the parent component, so that you can just call your API from wherever you want to on this page.
+//API should find the tutor with the matching ID from this.state.tutor and update their data
 handleFormSubmit = event => {
   event.preventDefault();
   if (this.state.firstName && this.state.lastName) {

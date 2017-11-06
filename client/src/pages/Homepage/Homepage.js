@@ -7,56 +7,38 @@ import API from "../../utils/API";
 import { Redirect } from 'react-router-dom'
 
 class Homepage extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
       loggedIn: false,
       tutor: null,
-      redirectTo: ""
+      redirectTo: "",
+      error:""
     }
-    this.handleInputChange = this.handleInputChange.bind(this);
-    this._logout = this._logout.bind(this)
+    // this.handleInputChange = this.handleInputChange.bind(this);
     this._login = this._login.bind(this)
   }
 
-  handleInputChange(e) {
-    this.setState({ tutor: e.target.value });
-  }
+  // handleInputChange(e) {
+  //   this.setState({ tutor: e.target.value });
+  // }
 
-  // STATUS: not tested yet. Purpose: pass this function in the props to whatever page needs it; TO DO: still need to pass it args from this.state. 
-  _logout(event) {
-    API.logout().then(res => {
-      console.log(res)
-      if (res.status === 200) {
-        // update the state
-        localStorage.removeItem(res.data.username)
-        this.setState({
-          loggedIn: false,
-          tutor: null,
-          redirectTo: "/"
-        })
-      }
-    })
-  }
-//STATUS: error handler if not logged in, should clear form and send an alert. Purpose: login user, and create a local storage session; use the local storage to authenticate each query to the db with the user's id key. to do: authenticate all api routes that read, update, delete from mongodb
+//STATUS: needss error handler if not logged in, should clear form and send an alert. Purpose: login user, and create a local storage session; use the local storage to authenticate each query to the db with the user's id key. to do: authenticate all api routes that read, update, delete from mongodb
   _login(username, password) {
     API.login({ username, password }).then((res,err) => {
-      if (err) {
-        console.log(err)
+      if (res.data.error) {
+        console.log(res.data.erro)
       }
-     
       if (res.data.loggedIn) {
-        console.log(res.data)
         var tutor = {
+          username: res.data.username,
           id: res.data.id,
           loggedIn: Date.now(),
           expiresAt: Date.now() + 1200000
         }
-        localStorage.setItem(res.data.username, JSON.stringify(tutor))
+        localStorage.setItem("tutor", JSON.stringify(tutor))
         // update the state
-        const data = localStorage.getItem(res.data.username);
-        alert(data)
+        const data = localStorage.getItem("tutor");
         if (data) {
           this.setState({
             loggedIn: res.data.loggedIn,
@@ -64,7 +46,7 @@ class Homepage extends Component {
             redirectTo: "/Tutors"
           });
         }
-      }
+      } 
     })
   }
 
@@ -102,6 +84,5 @@ class Homepage extends Component {
   }
 };
 };
-
 
 export default Homepage;
