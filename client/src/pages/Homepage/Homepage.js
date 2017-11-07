@@ -45,7 +45,7 @@ class Homepage extends Component {
           this.setState({
             loggedIn: res.data.loggedIn,
             tutor: res.data,
-            redirectTo: "/Tutors"
+            redirectTo: "/Tutors/account"
           });
         }
       } 

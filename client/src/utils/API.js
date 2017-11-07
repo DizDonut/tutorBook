@@ -30,8 +30,7 @@ export default {
     return axios.get("/api/tutors/" + id);
   },
   updateTutor: function(data){
-    alert("updateTutor");
-    return axios.put("/api/tutors/" + data.username, data);
+    return axios.put("/api/tutors/" + data.id, data.profile);
   },
   addEvent: function(id){
     return axios.put("/api/tutors" + id);

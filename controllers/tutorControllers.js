@@ -72,9 +72,15 @@ module.exports = {
         .catch(err => res.status(422).json(err));
     },
     update: function(req, res) {
+      const {tutorPic,contract} = req.body
+      console.log(typeof(req.body))
+      console.log('updating with  ' + req.body + 'and ' + req.params.id)
       db.Tutor
-        .findOneAndUpdate({ username: req.body.username }, req.body, {upsert:true})
-        .then(dbModel => res.json(dbModel))
+        .findByIdAndUpdate({ _id: req.params.id },req.body, { new: true })
+        .then(dbModel => {
+          console.log(dbModel)
+          res.json(dbModel)
+        })
         .catch(err => res.status(422).json(err));
     },
     remove: function(req, res) {
