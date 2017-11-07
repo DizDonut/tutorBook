@@ -16,7 +16,7 @@ var devTutor = new db.Tutor({
 });
 
 var newStudent = new db.Student({
-  picture: "https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0001-CUSA05855_00-AV00000000000010/1508519815000/image?_version=00_09_000&platform=chihiro&w=225&h=225&bg_color=000000&opacity=100",
+  picture: "http://www.freeiconspng.com/uploads/profile-icon-9.png",
   firstName: "Clay",
   age: "29",
   description: "Awesomeness! A joy to teach. Taught me everything I know!",
@@ -27,6 +27,7 @@ var newStudent = new db.Student({
   likes: ["Movies", "Coding", "Coffee", "lots of Coffee", "all the Coffee"],
   birthday: "January 30"
 });
+// https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP0001-CUSA05855_00-AV00000000000010/1508519815000/image?_version=00_09_000&platform=chihiro&w=225&h=225&bg_color=000000&opacity=100
 
 // Start the API server
 db.Tutor
