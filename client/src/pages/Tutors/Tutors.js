@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
+import StudentModal from "../../components/StudentModal";
 import StudentCard from "../../components/StudentCard";
 import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
@@ -96,11 +97,14 @@ countStudents = () => {
           <Row>
 
           {this.state.studentResults.map(result => (
-            <StudentCard
-              header={result.picture}
-              reveal={result.description}
-              title={result.name}
-            />
+            <div>
+              <StudentCard
+                header={result.picture}
+                reveal={result.description}
+                title={result.name}
+              />
+              <StudentModal />
+            </div>
           ))}
 
           </Row>
