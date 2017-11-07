@@ -16,7 +16,11 @@ class Homepage extends Component {
        <Card className="large light-blue lighten-5"
         header={<CardTitle image={"Images/homepage.jpg"}><h1>Welcome to Bao Bao Book!</h1> </CardTitle>}
        >
-        <h5>Lorem ipsum dolor sit amet, integer quis vulputate, vel purus nullam consectetuer, nullam interdum dapibus, amet sed sagittis tincidunt libero eros amet, quam mattis. Sem orci arcu ipsum vitae consectetuer lorem. Et arcu vitae habitant, leo ut quam condimentum mollis, augue enim ultrices,Lorem ipsum    </h5>
+       <h5> Welcome to Bao Bao Book the Learning management system</h5>
+        <p>Experience the uniqueness of our Learning Management system where technology is no more an exclusive tool to embrace education
+        Tutors can keep track of student progress, access course calendars, connect 
+        with all resources within the network, access e-resources related to lessons and
+        a login to the Learning Management System by entering username and password</p>
        </Card>
 
         <Row>
