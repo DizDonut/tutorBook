@@ -4,44 +4,59 @@ import Nav from "../../components/Navbar";
 import StudentCard from "../../components/StudentCard";
 import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
+import API from "../../utils/API";
 
 class Tutors extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      studentResults: [
+        {
+          name: "Mike Bechtel",
+          picture: "Images/downloadTest.jpg",
+          description: "I like turtles",
+        },
+        {
+          name: "Mike Bechtel",
+          picture: "Images/downloadTest.jpg",
+          description: "I like turtles",
+        },
+        {
+          name: "Mike Bechtel",
+          picture: "Images/downloadTest.jpg",
+          description: "I like turtles",
+        },
+        {
+          name: "Mike Bechtel",
+          picture: "Images/downloadTest.jpg",
+          description: "I like turtles",
+        }
+      ],
+      teacherName: "Mike Bechtel",
+      teacherPic: "Images/downloadTest.jpg",
+      contract: "01/01/2017 - 12/31/2017",
+      totalStudents: 0,
+      teacherKey: "",
+      tutor: [],
+      loggedIn: false
+    };
+  }
 
-state = {
-  studentResults: [
-    {
-      name: "Mike Bechtel",
-      picture: "Images/downloadTest.jpg",
-      description: "I like turtles",
-    },
-    {
-      name: "Mike Bechtel",
-      picture: "Images/downloadTest.jpg",
-      description: "I like turtles",
-    },
-    {
-      name: "Mike Bechtel",
-      picture: "Images/downloadTest.jpg",
-      description: "I like turtles",
-    },
-    {
-      name: "Mike Bechtel",
-      picture: "Images/downloadTest.jpg",
-      description: "I like turtles",
+
+
+  componentDidMount() {
+    const tutorSession = JSON.parse(localStorage.getItem("tutor"))
+    if (tutorSession) {
+      const query = tutorSession.id;
+      API.getTutor(query)
+        .then(res => {
+          this.setState({
+            tutor: res.data,
+            loggedIn: true
+          })
+        })
     }
-  ],
-  teacherName:"Mike Bechtel",
-  teacherPic:"Images/downloadTest.jpg",
-  contract:"01/01/2017 - 12/31/2017",
-  totalStudents:0,
-  teacherKey:""
-};
-
-
-
-// componentDidMount(){
-//   this.loadStudents();
-// };
+  }
 
 // loadStudents = () => {
 //   API.getStudents()
@@ -63,7 +78,7 @@ countStudents = () => {
   render(){
     return(
       <div>
-      <Nav />
+        <Nav/>
         <Container>
           <Row>
             <Col s={12}>
