@@ -24,7 +24,7 @@ class Homepage extends Component {
   // }
 
 
-=======
+
 //STATUS: needss error handler if not logged in, should clear form and send an alert. Purpose: login user, and create a local storage session; use the local storage to authenticate each query to the db with the user's id key. to do: authenticate all api routes that read, update, delete from mongodb
   _login(username, password) {
     API.login({ username, password }).then((res,err) => {
