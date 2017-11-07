@@ -119,7 +119,7 @@ class StudentModal extends React.Component {
 
       return (
         <div>
-          <a className="btn" onClick={this.toggle}>See Student</a>
+          <a className="btn" id="modal-btn" onClick={this.toggle}>See Student</a>
           {modal}
         </div>
       );

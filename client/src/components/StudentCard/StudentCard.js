@@ -1,9 +1,10 @@
 import React from "react";
 import { Card, CardTitle, Col } from "react-materialize";
 import "./StudentCard.css";
+import StudentModal from "../StudentModal";
 
 class StudentCard extends React.Component {
-  
+
   render() {
     return(
       <Col s={4}>
@@ -11,7 +12,7 @@ class StudentCard extends React.Component {
           header={<CardTitle reveal image={this.props.header} />}
           title={this.props.title}
           reveal={this.props.reveal}>
-          <p><a className="student-links" href="#">Student Profile</a></p>
+          {<StudentModal />}
           <p><a className="student-links" href="#">Edit Student</a></p>
         </Card>
       </Col>
