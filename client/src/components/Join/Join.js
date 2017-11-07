@@ -41,15 +41,15 @@ handleFormSubmit = event => {
         })
 }
 
-confirmPassword = ( password, confirmPassword ) => {
-	if (password === confirmPassword) {
-		<Toast toast="Passwords matched"></Toast>
-		return true;
-	} else {
-		<Toast toast="Passwords Do Not Match"></Toast>
-		return false;
-	}
-}
+// confirmPassword = ( password, confirmPassword ) => {
+// 	if (password === confirmPassword) {
+// 		<Toast toast="Passwords matched"></Toast>
+// 		return true;
+// 	} else {
+// 		<Toast toast="Passwords Do Not Match"></Toast>
+// 		return false;
+// 	}
+// }
 
   render(){
     if (!!this.state.redirectTo) {
@@ -59,7 +59,7 @@ confirmPassword = ( password, confirmPassword ) => {
         //   can you toggle this button, if submit clicked, send a confirmation message and collapse?
         <Collapsible>
             <CollapsibleItem header='Register Now!' icon='person add'>
-            <form>
+            <form className="registerForm">
                 <Row>
                     <Input name="email" onChange={this.handleInputChange} value={this.state.email} placeholder="" s={12} label="Email Address" />
                     <Input name="username" onChange={this.handleInputChange} value={this.state.username} placeholder="" s={12} label="Username" />

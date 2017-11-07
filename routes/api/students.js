@@ -7,10 +7,12 @@ const application = require('./application');
 // ,application.IsAuthenticated in route params when ready to authenticate
 router.route("students/addStudent")
   .get(studentsController.findAll)
-  .post(studentsController.create);
+  // .post(studentsController.create);
 
 // Matches with "/api/students/:id"
 router.route("/:id")
+//USE THIS ROUTE FOR CREATING NEW STUDENTS!
+  .post(studentsController.create)
   .get(studentsController.findById)
   .put(studentsController.update)
   .delete(studentsController.remove);

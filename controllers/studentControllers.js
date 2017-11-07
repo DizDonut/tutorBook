@@ -15,7 +15,23 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  //USE THIS CONTROLLER TO CREATE A NEW STUDENT
   create: function(req, res) {
+    const newStudent = new db.Student(req.body)
+    newStudent.save(function(error,doc) {
+      if (error) {
+        console.log(error)
+      }
+      db.Tutor
+        .findByIdAndUpdate({ _id: req.params.id }, { $push: { "students": doc._id } })
+        .exec(function (err, doc) {
+          if (err) {
+            console.log(err);
+          }
+          console.log(`student added:` + doc);
+          res.json(doc);
+        })
+    })
     db.Student
       .create(req.body)
       .then(dbModel => res.json(dbModel))
