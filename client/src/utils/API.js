@@ -15,6 +15,9 @@ export default {
   },
   // Saves a student to the database - USE THIS FUNCTION TO CREATE A NEW STUDENT!
   saveStudent: function(studentData) {
+    alert(JSON.stringify(studentData));
+    alert(studentData.tutorId);
+    alert(studentData.profile.name);
     return axios.post("/api/students/" + studentData.tutorId, studentData.profile);
   },
   register: function(registrationData) {

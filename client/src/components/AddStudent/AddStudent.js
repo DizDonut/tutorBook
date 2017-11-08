@@ -5,33 +5,35 @@ import API from "../../utils/API";
 import "./AddStudent.css";
 
 class AddStudent extends Component {
-
-state = {
-	firstName: "",
-	lastName: "",
-  birthday: "",
-  age:"",
-  location:"",
-  picture: "",
-	family:{
-		mom: false,
-		dad: false,
-		sister: false,
-		brother: false
-	},
-  likes: [],
-  notes: []
-};
-
-//handleinputchange
-handleInputChange = event => {
-	const target = event.target;
-  const value = target.type === 'checkbox' ? target.checked : target.value;
-  const name = target.name;
-	this.setState({
-		[name]:value
-	})
+  constructor (props) {
+    super(props)
+  
+  this.state = {
+    firstName: "",
+    birthday: "",
+    age:"",
+    location:"",
+    picture: "",
+    family:{
+      mom: false,
+      dad: false,
+      sister: false,
+      brother: false
+    },
+    likes: [],
+    notes: []
+  };
+  this.handleInputChange = this.handleInputChange.bind(this);
 }
+  handleInputChange = event => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+    this.setState({
+      [name]:value
+    })
+  }
+
 
 // checkboxCheck = () => {
 //   const checkboxes = document.getElementsByName("family");
@@ -46,26 +48,29 @@ handleInputChange = event => {
 //   }
 // }
 
-//submit form
-//API function itself needs to move to the parent component, so that you can just call your API from wherever you want to on this page.
-//API should find the tutor with the matching ID from this.state.tutor and update their data
-handleFormSubmit = event => {
-  event.preventDefault();
-  if (this.state.firstName && this.state.lastName) {
-    API.saveStudent({
+  handleFormSubmit = event => {
+    event.preventDefault();
+    const studentProfile = {
       firstName: this.state.firstName,
-      lastName: this.state.lastName,
       birthday: this.state.birthday,
-      age: this.state.age,
-      location: this.state.location,
-      family: this.state.family,
+      age:this.state.age,
+      location:this.state.location,
+      picture: this.state.picture,
+      family:{
+        mom: this.state.mom,
+        dad: this.state.dad,
+        sister: this.state.sister,
+        brother: this.state.brother
+      },
       likes: this.state.likes,
       notes: this.state.notes
-    })
-      .then(res => this.loadStudents())
-      .catch(err => console.log(err));
+    }
+    //alert(studentProfile.firstName);
+
+    this.props._tutorStudentProfileUpdate(studentProfile);
   }
-};
+//API function itself needs to move to the parent component, so that you can just call your API from wherever you want to on this page.
+//API should find the tutor with the matching ID from this.state.tutor and update their data
 
 render(){
     return (
@@ -77,7 +82,6 @@ render(){
               <form>
                 <Row>
                   <Input name="firstName" onChange={this.handleInputChange} value={this.state.firstName} placeholder="" s={12} label="First Name" />
-                  <Input name="lastName" onChange={this.handleInputChange} value={this.state.lastName} placeholder="" s={12} label="Last Name" />
                 </Row>
               </form>
             </CollapsibleItem>
