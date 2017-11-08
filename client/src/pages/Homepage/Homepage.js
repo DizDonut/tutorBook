@@ -17,6 +17,7 @@ class Homepage extends Component {
     }
     // this.handleInputChange = this.handleInputChange.bind(this);
     this._login = this._login.bind(this)
+    // this.redirectFunc = this.redirectFunc.bind(this)
   }
 
   // handleInputChange(e) {
@@ -24,17 +25,16 @@ class Homepage extends Component {
   // }
 
 
-
 //STATUS: needss error handler if not logged in, should clear form and send an alert. Purpose: login user, and create a local storage session; use the local storage to authenticate each query to the db with the user's id key. to do: authenticate all api routes that read, update, delete from mongodb
   _login(username, password) {
     API.login({ username, password }).then((res,err) => {
       if (res.data.error) {
-        console.log(res.data.erro)
+        console.log(res.data.error)
       }
       if (res.data.loggedIn) {
         var tutor = {
-          username: res.data.username,
-          id: res.data.id,
+          username: res.data.user.username,
+          id: res.data.user._id,
           loggedIn: Date.now(),
           expiresAt: Date.now() + 1200000
         }
@@ -44,14 +44,13 @@ class Homepage extends Component {
         if (data) {
           this.setState({
             loggedIn: res.data.loggedIn,
-            tutor: res.data,
-            redirectTo: "/Tutors"
+            tutor: res.data.user,
+            redirectTo: (res.data.user.contract && res.data.user.tutorPic) ? "Tutors" : "Tutors/account"
           });
         }
       } 
     })
   }
-
 
   render(){
     if (!!this.state.redirectTo) {

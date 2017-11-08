@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
-import StudentModal from "../../components/StudentModal";
 import StudentCard from "../../components/StudentCard";
 import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
@@ -59,22 +58,14 @@ class Tutors extends Component {
     }
   }
 
-// loadStudents = () => {
-//   API.getStudents()
-//     .then(res =>
-//       this.setState({ studentResults: res.data })
-//     )
-//     .catch(err => console.log(err));
-// };
-
-//counts the number of students the tutor has taught/input
-countStudents = () => {
-  let len = this.state.studentResults.length;
-  for (let i = 0; i < len; i++) {
-    this.state.totalStudents++;
+  //counts the number of students the tutor has taught/input
+  countStudents = () => {
+    let len = this.state.studentResults.length;
+    for (let i = 0; i < len; i++) {
+      this.state.totalStudents++;
+    }
+    return `Total Students: ${this.state.totalStudents}`;
   }
-  return `Total Students: ${this.state.totalStudents}`;
-}
 
   render(){
     return(
@@ -87,7 +78,8 @@ countStudents = () => {
                 header={this.state.teacherPic}
                 title={this.state.teacherName}
                 content={this.countStudents()}
-                contract={this.state.contract}>
+                contract={this.state.contract}
+                events={this.state.tutor.events}>
               </TutorCard>
             </Col>
           </Row>

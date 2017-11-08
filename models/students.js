@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
   firstName: { type: String, required: true, trim: true },
-  lastName: { type: String, required: true, trim: true },
+  picture: { data: Buffer, contentType: String },
   birthday: String,
   age: { type: Number, required: false},
-  location: { type: String, required: false, trim: true },
-  // studentId: {type:Number},
-  description: {type: String, required: false},
-  classVideo: {type: String, required: false},
+  location: { type: String, required: false, trim: true },//To do: change to select list
+  studentId: {type:Number},//always 6 or 7 digits 
+  description: [String],//personality tags
+  classVideo: {type: String, required: false},//url
   family: {
     mom: {type:Boolean, default:false},
     dad: {type: Boolean, default: false },
