@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Container, Input, Row } from "react-materialize";
 import "materialize-css";
-import API from "../../utils/API";
+//import API from "../../utils/API";
 import "./EditTutor.css";
 
 class EditTutor extends Component {

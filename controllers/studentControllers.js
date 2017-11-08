@@ -17,6 +17,7 @@ module.exports = {
   },
   //USE THIS CONTROLLER TO CREATE A NEW STUDENT
   create: function(req, res) {
+    console.log(JSON.stringify(req.body.family));
     const newStudent = new db.Student(req.body)
     newStudent.save(function(error,doc) {
       if (error) {
@@ -29,13 +30,13 @@ module.exports = {
             console.log(err);
           }
           console.log(`student added:` + doc);
-          res.json(doc);
+          //res.json(doc);
         })
     })
-    db.Student
-      .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+    // db.Student
+    //   .create(req.body)
+    //   .then(dbModel => res.json(dbModel))
+    //   .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
     db.Student
