@@ -42,8 +42,57 @@ nav{
     width: 200px;
     height: 200px;
 
+  }
+  
+  
+  .modal{
+    padding: 0px 0px;
+  }
+  
+  
+  .carousel .carousel-item img{
+    width: 200px;
+    margin-left: 16%;
+    margin-top: 2%;
+  }
+  
+  .carousel.carousel-slider .carousel-item h2{
+    font-size: 2.85rem;
+    padding-top:32px;
+    padding-left: 10px;
+    margin-top: -2%;
+  }
+  
+  .carousel.carousel-slider .carousel-item p{
+    font-size: 15px;
+    margin-left: 2%;
+  }
+  
+  .birthdate{
+    font-size: 5rem;
+  }
+  
+  .headlineRow{
+    margin-bottom: 5px;
+  }
+  
+  .locationrow{
+    margin-top: -35px;
+  }
+  
+  .locationicon{
+    margin-right: -10px;
+  }
+  
+  .locationtext{
+    padding-top: 13px;
+  }
+  
+  .scroll{
+    overflow: scroll;
+  }
+   */
 
-}
 
 .modal{
   padding: 0px 0px;
@@ -94,4 +143,3 @@ nav{
 #modal-btn{
   word-break: break-all;
 }
-
