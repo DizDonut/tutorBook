@@ -1,4 +1,44 @@
+/* .studentname{
+    color: blue;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 7rem;
+}
+
+a{
+    font-size: 2.5rem;
+}
+
 .iconpic{
+    height: 150px;
+    width: 150px;
+}
+
+.studentpic{
+    margin-top: 6%;
+    border-radius: 1.75%;
+}
+
+container {
+    margin: 1.5%;
+}
+
+.fandf{
+    padding-top: 0px; 
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 2.6rem;
+}
+
+nav{
+    margin-bottom: 3%;
+} */
+/* .iconpic{
     width: 200px;
     height: 200px;
   }
@@ -50,4 +90,4 @@
   .scroll{
     overflow: scroll;
   }
-  
+   */
