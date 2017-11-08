@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Container, Collapsible, CollapsibleItem, Input, Row } from "react-materialize";
 import "materialize-css";
-import API from "../../utils/API";
+//import API from "../../utils/API";
 import "./AddStudent.css";
 
 class AddStudent extends Component {
@@ -27,8 +27,18 @@ class AddStudent extends Component {
 }
   handleInputChange = event => {
     const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+    const{name,value} = event.target;
+    // const name = event.name;
+    // var value;
+    
+    // if(target.type === 'checkbox'){
+    //   alert(name);
+    //   value = target.checked?1:0;
+    // } else {
+    //   value = target.value;
+    // }
+    // const name = target.name;
+    //alert(name);
     this.setState({
       [name]:value
     })
@@ -65,7 +75,7 @@ class AddStudent extends Component {
       likes: this.state.likes,
       notes: this.state.notes
     }
-    //alert(studentProfile.firstName);
+    //alert(this.state.mom);
 
     this.props._tutorStudentProfileUpdate(studentProfile);
   }
@@ -98,10 +108,10 @@ render(){
                   <Input name="notes" type="textarea" onChange={this.handleInputChange} value={this.state.notes} placeholder="" s={12} label="Additional Notes" />
                   <Row>
 
-                    <Input name="Mom" type="checkbox" value="Mom" label="Mom" onChange={this.handleInputChange} data-value={this.state.family.mom}/>
-                    <Input name="Dad" type="checkbox" value="Dad" label="Dad" onChange={this.handleInputChange} data-value={this.state.family.dad}/>
-                    <Input name="Sister" type="checkbox" value="Sister" label="Sister" onChange={this.handleInputChange} data-value={this.state.family.sister}/>
-                    <Input name="Brother" type="checkbox" value="Brother" label="Brother" onChange={this.handleInputChange} data-value={this.state.family.brother}/>
+                    <Input name="mom" type="checkbox" value="Mom" label="Mom" onChange={this.handleInputChange} data-value={this.state.mom}/>
+                    <Input name="dad" type="checkbox" value="Dad" label="Dad" onChange={this.handleInputChange} data-value={this.state.family.dad}/>
+                    <Input name="sister" type="checkbox" value="Sister" label="Sister" onChange={this.handleInputChange} data-value={this.state.family.sister}/>
+                    <Input name="brother" type="checkbox" value="Brother" label="Brother" onChange={this.handleInputChange} data-value={this.state.family.brother}/>
 
                   </Row>
                   <Input name="picture" onChange={this.handleInputChange} value={this.state.picture} placeholder="" s={12} label="Picture" />
