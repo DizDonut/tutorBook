@@ -8,14 +8,10 @@ import SwipeableViews from "react-swipeable-views/";
 
 
 class StudentDialog extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       open: false,
       slideIndex: 0
     };
-  }
 
   handleOpen = () => {
     this.setState({open: true});
@@ -77,9 +73,7 @@ class StudentDialog extends React.Component {
         </Dialog>
       </div>
     )
-
   }
-
-}
+} // end const for StudenDialog
 
 export default StudentDialog;
