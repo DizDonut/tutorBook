@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom'
-import { Button, Collapsible, CollapsibleItem, Input, Row, Toast } from "react-materialize";
+import { Button, Collapsible, CollapsibleItem, Input, Row } from "react-materialize";
 import "materialize-css";
 import API from "../../utils/API";
 

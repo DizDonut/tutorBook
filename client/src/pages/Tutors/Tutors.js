@@ -11,9 +11,6 @@ class Tutors extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      studentResults: [],
-      teacherName: "",
-      teacherPic: "",
       contract: "",
       totalStudents: 0,
       teacherKey: "",
@@ -42,10 +39,12 @@ class Tutors extends Component {
   //counts the number of students the tutor has taught/input
   countStudents = () => {
     if (this.state.tutor && this.state.tutor.students) {
+      let count = 0;
       let len = this.state.tutor.students.length;
       for (let i = 0; i < len; i++) {
-        this.state.totalStudents++;
+        count++;
       }
+      this.setState({totalStudents: count})
       return `Total Students: ${this.state.totalStudents}`;
     }
   }
