@@ -10,31 +10,10 @@ class Tutors extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      studentResults: [
-        {
-          name: "Mike Bechtel",
-          picture: "Images/downloadTest.jpg",
-          description: "I like turtles",
-        },
-        {
-          name: "Mike Bechtel",
-          picture: "Images/downloadTest.jpg",
-          description: "I like turtles",
-        },
-        {
-          name: "Mike Bechtel",
-          picture: "Images/downloadTest.jpg",
-          description: "I like turtles",
-        },
-        {
-          name: "Mike Bechtel",
-          picture: "Images/downloadTest.jpg",
-          description: "I like turtles",
-        }
-      ],
-      teacherName: "Mike Bechtel",
-      teacherPic: "Images/downloadTest.jpg",
-      contract: "01/01/2017 - 12/31/2017",
+      studentResults: [],
+      teacherName: "",
+      teacherPic: "",
+      contract: "",
       totalStudents: 0,
       teacherKey: "",
       tutor: [],
@@ -75,10 +54,10 @@ class Tutors extends Component {
           <Row>
             <Col s={12}>
               <TutorCard
-                header={this.state.teacherPic}
-                title={this.state.teacherName}
+                header={this.state.tutor.tutorPic}
+                title={this.state.tutor.username}
                 content={this.countStudents()}
-                contract={this.state.contract}
+                contract={this.state.tutor.contract}
                 events={this.state.tutor.events}>
               </TutorCard>
             </Col>
@@ -91,6 +70,7 @@ class Tutors extends Component {
           {this.state.studentResults.map(result => (
             <div>
             <StudentCard
+              key={result._id}
               header={result.picture}
               reveal={result.description}
               title={result.name}
@@ -107,7 +87,6 @@ class Tutors extends Component {
             />
            </div>
           ))}
-
           </Row>
         </Container>
       </div>
