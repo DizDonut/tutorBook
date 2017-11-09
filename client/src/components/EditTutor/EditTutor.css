@@ -1,0 +1,14 @@
+#pic-upload{
+  margin-bottom: 5%;
+}
+
+.header {
+  text-align: center;
+  margin: 10px 0 10px 0;
+  padding: 25px;
+  color: cadetblue;
+  font-weight: bolder;
+  border: aliceblue 5px solid;
+  border-radius: 45px;
+  background-color: aliceblue;
+}
