@@ -41,7 +41,6 @@ _tutorProfileUpdate(profile) {
     });
   })
   //RES AND REDIRECT HAPPENS HERE
-
 }
   render(){
     if (!!this.state.redirectTo) {

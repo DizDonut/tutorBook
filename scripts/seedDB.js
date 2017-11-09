@@ -46,7 +46,7 @@ db.Tutor
                 console.log(error)
               }
               db.Tutor
-              .updateOne({ username: "admin" }, { $set: { "students": doc._id } })
+              .updateOne({ username: "admin" }, { $push: { "students": doc._id } })
               .exec(function (err, doc) {
                   if (err) {
                     console.log(err);

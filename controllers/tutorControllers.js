@@ -37,11 +37,8 @@ module.exports = {
             user.validPassword(password, passwd, done, user).then(function (isMatch) {
               if (isMatch) {
                 // console.log(`user passed the compare function ${user}`)
-                res.json({
-                  id: user._id,
-                  username: user.username,
-                  loggedIn: isMatch
-                })
+                user.password= ""
+                res.json({user,loggedIn:isMatch})
               } else {
                 res.json({
                   loggedIn: false,

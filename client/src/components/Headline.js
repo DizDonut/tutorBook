@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container, Col, Row} from "react-materialize";
+import { Col, Row} from "react-materialize";
 
 export class Headline extends React.Component {
 
