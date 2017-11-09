@@ -5,6 +5,7 @@ import StudentCard from "../../components/StudentCard";
 import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
 import API from "../../utils/API";
+import StudentModal from "../../components/StudentModal";
 
 class Tutors extends Component {
   constructor(props) {
