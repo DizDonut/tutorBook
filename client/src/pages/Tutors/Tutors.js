@@ -35,18 +35,19 @@ class Tutors extends Component {
             loggedIn: true
           })
           this.forceUpdate()
-
         })
     }
   }
 
   //counts the number of students the tutor has taught/input
   countStudents = () => {
-    let len = this.state.studentResults.length;
-    for (let i = 0; i < len; i++) {
-      this.state.totalStudents++;
+    if (this.state.tutor && this.state.tutor.students) {
+      let len = this.state.tutor.students.length;
+      for (let i = 0; i < len; i++) {
+        this.state.totalStudents++;
+      }
+      return `Total Students: ${this.state.totalStudents}`;
     }
-    return `Total Students: ${this.state.totalStudents}`;
   }
 
   render(){
@@ -79,12 +80,12 @@ class Tutors extends Component {
               title={result.name}
               component={
                 <StudentModal
-                  location={result.location}
-                  description={result.description}
-                  classvideo={result.classVideo}
-                  birthdate={result.birthday}
+                  notes={result.notes}
+                  likes={result.likes}
                   family={result.family}
-                  favs={result.likes}
+                  birthday={result.birthday}
+                  age={result.age}
+                  location={result.location}
                 />
               }
             />
