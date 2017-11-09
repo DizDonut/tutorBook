@@ -1,1 +1,1 @@
-export { default } from "./StudentModal.js";
+export { default } from "./Modal.js";
