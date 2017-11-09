@@ -68,12 +68,24 @@ class Tutors extends Component {
           <Row>
 
           {this.state.studentResults.map(result => (
+            <div>
             <StudentCard
               key={result._id}
               header={result.picture}
               reveal={result.description}
               title={result.name}
             />
+
+            <StudentModal
+
+               location={result.location}
+               description={result.description}
+               classvideo={result.classVideo}
+               birthdate={result.birthday}
+               family={result.family}
+               favs={result.likes}
+            />
+           </div>
           ))}
           </Row>
         </Container>

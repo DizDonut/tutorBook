@@ -32,6 +32,7 @@ class Login extends Component {
       <div>
         <Collapsible>
           <CollapsibleItem header='Login Here' icon='perm_identity'>
+          <form className="loginForm">
             <Row>
               <Input name="username" onChange={this.handleInputChange} value={this.state.username} placeholder="username" s={12} label="username" />
               <Input name="password" onChange={this.handleInputChange} value={this.state.password} type="password" label="password" s={12} />
@@ -39,6 +40,7 @@ class Login extends Component {
             <Row>
               <Button waves="light" onClick={this.handleFormSubmit}>Submit</Button>
             </Row>
+            </form>
           </CollapsibleItem>
         </Collapsible>
       </div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Carousel, Container, Input, Row } from "react-materialize";
 import "materialize-css";
-import API from "../../utils/API";
+//import API from "../../utils/API";
 import "./EditTutor.css";
 
 class EditTutor extends Component {
@@ -34,6 +34,7 @@ constructor (props) {
   this.handleInputChange = this.handleInputChange.bind(this)
   this.hasActiveClass = this.hasActiveClass.bind(this)
 }
+
 
 hasActiveClass = () => {
   for (var i = 0; i < this.state.images.length; i++) {

@@ -46,6 +46,7 @@ class Join extends Component {
         })
       }
 
+
   render(){
     if (!!this.state.redirectTo) {
         return <Redirect to={{ pathname: this.state.redirectTo }} />
@@ -54,7 +55,7 @@ class Join extends Component {
         //   can you toggle this button, if submit clicked, send a confirmation message and collapse?
         <Collapsible>
             <CollapsibleItem header='Register Now!' icon='person add'>
-            <form>
+            <form className="registerForm">
                 <Row>
                 <Input
                   name="email"

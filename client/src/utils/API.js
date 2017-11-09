@@ -13,9 +13,12 @@ export default {
   deleteStudent: function(id) {
     return axios.delete("/api/students/" + id);
   },
-  // Saves a student to the database
+  // Saves a student to the database - USE THIS FUNCTION TO CREATE A NEW STUDENT!
   saveStudent: function(studentData) {
-    return axios.post("/api/students/addStudent", studentData);
+    //alert(JSON.stringify(studentData));
+    //alert(studentData.tutorId);
+    //alert(studentData.profile.name);
+    return axios.post("/api/students/" + studentData.tutorId, studentData.profile);
   },
   register: function(registrationData) {
     return axios.post("/api/authenticate/register",registrationData)
