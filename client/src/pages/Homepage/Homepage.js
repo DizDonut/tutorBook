@@ -2,9 +2,12 @@ import React, { Component } from "react";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
 import Footer from "../../components/Footer";
+// import 'materialize-css'; // It installs the JS asset only
+// import 'materialize-css/dist/css/materialize.min.css';
 import { Card, CardTitle, Container, Col, Row } from "react-materialize";
 import API from "../../utils/API";
 import { Redirect } from 'react-router-dom'
+import "./Homepage.css";
 
 class Homepage extends Component {
   constructor(props) {
@@ -57,7 +60,7 @@ class Homepage extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
       return (
-      <div>
+      <div className="clearfix">
       <Container>
           <Card className="large red lighten-5"
         header={<CardTitle image={"Images/homepage.jpg"}><h1>Welcome to Bao Bao Book!</h1> </CardTitle>}
