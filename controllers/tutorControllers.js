@@ -5,10 +5,10 @@ module.exports = {
     register: (req, res) => {
       const { username, password, email } = req.body
       db.Tutor
-        .findOne({"username":username}, (err,tutorMatch) => {
+        .findOne({"email":email}, (err,tutorMatch) => {
           if (tutorMatch) {
             return res.json({
-              error: `Sorry, already a user with the username: ${username}`
+              error: `Sorry, already a user with the email: ${email}`
             })
           }
           const newTutor = new db.Tutor({

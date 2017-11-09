@@ -4,10 +4,11 @@ import Join from "../../components/Join";
 import Footer from "../../components/Footer";
 // import 'materialize-css'; // It installs the JS asset only
 // import 'materialize-css/dist/css/materialize.min.css';
-import { Card, CardTitle, Container, Col, Row } from "react-materialize";
+import { Card, CardTitle, Container, Col, Row,Toast } from "react-materialize";
 import API from "../../utils/API";
 import { Redirect } from 'react-router-dom'
 import "./Homepage.css";
+import { Alert } from 'react-bootstrap';
 
 class Homepage extends Component {
   constructor(props) {
@@ -16,19 +17,20 @@ class Homepage extends Component {
       loggedIn: false,
       tutor: null,
       redirectTo: "",
+      register: "",
+      bstyle: "",
       error:""
     }
     // this.handleInputChange = this.handleInputChange.bind(this);
     this._login = this._login.bind(this)
+    this._join = this._join.bind(this)
     // this.redirectFunc = this.redirectFunc.bind(this)
   }
 
-  // handleInputChange(e) {
-  //   this.setState({ tutor: e.target.value });
-  // }
 
+//When this component mounts grab the logged in status from local storage,
+//if logged in counter is there, and if it's less than expires at, hide the login and register divs and provide a new button taking them directly in to the app. 
 
-//STATUS: needss error handler if not logged in, should clear form and send an alert. Purpose: login user, and create a local storage session; use the local storage to authenticate each query to the db with the user's id key. to do: authenticate all api routes that read, update, delete from mongodb
   _login(username, password) {
     API.login({ username, password }).then((res,err) => {
       if (res.data.error) {
@@ -55,6 +57,31 @@ class Homepage extends Component {
     })
   }
 
+  _join(email,username, password) {
+    API.register({
+      email,
+      username,
+      password
+    }).then((res, err) => {
+      if (res.data.error) {
+        this.setState({
+          error: res.data.error,
+          register: res.data.error,
+          bstyle: "warning"
+          // redirectTo: "/"
+        });
+        // alert(err)
+      } else {
+        // alert("New User Added!  Please login with your new credentials.")
+        this.setState({
+          register: "You're registered!",
+          bstyle:"danger"
+          // redirectTo: "/"
+        });
+      }
+    })
+  }
+
   render(){
     if (!!this.state.redirectTo) {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
@@ -77,10 +104,15 @@ class Homepage extends Component {
               <div className="row center">
                 <Row>
                   <Col s={6}>
-                      <Login _login={this._login} />
+                    <Login _login={this._login} />
                   </Col>
                   <Col s={6}>
-                    <Join />
+                    {!this.state.register && 
+                        <Join msg={this.state.register} _join={this._join} />
+                    }
+                    {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
+                    {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+                    {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
                   </Col>
                 </Row>
               </div>
