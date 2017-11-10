@@ -94,7 +94,7 @@ class Homepage extends Component {
         {/* <container className="bgimg"> */}
       
         <Card className="large blurb"
-          header={<CardTitle image={"Images/Homepage.png"}>  </CardTitle>}>
+          header={<CardTitle image={"Images/Cover.jpg"}>  </CardTitle>}>
        
           <Login _login={this._login} />
            {!this.state.register && 
