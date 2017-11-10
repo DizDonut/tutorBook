@@ -95,10 +95,7 @@ class Homepage extends Component {
 
          <Container>
         <Card className="large z-depth-0 blurb"
-        {/* JONATHAN COMMENT: Can  we put the homepage back into rows and columns? (same applies for the rest of the app)
-      And can we ensure that the homepage shows the login options without scrolling down the window? */}
-
-          header={<CardTitle image={"Images/Cover.jpg"}>  </CardTitle>}>
+        header={<CardTitle image={"Images/Cover.jpg"}>  </CardTitle>}>
           <Login _login={this._login} />
           {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
           {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
@@ -150,10 +147,10 @@ class Homepage extends Component {
 //       </div>
 
 
-    );
-  }
-};
-};
+//    );
+ // }
+//};
+//};
 
 
 

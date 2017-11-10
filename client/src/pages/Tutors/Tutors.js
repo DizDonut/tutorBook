@@ -6,7 +6,6 @@ import StudentModal from "../../components/StudentModal";
 import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
 import API from "../../utils/API";
-import StudentModal from "../../components/StudentModal";
 
 class Tutors extends Component {
   constructor(props) {
@@ -53,15 +52,13 @@ class Tutors extends Component {
 
   render(){
     return(
-      <div className="tutorbg">
+      <div>
         <Nav/>
         <Container>
           <Row>
             <Col s={12}>
-
               {this.state.tutor && this.state.tutor.students && (
-              <TutorCard 
-
+              <TutorCard
                 header={this.state.tutor.tutorPic}
                 title={this.state.tutor.username}
                 count={this.state.totalStudents}

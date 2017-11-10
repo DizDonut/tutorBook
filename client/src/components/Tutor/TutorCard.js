@@ -38,7 +38,7 @@ const TutorCard = props => {
         <Col m={6}>
           <BigCalendar
             {...this.props}
-            events={events}
+            events={props.events}
             step={60}
             defaultDate={new Date(2017, 9, 1)}
           />

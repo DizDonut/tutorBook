@@ -5,6 +5,7 @@ import TimePicker from 'material-ui/TimePicker';
 import "./AddEvent.css";
 import moment from "moment";
 
+
 class AddEvent extends React.Component {
 	constructor(props){
 		super(props);
@@ -28,6 +29,7 @@ class AddEvent extends React.Component {
 		this.handleEndDate = this.handleEndDate.bind(this);
 		this.handleStartTime = this.handleStartTime.bind(this);
 		this.handleEndTime = this.handleEndTime.bind(this);
+
 	}
 
 //handleinputchange
@@ -86,19 +88,21 @@ handleFormSubmit = event => {
 					minute: momentEndTime.minutes()
 				});
 				//new Date(2017, 9, 4)
-				var startString = "new Date("+start.year+", "+start.month+", "+start.day+", "+start.hour+", "+start.minute+", "+start.second+")";
-				var endString = "new Date("+end.year+", "+end.month+", "+end.day+", "+end.hour+", "+end.minute+", "+end.second+")";
-
-				var event = [{
+				var startString = "new Date(";
+				startString += momentStartDate.year()+", "+(momentStartDate.month()+1)+", "+momentStartDate.date()+", "+momentStartTime.hours()+", "+momentStartTime.minutes()+", 0)";
+				var endString = "new Date("+momentEndDate.year()+", "+(momentEndDate.month()+1)+", "+momentEndDate.date()+", "+momentEndTime.hours()+", "+momentEndTime.minutes()+"0)";
+				var tz = moment.tz.guess();
+				//alert("startString: " + startString);
+				var event = {
 					title: this.state.title,
 					allday:this.state.allday,
-					start:start,
-					end: end
-				}];
+					start:startString,
+					end: endString
+				};
 
 				//alert("Add Event: " + JSON.stringify(event));
 				API.addEvent(event, query).then(res => {
-					window.location= "/Tutors/"+query;
+					window.location= "/Tutors";
 					// document.write(JSON.stringify(res));
 				})
 			})
