@@ -74,7 +74,7 @@ class Tutors extends Component {
             </Col>
           </Row>
           <Row>
-          {this.state.tutor && this.state.tutor.students && this.state.tutor.students.map(result => ( 
+          {this.state.tutor && this.state.tutor.students && this.state.tutor.students.map(result => (
             <div>
             <StudentCard
               key={result._id}
