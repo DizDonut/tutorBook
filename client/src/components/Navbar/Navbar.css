@@ -1,9 +1,14 @@
 nav {
-    margin-bottom: 0;
-    background: #bbdefb;
+    margin-bottom: 20px;
+    background: #48D1CC;;
     position: relative;
-  }
+    }
 
-nav .brand-logo {
-  margin-left: 2%;
+.left{
+  margin-left: 10px;
+}    
+
+strong {
+  font-weight: 700;
+  font-size: 1.25rem;
 }

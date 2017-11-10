@@ -25,7 +25,7 @@ const TutorCard = props => {
                     {props.title}
                   </CardTitle>
                   }>
-                  <p><a className="tutor-link" href="https://t.vipkid.com.cn/" target="_blank" rel="noopener noreferrer">VIP Kids Teacher Portal</a></p>
+                  <p><a className="tutor-link" href="https://t.vipkid.com.cn/" target="_blank" rel="noopener noreferrer">VIPKID Teacher Portal</a></p>
                   <p className="content-content">
                     {props.content}
                   </p>
