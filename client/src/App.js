@@ -51,6 +51,7 @@ class App extends Component {
                 <Route exact path="/Tutors" tutor={this.state.tutor} component={Tutors} />
                 <Route exact path="/Tutors/account" tutor={this.state.tutor} component={TutorAccount} />
                 <Route exact path="/Tutors/addStudent" tutor={this.state.tutor} component={AddStudentPage} />
+                <Route exact path="/Tutors/addStudent/:id" tutor={this.state.tutor} component={AddStudentPage} />
                 {/* <Route exact path="/books/:id" component={Detail} /> */}
               </Switch>
             </div>

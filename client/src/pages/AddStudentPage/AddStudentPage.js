@@ -78,3 +78,7 @@ class AddStudentPage extends Component {
 } // end AddStudent class
 
 export default AddStudentPage;
+
+// window.location.href, grab the id, 
+// query the tutor db for a matching student, and 
+// set the state of the page with that data, pass that data into placeholders

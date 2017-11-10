@@ -103,8 +103,8 @@ render(){
                 fixedItem={<Button disabled>Choose an Avatar</Button>}
                 images={this.state.images}
               />
-              <Input name="contract" onChange={this.handleInputChange} value={this.state.contract} placeholder="MM/DD/YYYY - MM/DD/YYYY" s={12} label="Contract" />
-              <Input name="totalStudents" onChange={this.handleInputChange} value={this.state.totalStudents} placeholder="" s={12} label="Total Students" disabled/>
+              <Input name="contract" onChange={this.handleInputChange} value={this.state.contract} placeholder={this.props.tutor.contract} s={12} label="Contract" />
+              <Input name="totalStudents" onChange={this.handleInputChange} value={this.state.totalStudents} placeholder={this.props.tutor.totalStudents} s={12} label="Total Students" disabled/>
            </Row>
           </form>
 
