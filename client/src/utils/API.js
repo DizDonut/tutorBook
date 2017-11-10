@@ -33,9 +33,11 @@ export default {
     return axios.get("/api/tutors/" + id);
   },
   updateTutor: function(data){
+    //alert("updateTutor: "+ JSON.stringify(data));
     return axios.put("/api/tutors/" + data.id, data.profile);
   },
-  addEvent: function(id){
-    return axios.put("/api/tutors" + id);
+  addEvent: function(data, id){
+    //alert("add Event: " + JSON.stringify(data));
+    return axios.put("/api/tutors/addEvent/" + id , data);
   },
 };

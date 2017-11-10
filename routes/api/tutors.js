@@ -14,8 +14,8 @@ router.route("/:id")
   .put(tutorController.update)
   .delete(tutorController.remove);
 
-router.route("/:id/addEvent")
-  .put(tutorController.update);
+router.route("/addEvent/:id")
+  .put(tutorController.addEvent);
 
 router.route("/:id/account")
   .put(tutorController.update);

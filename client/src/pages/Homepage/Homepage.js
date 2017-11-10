@@ -4,7 +4,7 @@ import Join from "../../components/Join";
 import Footer from "../../components/Footer";
 // import 'materialize-css'; // It installs the JS asset only
 // import 'materialize-css/dist/css/materialize.min.css';
-import { Card, CardTitle, Container, Col, Row,Toast } from "react-materialize";
+import { Card, CardTitle, Container, Col, Row } from "react-materialize";
 import API from "../../utils/API";
 
 import { Redirect } from 'react-router-dom'
@@ -52,7 +52,7 @@ class Homepage extends Component {
           this.setState({
             loggedIn: res.data.loggedIn,
             tutor: res.data.user,
-            redirectTo: (res.data.user.contract && res.data.user.tutorPic) ? "Tutors" : "Tutors/account"
+            redirectTo: res.data.user.contract ? "Tutors" : "Tutors/account"
           });
         }
       } 
@@ -77,7 +77,7 @@ class Homepage extends Component {
         // alert("New User Added!  Please login with your new credentials.")
         this.setState({
           register: "You're registered!",
-          bstyle:"danger"
+          bstyle:"success"
           // redirectTo: "/"
         });
       }
@@ -92,21 +92,27 @@ class Homepage extends Component {
 
         <div className="clearfix">
         {/* <container className="bgimg"> */}
+
          <Container>
         <Card className="large z-depth-0 blurb"
+        {/* JONATHAN COMMENT: Can  we put the homepage back into rows and columns? (same applies for the rest of the app)
+      And can we ensure that the homepage shows the login options without scrolling down the window? */}
+
           header={<CardTitle image={"Images/Cover.jpg"}>  </CardTitle>}>
-       
           <Login _login={this._login} />
-           {!this.state.register && 
-                        <Join msg={this.state.register} _join={this._join} />
-                    }
-                    {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
-                    {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-                    {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+          {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
+          {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
+          {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+          {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
         </Card>
           {/* </container > */}
           </Container>
        </div>   
+    );
+  }
+};
+};
+
 
 //       <div className="clearfix">
 //       <Container>
@@ -142,6 +148,7 @@ class Homepage extends Component {
 //       </Container>
 //       <Footer />
 //       </div>
+
 
     );
   }

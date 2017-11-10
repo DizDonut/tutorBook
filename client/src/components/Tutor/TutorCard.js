@@ -7,7 +7,7 @@ import AddEvent from "../../components/AddEvent";
 import BigCalendar from "react-big-calendar";
 import moment from "moment";
 import events from "../Events";
-import "../../../node_modules/react-big-calendar/lib/css/react-big-calendar.css";
+import "./BigCalendar.css";
 
 // Setup localizer using moment !!!important
 BigCalendar.momentLocalizer(moment);
@@ -27,7 +27,7 @@ const TutorCard = props => {
                   }>
                   <p><a className="tutor-link" href="https://t.vipkid.com.cn/" target="_blank" rel="noopener noreferrer">VIPKID Teacher Portal</a></p>
                   <p className="content-content">
-                    {props.content}
+                   Total Students: {props.count}
                   </p>
                   <p className="content-content">
                     Teacher Contract: {props.contract}

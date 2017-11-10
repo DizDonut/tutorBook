@@ -5,7 +5,7 @@ import RaisedButton from "material-ui/RaisedButton";
 import { Tabs, Tab } from "material-ui/Tabs";
 // From https://github.com/oliviertassinari/react-swipeable-views
 import SwipeableViews from "react-swipeable-views/";
-
+import "./Modal.css";
 
 class StudentDialog extends React.Component {
     state = {
@@ -36,7 +36,7 @@ class StudentDialog extends React.Component {
 
     return(
       <div>
-        <RaisedButton label="See Student" onClick={this.handleOpen} />
+        <RaisedButton id="modal-btn" label="See Student" onClick={this.handleOpen} />
         <Dialog
           title="Student Details"
           actions={actions}

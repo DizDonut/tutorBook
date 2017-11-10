@@ -13,7 +13,7 @@ class StudentCard extends React.Component {
           title={this.props.title}
           reveal={this.props.reveal}>
           {<StudentModal />}
-          <p><a className="student-links" href="#">Edit Student</a></p>
+          <p><a className="student-links" href={'/Tutors/addStudent/' + this.props.link}>Edit Student</a></p>
         </Card>
       </Col>
     );
