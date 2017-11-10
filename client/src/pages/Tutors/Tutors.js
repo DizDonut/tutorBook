@@ -51,12 +51,12 @@ class Tutors extends Component {
 
   render(){
     return(
-      <div>
+      <div className="tutorbg">
         <Nav/>
         <Container>
           <Row>
             <Col s={12}>
-              <TutorCard
+              <TutorCard className="z-depth-0"
                 header={this.state.tutor.tutorPic}
                 title={this.state.tutor.username}
                 content={this.countStudents()}

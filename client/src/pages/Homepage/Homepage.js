@@ -92,8 +92,8 @@ class Homepage extends Component {
 
         <div className="clearfix">
         {/* <container className="bgimg"> */}
-      
-        <Card className="large blurb"
+         <Container>
+        <Card className="large z-depth-0 blurb"
           header={<CardTitle image={"Images/Cover.jpg"}>  </CardTitle>}>
        
           <Login _login={this._login} />
@@ -105,6 +105,7 @@ class Homepage extends Component {
                     {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
         </Card>
           {/* </container > */}
+          </Container>
        </div>   
 
 //       <div className="clearfix">
@@ -141,7 +142,7 @@ class Homepage extends Component {
 //       </Container>
 //       <Footer />
 //       </div>
-// >>>>>>> master
+
     );
   }
 };

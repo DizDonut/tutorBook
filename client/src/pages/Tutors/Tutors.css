@@ -8,6 +8,18 @@ ul, .blue {
 }
 
 hr{
-  background-color: #48D1CC;
+  background-color: #FF0000;
   height: 7px;
 }
+
+.tutorbg{
+	/* background-image: url("https://static.pexels.com/photos/139319/pexels-photo-139319.jpeg"); */
+	background-image: url("/Images/tutorbg5.png");
+	height: 100%;
+	background-repeat: no-repeat;
+	/* background-position: center; */
+	background-size: cover;
+	position: relative;
+	z-index: -1;
+	opacity: 0.98;
+	}
