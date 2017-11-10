@@ -17,11 +17,12 @@ module.exports = {
   },
   //USE THIS CONTROLLER TO CREATE A NEW STUDENT
   create: function(req, res) {
+
     // console.log(JSON.stringify(req.body.family));
     const newStudent = new db.Student(req.body)
     newStudent.save(function(error,doc) {
       if (error) {
-        console.log(error)
+        console.log("Error: " + error)
       }
       db.Tutor
         .findByIdAndUpdate({ _id: req.params.id }, { $push: { "students": doc._id } })
@@ -29,6 +30,7 @@ module.exports = {
           if (err) {
             console.log(err);
           }
+
           console.log(`student added:` + data);
           res.json(data);
         })
