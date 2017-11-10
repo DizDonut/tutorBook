@@ -71,14 +71,17 @@ module.exports = {
     update: function(req, res) {
       const {tutorPic,contract} = req.body
       console.log(typeof(req.body))
-      console.log('updating with  ' + req.body + 'and ' + req.params.id)
+      console.log('updating with  ' + JSON.stringify(req.body) + 'and ' + req.params.id)
       db.Tutor
         .findByIdAndUpdate({ _id: req.params.id },req.body, { new: true })
         .then(dbModel => {
           console.log(dbModel)
           res.json(dbModel)
         })
-        .catch(err => res.status(422).json(err));
+        .catch(err => {
+          console.log("Tutor update error: " + err);
+          res.status(422).json(err)
+        });
     },
     remove: function(req, res) {
       db.Tutor
@@ -86,6 +89,19 @@ module.exports = {
         .then(dbModel => dbModel.remove())
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
+    },
+    addEvent: function(req, res) {
+      console.log("tutorControllers Add EVent: ");
+      console.log(JSON.stringify(req.body));
+      db.Tutor
+      .findByIdAndUpdate({ _id: req.params.id }, { $push: {"events":req.body } })
+      .exec(function (err, doc) {
+          if (err) {
+            console.log(err);
+          }
+          console.log(`event added:`);
+          console.log(doc);
+      })
     }
 }
 

@@ -18,7 +18,7 @@ const TutorSchema = new Schema({
       	title: {type: String, required: false},
       	allday: {type: Boolean, default: false, required: false},
       	start: {type: Date, default: Date.now},
-      	end: {type: Date, default: Date.now + 1}
+      	end: {type: Date, default: Date.now}
     }]
 });
 
