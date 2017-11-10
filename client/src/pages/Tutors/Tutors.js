@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container } from "react-materialize";
 import Nav from "../../components/Navbar";
 import StudentCard from "../../components/StudentCard";
+import StudentModal from "../../components/StudentModal";
 import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
 import API from "../../utils/API";
@@ -10,31 +11,7 @@ class Tutors extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      studentResults: [
-        {
-          name: "Mike Bechtel",
-          picture: "Images/downloadTest.jpg",
-          description: "I like turtles",
-        },
-        {
-          name: "Mike Bechtel",
-          picture: "Images/downloadTest.jpg",
-          description: "I like turtles",
-        },
-        {
-          name: "Mike Bechtel",
-          picture: "Images/downloadTest.jpg",
-          description: "I like turtles",
-        },
-        {
-          name: "Mike Bechtel",
-          picture: "Images/downloadTest.jpg",
-          description: "I like turtles",
-        }
-      ],
-      teacherName: "Mike Bechtel",
-      teacherPic: "Images/downloadTest.jpg",
-      contract: "01/01/2017 - 12/31/2017",
+      contract: "",
       totalStudents: 0,
       teacherKey: "",
       tutor: [],
@@ -54,17 +31,22 @@ class Tutors extends Component {
             tutor: res.data,
             loggedIn: true
           })
+          this.forceUpdate()
         })
     }
   }
 
   //counts the number of students the tutor has taught/input
   countStudents = () => {
-    let len = this.state.studentResults.length;
-    for (let i = 0; i < len; i++) {
-      this.state.totalStudents++;
+    if (this.state.tutor && this.state.tutor.students) {
+      let count = 0;
+      let len = this.state.tutor.students.length;
+      for (let i = 0; i < len; i++) {
+        count++;
+      }
+      this.setState({totalStudents: count})
+      return `Total Students: ${this.state.totalStudents}`;
     }
-    return `Total Students: ${this.state.totalStudents}`;
   }
 
   render(){
@@ -75,10 +57,10 @@ class Tutors extends Component {
           <Row>
             <Col s={12}>
               <TutorCard
-                header={this.state.teacherPic}
-                title={this.state.teacherName}
+                header={this.state.tutor.tutorPic}
+                title={this.state.tutor.username}
                 content={this.countStudents()}
-                contract={this.state.contract}
+                contract={this.state.tutor.contract}
                 events={this.state.tutor.events}>
               </TutorCard>
             </Col>
@@ -88,14 +70,26 @@ class Tutors extends Component {
 
           <Row>
 
-          {this.state.studentResults.map(result => (
+          {this.state.tutor && this.state.tutor.students && this.state.tutor.students.map(result => (
+            <div>
             <StudentCard
+              key={result._id}
               header={result.picture}
               reveal={result.description}
               title={result.name}
+              component={
+                <StudentModal
+                  notes={result.notes}
+                  likes={result.likes}
+                  family={result.family}
+                  birthday={result.birthday}
+                  age={result.age}
+                  location={result.location}
+                />
+              }
             />
+           </div>
           ))}
-
           </Row>
         </Container>
       </div>

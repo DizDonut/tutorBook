@@ -17,4 +17,7 @@ router.route("/:id")
 router.route("/:id/addEvent")
   .put(tutorController.update);
 
+router.route("/:id/account")
+  .put(tutorController.update);
+
 module.exports = router;

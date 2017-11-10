@@ -1,3 +1,4 @@
+
 .bgimg{
 	/* background-image: url("https://static.pexels.com/photos/139319/pexels-photo-139319.jpeg"); */
 	background-image: url("/Images/coverimage.jpeg");
@@ -10,13 +11,11 @@
 	opacity: 0.98;
 	}
 
-  
-  
-.logo{
-	 z-index: 1; 
-	 position: absolute; 
-	flex-shrink: 0;
-	 
 
-	margin-left: 15px;
-  }  
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
