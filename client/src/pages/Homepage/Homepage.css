@@ -1,5 +1,21 @@
+
+.bgimg{
+	/* background-image: url("https://static.pexels.com/photos/139319/pexels-photo-139319.jpeg"); */
+	background-image: url("/Images/coverimage.jpeg");
+	height: 100%;
+	background-repeat: no-repeat;
+	/* background-position: center; */
+	background-size: cover;
+	position: relative;
+	z-index: -1;
+	opacity: 0.98;
+	}
+
+
+
 .clearfix::after {
     content: "";
     clear: both;
     display: table;
 }
+

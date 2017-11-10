@@ -6,3 +6,8 @@ ul, .blue {
   text-overflow: ellipsis;
   word-break: break-all;
 }
+
+hr{
+  background-color: #48D1CC;
+  height: 7px;
+}
