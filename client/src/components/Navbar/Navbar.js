@@ -2,6 +2,10 @@ import React, {Component} from "react";
 import "./Navbar.css";
 import { Navbar, NavItem } from "react-materialize";
 import { Redirect } from 'react-router-dom'
+import Moment from 'moment';
+import tz from 'moment-timezone';
+
+
 
 class Nav extends Component {
   constructor(props) {
@@ -27,17 +31,21 @@ render() {
     return <Redirect to={{ pathname: this.state.redirectTo }} />
   } else {
 	return (
-		<Navbar brand='Bao Bao Book' right>
-			<NavItem href='#'>TutorName</NavItem>
+		<Navbar>
+			<img className="left" src="Images/whitelogo.png"/>
 			<NavItem href='/Tutors'>Tutors Page</NavItem>
       <NavItem href='/Tutors/account'>Tutor Profile</NavItem>
       <NavItem href='/Tutors/account'>Edit Tutor Profile</NavItem>
       <NavItem href='/Tutors/addStudent'>Add Student Profile</NavItem>
       <NavItem onClick={this._logout} href='/'>Logout</NavItem> {/*  */}
+      <strong>{Moment().tz('Asia/Shanghai').format("dddd, MMMM Do YYYY, HH:mmA")}</strong>
 		</Navbar>
 	)
   }
 }
 }
+
+
+
 export default Nav;
 

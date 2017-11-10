@@ -1,5 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
+  height: 100%;
+  position:relative;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
+
+
+body,
+html{
+  height: 100%;
+}
+

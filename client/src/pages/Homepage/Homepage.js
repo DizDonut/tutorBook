@@ -2,9 +2,15 @@ import React, { Component } from "react";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
 import Footer from "../../components/Footer";
+// import 'materialize-css'; // It installs the JS asset only
+// import 'materialize-css/dist/css/materialize.min.css';
 import { Card, CardTitle, Container, Col, Row } from "react-materialize";
 import API from "../../utils/API";
+
 import { Redirect } from 'react-router-dom'
+import "./Homepage.css";
+import { Alert } from 'react-bootstrap';
+
 
 class Homepage extends Component {
   constructor(props) {
@@ -13,19 +19,20 @@ class Homepage extends Component {
       loggedIn: false,
       tutor: null,
       redirectTo: "",
+      register: "",
+      bstyle: "",
       error:""
     }
     // this.handleInputChange = this.handleInputChange.bind(this);
     this._login = this._login.bind(this)
+    this._join = this._join.bind(this)
     // this.redirectFunc = this.redirectFunc.bind(this)
   }
 
-  // handleInputChange(e) {
-  //   this.setState({ tutor: e.target.value });
-  // }
 
+//When this component mounts grab the logged in status from local storage,
+//if logged in counter is there, and if it's less than expires at, hide the login and register divs and provide a new button taking them directly in to the app. 
 
-//STATUS: needss error handler if not logged in, should clear form and send an alert. Purpose: login user, and create a local storage session; use the local storage to authenticate each query to the db with the user's id key. to do: authenticate all api routes that read, update, delete from mongodb
   _login(username, password) {
     API.login({ username, password }).then((res,err) => {
       if (res.data.error) {
@@ -45,10 +52,35 @@ class Homepage extends Component {
           this.setState({
             loggedIn: res.data.loggedIn,
             tutor: res.data.user,
-            redirectTo: (res.data.user.contract && res.data.user.tutorPic) ? "Tutors" : "Tutors/account"
+            redirectTo: res.data.user.contract ? "Tutors" : "Tutors/account"
           });
         }
       } 
+    })
+  }
+
+  _join(email,username, password) {
+    API.register({
+      email,
+      username,
+      password
+    }).then((res, err) => {
+      if (res.data.error) {
+        this.setState({
+          error: res.data.error,
+          register: res.data.error,
+          bstyle: "warning"
+          // redirectTo: "/"
+        });
+        // alert(err)
+      } else {
+        // alert("New User Added!  Please login with your new credentials.")
+        this.setState({
+          register: "You're registered!",
+          bstyle:"success"
+          // redirectTo: "/"
+        });
+      }
     })
   }
 
@@ -57,38 +89,70 @@ class Homepage extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
       return (
-      <div>
-      <Container>
-          <Card className="large red lighten-5"
-        header={<CardTitle image={"Images/homepage.jpg"}><h1>Welcome to Bao Bao Book!</h1> </CardTitle>}
-       >
-       <h5> Welcome to Bao Bao Book the Learning management system</h5>
-        <p>Experience the uniqueness of our Learning Management system where technology is no more an exclusive tool to embrace education
-        Tutors can keep track of student progress, access course calendars, connect 
-        with all resources within the network, access e-resources related to lessons and
-        a login to the Learning Management System by entering username and password</p>
-       </Card>
-          <Row>
-            <Col s={12}>
-              {/*<Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*//*}*/}
-              <div className="row center">
-                <Row>
-                  <Col s={6}>
-                      <Login _login={this._login} />
-                  </Col>
-                  <Col s={6}>
-                    <Join />
-                  </Col>
-                </Row>
-              </div>
-            </Col>
-          </Row>
-      </Container>
-      <Footer />
-      </div>
+
+        <div className="clearfix">
+        {/* <container className="bgimg"> */}
+      {/* JONATHAN COMMENT: Can  we put the homepage back into rows and columns? (same applies for the rest of the app)
+      And can we ensure that the homepage shows the login options without scrolling down the window? */}
+        <Card className="large blurb"
+          header={<CardTitle image={"Images/Cover.jpg"}>  </CardTitle>}>
+          <Login _login={this._login} />
+          {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
+          {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
+          {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+          {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+        </Card>
+          {/* </container > */}
+       </div>   
     );
   }
 };
 };
+
+
+//       <div className="clearfix">
+//       <Container>
+//           <Card className="large red lighten-5"
+//         header={<CardTitle image={"Images/homepage.jpg"}><h1>Welcome to Bao Bao Book!</h1> </CardTitle>}
+//        >
+//        <h5> Welcome to Bao Bao Book the Learning management system</h5>
+//         <p>Experience the uniqueness of our Learning Management system where technology is no more an exclusive tool to embrace education
+//         Tutors can keep track of student progress, access course calendars, connect 
+//         with all resources within the network, access e-resources related to lessons and
+//         a login to the Learning Management System by entering username and password</p>
+//        </Card>
+//           <Row>
+//             <Col s={12}>
+//               {/*<Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*//*}*/}
+//               <div className="row center">
+//                 <Row>
+//                   <Col s={6}>
+//                     <Login _login={this._login} />
+//                   </Col>
+//                   <Col s={6}>
+//                     {!this.state.register && 
+//                         <Join msg={this.state.register} _join={this._join} />
+//                     }
+//                     {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
+//                     {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+//                     {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+//                   </Col>
+//                 </Row>
+//               </div>
+//             </Col>
+//           </Row>
+//       </Container>
+//       <Footer />
+//       </div>
+// >>>>>>> master
+
+//  {/*<Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*//*}*/}
+//  <Footer />
+
+// <h5> Welcome to Bao Bao Book the Learning management system</h5>
+//         <p>Experience the uniqueness of our Learning Management system where technology is no more an exclusive tool to embrace education
+//         Tutors can keep track of student progress, access course calendars, connect 
+//         with all resources within the network, access e-resources related to lessons and
+//         a login to the Learning Management System by entering username and password</p>
 
 export default Homepage;

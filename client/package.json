@@ -7,12 +7,15 @@
     "material-ui": "^0.19.4",
     "materialize-clockpicker": "^1.0.1",
     "moment": "^2.19.1",
+    "moment-timezone": "^0.5.14",
     "react": "^16.0.0",
     "react-big-calendar": "^0.16.1",
+    "react-bootstrap": "^0.31.5",
     "react-dom": "^16.0.0",
     "react-materialize": "^1.0.16",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.0.14"
+    "react-scripts": "^1.0.14",
+    "react-swipeable-views": "^0.12.10"
   },
   "scripts": {
     "start": "react-scripts start",
