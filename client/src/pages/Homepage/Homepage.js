@@ -92,9 +92,12 @@ class Homepage extends Component {
 
         <div className="clearfix">
         {/* <container className="bgimg"> */}
-      {/* JONATHAN COMMENT: Can  we put the homepage back into rows and columns? (same applies for the rest of the app)
+
+         <Container>
+        <Card className="large z-depth-0 blurb"
+        {/* JONATHAN COMMENT: Can  we put the homepage back into rows and columns? (same applies for the rest of the app)
       And can we ensure that the homepage shows the login options without scrolling down the window? */}
-        <Card className="large blurb"
+
           header={<CardTitle image={"Images/Cover.jpg"}>  </CardTitle>}>
           <Login _login={this._login} />
           {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
@@ -103,6 +106,7 @@ class Homepage extends Component {
           {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
         </Card>
           {/* </container > */}
+          </Container>
        </div>   
     );
   }
@@ -144,7 +148,14 @@ class Homepage extends Component {
 //       </Container>
 //       <Footer />
 //       </div>
-// >>>>>>> master
+
+
+    );
+  }
+};
+};
+
+
 
 //  {/*<Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*//*}*/}
 //  <Footer />

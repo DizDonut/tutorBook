@@ -32,13 +32,13 @@ render() {
   } else {
 	return (
 		<Navbar>
-			<img className="left" src="Images/whitelogo.png"/>
-			<NavItem href='/Tutors'>Tutors Page</NavItem>
-      <NavItem href='/Tutors/account'>Tutor Profile</NavItem>
-      <NavItem href='/Tutors/account'>Edit Tutor Profile</NavItem>
-      <NavItem href='/Tutors/addStudent'>Add Student Profile</NavItem>
+			<img className="" src="Images/whitelogo2.png"/>
+			<NavItem href='/Tutors'>Dashboard</NavItem>
+      <NavItem href='/Tutors/account'>Your Profile</NavItem>
+      {/* <NavItem href='/Tutors/account'>Edit Tutor Profile</NavItem> */}
+      <NavItem href='/Tutors/addStudent'>Add Student</NavItem>
       <NavItem onClick={this._logout} href='/'>Logout</NavItem> {/*  */}
-      <strong>{Moment().tz('Asia/Shanghai').format("dddd, MMMM Do YYYY, HH:mmA")}</strong>
+      <strong className="">{Moment().tz('Asia/Shanghai').format("dddd, MMMM Do YYYY, HH:mmA")}</strong>
 		</Navbar>
 	)
   }
