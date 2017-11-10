@@ -14,7 +14,7 @@ BigCalendar.momentLocalizer(moment);
 
 // let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
-const TutorCard = props => {
+const TutorCard = props => {console.log(JSON.stringify(props.events))
   return(
     <div>
       <Row>
@@ -36,11 +36,12 @@ const TutorCard = props => {
           <AddEvent />
         </Col>
         <Col m={6}>
+        
           <BigCalendar
             {...this.props}
             events={props.events}
             step={60}
-            defaultDate={new Date(2017, 9, 1)}
+            defaultDate={new Date()}
           />
         </Col>
       </Row>

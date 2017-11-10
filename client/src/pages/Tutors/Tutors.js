@@ -30,6 +30,11 @@ class Tutors extends Component {
           if (err) {
             console.log(err)
           }
+          //Parse events before trying to display
+          res.data.events.forEach(function(event){
+            event.start = new Date(event.start.replace(/"/g, ""));
+            event.end = new Date(event.end.replace(/"/g, ""));
+          })
           this.setState({
             totalStudents: res.data.students.length,
             tutor: res.data,

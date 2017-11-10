@@ -15,10 +15,11 @@ const TutorSchema = new Schema({
         required:false
       }],
     events: [{
+         _id : false ,
       	title: {type: String, required: false},
-      	allday: {type: Boolean, default: false, required: false},
-      	start: {type: String, default: ""},
-      	end: {type: String, default: ""}
+      	allDay: {type: Boolean, default: false, required: false},
+      	start: {type: Date, default: ""},
+      	end: {type: Date, default: ""}
     }]
 });
 

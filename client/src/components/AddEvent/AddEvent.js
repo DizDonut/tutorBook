@@ -88,21 +88,17 @@ handleFormSubmit = event => {
 					minute: momentEndTime.minutes()
 				});
 				//new Date(2017, 9, 4)
-				var startString = "new Date(";
-				startString += momentStartDate.year()+", "+(momentStartDate.month()+1)+", "+momentStartDate.date()+", "+momentStartTime.hours()+", "+momentStartTime.minutes()+", 0)";
-				var endString = "new Date("+momentEndDate.year()+", "+(momentEndDate.month()+1)+", "+momentEndDate.date()+", "+momentEndTime.hours()+", "+momentEndTime.minutes()+"0)";
-				var tz = moment.tz.guess();
 				//alert("startString: " + startString);
 				var event = {
 					title: this.state.title,
-					allday:this.state.allday,
-					start:startString,
-					end: endString
+					allDay:this.state.allday,
+					start:start,
+					end: end
 				};
 
 				//alert("Add Event: " + JSON.stringify(event));
 				API.addEvent(event, query).then(res => {
-					window.location= "/Tutors";
+					window.location= "/Tutors/"+query;
 					// document.write(JSON.stringify(res));
 				})
 			})
