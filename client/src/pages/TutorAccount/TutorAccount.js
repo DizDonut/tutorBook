@@ -26,6 +26,9 @@ class TutorAccount extends Component {
           })
         })
     }
+    else{
+      window.location = "/";
+    }
   }
 _tutorProfileUpdate(profile) {
   // API CALL HERE/

@@ -15,7 +15,8 @@ class Tutors extends Component {
       totalStudents: 0,
       teacherKey: "",
       tutor: [],
-      loggedIn: false
+      loggedIn: false,
+
     };
     this._tutorEventUpdate = this._tutorEventUpdate.bind(this)
   }
@@ -45,6 +46,9 @@ class Tutors extends Component {
             loggedIn: true
           })
         })
+    }
+    else{
+      window.location = "/";
     }
   }
 
