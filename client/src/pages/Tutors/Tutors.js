@@ -79,6 +79,7 @@ class Tutors extends Component {
             </Col>
           </Row>
           <Row>
+
           {this.state.tutor && this.state.tutor.students && this.state.tutor.students.map(result => (
             <div>
             <StudentCard
@@ -87,19 +88,16 @@ class Tutors extends Component {
               header={result.picture}
               reveal={result.description}
               title={result.name}
-              component={
-                <StudentModal
-                  notes={result.notes}
-                  likes={result.likes}
-                  family={result.family}
-                  birthday={result.birthday}
-                  age={result.age}
-                  location={result.location}
-                />
-              }
-            />
+              notes={result.notes}
+              likes={result.likes}
+              family={result.family}
+              birthday={result.birthday}
+              age={result.age}
+              location={result.location}>
+            </StudentCard>
            </div>
           ))}
+
           </Row>
         </Container>
       </div>
