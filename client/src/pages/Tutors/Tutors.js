@@ -17,9 +17,13 @@ class Tutors extends Component {
       tutor: [],
       loggedIn: false
     };
+    this._tutorEventUpdate = this._tutorEventUpdate.bind(this)
   }
 
-
+  _tutorEventUpdate () {
+    //alert("trying to update events");
+    this.componentDidMount();
+  }
 
   componentDidMount() {
     const tutorSession = JSON.parse(localStorage.getItem("tutor"))
@@ -63,7 +67,7 @@ class Tutors extends Component {
           <Row>
             <Col s={12}>
               {this.state.tutor && this.state.tutor.students && (
-              <TutorCard
+              <TutorCard _tutorEventUpdate={this._tutorEventUpdate} 
                 header={this.state.tutor.tutorPic}
                 title={this.state.tutor.username}
                 count={this.state.totalStudents}

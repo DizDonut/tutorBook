@@ -5,7 +5,6 @@ import TimePicker from 'material-ui/TimePicker';
 import "./AddEvent.css";
 import moment from "moment";
 
-
 class AddEvent extends React.Component {
 	constructor(props){
 		super(props);
@@ -23,7 +22,8 @@ class AddEvent extends React.Component {
 			end: {
 				date:"",
 				time: ""
-			}
+			},
+			redirectTo: ""
 		};
 		this.handleStartDate = this.handleStartDate.bind(this);
 		this.handleEndDate = this.handleEndDate.bind(this);
@@ -97,18 +97,32 @@ handleFormSubmit = event => {
 				};
 
 				//alert("Add Event: " + JSON.stringify(event));
-				API.addEvent(event, query).then(res => {
-					window.location= "/Tutors/"+query;
+				API.addEvent(event, query).then((res) => {
+					//alert(JSON.stringify(res));
+					this.setState(
+					{
+						redirectTo: "/Tutors",
+						title: "",
+						allday: false,
+						startDate: "",
+						startTime: "",
+						endDate: "",
+						endTime: ""
+					});
+					this.props._tutorEventUpdate();
+
+					//window.location("/Tutors");
+					//alert("set state");
 					// document.write(JSON.stringify(res));
 				})
 			})
-
+			
 		}
 	}
 }
 
   render(){
-    return(
+		  return(
       <div>
         <Collapsible>
           <CollapsibleItem header="Add New Event">
@@ -146,7 +160,8 @@ handleFormSubmit = event => {
           </CollapsibleItem>
         </Collapsible>
       </div>
-    )
+		)
+
   } // end render function
 } // end AddEvent class
 

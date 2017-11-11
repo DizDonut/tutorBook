@@ -6,7 +6,7 @@ import AddEvent from "../../components/AddEvent";
 // import dependencies for calendar
 import BigCalendar from "react-big-calendar";
 import moment from "moment";
-import events from "../Events";
+//import events from "../Events";
 import "./BigCalendar.css";
 
 // Setup localizer using moment !!!important
@@ -14,7 +14,7 @@ BigCalendar.momentLocalizer(moment);
 
 // let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k]);
 
-const TutorCard = props => {console.log(JSON.stringify(props.events))
+const TutorCard = props => {
   return(
     <div>
       <Row>
@@ -33,7 +33,7 @@ const TutorCard = props => {console.log(JSON.stringify(props.events))
                     Teacher Contract: {props.contract}
                   </p>
           </Card>
-          <AddEvent />
+          <AddEvent _tutorEventUpdate={props._tutorEventUpdate}/>
         </Col>
         <Col m={6}>
         
