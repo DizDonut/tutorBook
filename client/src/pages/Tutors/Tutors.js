@@ -57,7 +57,7 @@ class Tutors extends Component {
 
   render(){
     return(
-      <div>
+      <div className="tutorbg">
         <Nav/>
         <Container>
           <Row>
