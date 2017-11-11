@@ -14,7 +14,7 @@ class StudentCard extends React.Component {
           reveal={this.props.reveal}>
           <StudentModal
             likes={this.props.likes[0]}
-            family={this.props.family.brother}
+            family={this.props.family}
             location={this.props.location}
             age={this.props.age}
             birthday={this.props.birthday}

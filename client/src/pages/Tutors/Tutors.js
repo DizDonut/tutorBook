@@ -65,13 +65,13 @@ class Tutors extends Component {
 
   render(){
     return(
-      <div className="tutorbg">
+      <div>
         <Nav/>
         <Container>
           <Row>
             <Col s={12}>
               {this.state.tutor && this.state.tutor.students && (
-              <TutorCard _tutorEventUpdate={this._tutorEventUpdate} 
+              <TutorCard _tutorEventUpdate={this._tutorEventUpdate}
                 header={this.state.tutor.tutorPic}
                 title={this.state.tutor.username}
                 count={this.state.totalStudents}

@@ -39,14 +39,6 @@ class StudentDialog extends React.Component {
       />
     ];
 
-    const ifFamily = (fam) => {
-      if(fam){
-          return ` Yup!`
-        } else {
-          return ` None`
-        }
-    }
-
     return(
       <div>
         <RaisedButton id="modal-btn" label="See Student" onClick={this.handleOpen} />
@@ -78,10 +70,10 @@ class StudentDialog extends React.Component {
               {this.props.likes}
             </div>
             <div>
-              <p>Mother: {ifFamily(this.props.family.mom)}</p>
-              <p>Father: {ifFamily(this.props.family.dad)}</p>
-              <p>Sister: {ifFamily(this.props.family.sister)}</p>
-              <p>Brother: {ifFamily(this.props.family.brother)}</p>
+              <p>Mother: {this.props.family.mom ? `Yup` : `None`}</p>
+              <p>Father: {this.props.family.dad ? `Yup` : `None`}</p>
+              <p>Sister: {this.props.family.sister ? `Yup` : `None`}</p>
+              <p>Brother: {this.props.family.brother ? `Yup` : `None`}</p>
             </div>
             <div>
               <p>Location: {this.props.location}</p>
