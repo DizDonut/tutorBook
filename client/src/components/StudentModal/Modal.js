@@ -8,6 +8,7 @@ import SwipeableViews from "react-swipeable-views/";
 import "./Modal.css";
 
 class StudentDialog extends React.Component {
+
     state = {
       open: false,
       slideIndex: 0
@@ -25,6 +26,10 @@ class StudentDialog extends React.Component {
     this.setState({slideIndex: value});
   };
 
+  handleFamily = (fam) => {
+
+  }
+
   render(){
     const actions = [
       <FlatButton
@@ -33,6 +38,14 @@ class StudentDialog extends React.Component {
         onClick={this.handleClose}
       />
     ];
+
+    const ifFamily = (fam) => {
+      if(fam){
+          return ` Yup!`
+        } else {
+          return ` None`
+        }
+    }
 
     return(
       <div>
@@ -51,23 +64,31 @@ class StudentDialog extends React.Component {
             <Tab label="Notes" value={0} />
             <Tab label="Likes" value={1} />
             <Tab label="Family" value={2} />
-            <Tab label="Age/Birthday" value={3} />
+            <Tab label="Location" value={3} />
+            <Tab label="Age/Birthday" value={4} />
           </Tabs>
           <SwipeableViews
             index={this.state.slideIndex}
             onChangeIndex={this.handleChange}
           >
             <div>
-              notes={this.props.notes}
+              {this.props.notes}
             </div>
             <div>
-              likes={this.props.likes}
+              {this.props.likes}
             </div>
             <div>
-              family={this.props.family}
+              <p>Mother: {ifFamily(this.props.family.mom)}</p>
+              <p>Father: {ifFamily(this.props.family.dad)}</p>
+              <p>Sister: {ifFamily(this.props.family.sister)}</p>
+              <p>Brother: {ifFamily(this.props.family.brother)}</p>
             </div>
             <div>
-              location={this.props.location}
+              <p>Location: {this.props.location}</p>
+            </div>
+            <div>
+              <p>Age: {this.props.age}</p>
+              <p>Birthday: {this.props.birthday}</p>
             </div>
           </SwipeableViews>
         </Dialog>
