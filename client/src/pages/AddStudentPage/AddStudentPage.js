@@ -32,6 +32,9 @@ class AddStudentPage extends Component {
           })
         })
     }
+    else{
+      window.location = "/";
+    }
   }
 
   _tutorStudentProfileUpdate(profile) {
