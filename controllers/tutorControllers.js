@@ -92,16 +92,17 @@ module.exports = {
     },
     addEvent: function(req, res) {
       console.log("tutorControllers Add EVent: ");
-      console.log(JSON.stringify(req.body));
+      //console.log(JSON.stringify(req.body));
       db.Tutor
       .findByIdAndUpdate({ _id: req.params.id }, { $push: {"events":req.body } })
-      .exec(function (err, doc) {
-          if (err) {
-            console.log(err);
-          }
-          console.log(`event added:`);
-          console.log(doc);
+      .then(dbModel => {
+        console.log(dbModel)
+        res.json(dbModel)
       })
+      .catch(err => {
+        console.log("Event update error: " + err);
+        res.status(422).json(err)
+      });
     }
 }
 
