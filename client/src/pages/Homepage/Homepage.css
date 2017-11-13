@@ -1,7 +1,49 @@
+body::after {
+	content: "";
+	background-image: url("tutorbg5.png");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+	/* opacity: 0.5; */
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: fixed;
+	z-index: -1;  
+}
 
-.bgimg{
+.homepage .centered {
+	transform:translate(50%, 0%);
+}
+
+.clearfix>.container {
+	padding: 10% 0%;
+	opacity:1;
+	/* background-color: #ffffff; */
+}
+
+.collapsible {
+	background-color: #ffffff;
+	opacity: 0.9;
+}
+
+form {
+	background-color: #ffffff;
+	opacity: 0.9;
+}
+.rbc-calendar {
+	background-color: #ffffff;
+	opacity: 0.95;
+}
+
+.bgimg {
 	/* background-image: url("https://static.pexels.com/photos/139319/pexels-photo-139319.jpeg"); */
-	background-image: url("/Images/coverimage.jpeg");
+	/* background-image: url("/Images/coverimage.jpeg"); */
 	height: 100%;
 	background-repeat: no-repeat;
 	/* background-position: center; */
@@ -9,7 +51,7 @@
 	position: relative;
 	z-index: -1;
 	opacity: 0.98;
-	}
+}
 
 
 
