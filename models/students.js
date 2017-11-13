@@ -3,8 +3,8 @@ const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
   firstName: { type: String, required: true, trim: true },
-  picture: { type: String, trim:true },
-  birthday: String,
+  picture: { type: String, trim:true, required:false},
+  birthday: {type:String},
   age: { type: Number, required: false},
   location: { type: String, required: false, trim: true },//To do: change to select list
   studentId: {type:Number},//always 6 or 7 digits 
