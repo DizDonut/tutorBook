@@ -7,7 +7,7 @@ import "./AddStudent.css";
 class AddStudent extends Component {
   constructor (props) {
     super(props)
-  
+
     this.state = {
       firstName: "",
       studentId: null,
@@ -32,7 +32,7 @@ class AddStudent extends Component {
     const{name,value} = event.target;
     // const name = event.name;
     // var value;
-    
+
     // if(target.type === 'checkbox'){
     //   alert(name);
     //   value = target.checked?1:0;
@@ -53,7 +53,7 @@ class AddStudent extends Component {
   //         const checkboxesChecked = [];
 
   //   for (let i=0; i<checkboxes.length; i++) {
-    
+
   //      if (checkboxes[i].checked) {
   //         checkboxesChecked.push(checkboxes[i].value);
   //      }
@@ -78,13 +78,13 @@ class AddStudent extends Component {
         likes: this.state.likes,
         notes: this.state.notes
       }
-    if (!this.state.editStudentPage) {
+      if (!this.state.editStudentPage) {
       console.log("new student route")
       this.props._tutorStudentProfileUpdate(studentProfile);
     }
     //alert(this.state.mom);
 
-    
+
   }
   componentDidMount() {
     this.setState(function(prevState,props) {
