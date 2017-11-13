@@ -96,7 +96,7 @@ class Tutors extends Component {
               key={result._id}
               link={result._id}
               header={result.picture}
-              reveal={result.description}
+              reveal={result.notes}
               title={result.firstName}
               notes={result.notes}
               likes={result.likes}

@@ -12,6 +12,7 @@ class StudentCard extends React.Component {
           title={this.props.title}
           reveal={this.props.reveal}>
           <StudentModal
+            notes={this.props.notes}
             likes={this.props.likes[0]}
             family={this.props.family}
             location={this.props.location}

@@ -7,7 +7,7 @@ const studentSchema = new Schema({
   birthday: {type:String},
   age: { type: Number, required: false},
   location: { type: String, required: false, trim: true },//To do: change to select list
-  studentId: {type:Number},//always 6 or 7 digits 
+  studentId: {type:Number},//always 6 or 7 digits
   description: [String],//personality tags
   classVideo: {type: String, required: false},//url
   family: {
@@ -17,11 +17,7 @@ const studentSchema = new Schema({
     sister: {type: Boolean, default: false }
   },
   likes: [String],
-  note: [{
-    type: Schema.Types.ObjectId,
-    ref: "Note",
-    required: false
-  }]
+  notes: {type: String, required: false}
 });
 
 const Student = mongoose.model("Student", studentSchema);
