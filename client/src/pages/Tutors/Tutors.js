@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Col, Row, Container, Input } from "react-materialize";
 import Nav from "../../components/Navbar";
 import StudentCard from "../../components/StudentCard";
-import StudentModal from "../../components/StudentModal";
 import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
 import API from "../../utils/API";
@@ -14,7 +13,7 @@ class Tutors extends Component {
       contract: "",
       totalStudents: 0,
       teacherKey: "",
-      tutor: [],
+      tutor: {},
       loggedIn: false,
 
     };
@@ -48,7 +47,9 @@ class Tutors extends Component {
         })
     }
     else{
-      window.location = "/";
+      this.setState({
+        redirectTo: "/"
+      });
     }
   }
 
@@ -67,6 +68,7 @@ class Tutors extends Component {
     return(
       <div>
         <Nav/>
+        <div > {/*  className="tutorbg" */}
         <Container>
           <Row>
             <Col s={12}>
@@ -95,7 +97,7 @@ class Tutors extends Component {
               link={result._id}
               header={result.picture}
               reveal={result.description}
-              title={result.name}
+              title={result.firstName}
               notes={result.notes}
               likes={result.likes}
               family={result.family}
@@ -108,6 +110,7 @@ class Tutors extends Component {
 
           </Row>
         </Container>
+        </div>
       </div>
     );
   };

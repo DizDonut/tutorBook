@@ -19,7 +19,7 @@ var newStudent = new db.Student({
   picture: "http://www.freeiconspng.com/uploads/profile-icon-9.png",
   firstName: "Clay",
   age: "29",
-  description: "Awesomeness! A joy to teach. Taught me everything I know!",
+  description: "Great learner",
   location: "Cherryville",
   studentId: 123456,
   classVideo: "url goes here",

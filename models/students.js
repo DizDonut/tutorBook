@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const studentSchema = new Schema({
   firstName: { type: String, required: true, trim: true },
-  picture: { data: Buffer, contentType: String },
+  picture: { type: String, trim:true },
   birthday: String,
   age: { type: Number, required: false},
   location: { type: String, required: false, trim: true },//To do: change to select list
