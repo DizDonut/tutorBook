@@ -5,19 +5,17 @@ const apiRoutes = require("./api");
 // API Routes
 router.use("/api", apiRoutes);
 
-// If no API routes are hit, send the React app
-// var productionBool  = false;
-// if (productionBool) {
-//   router.use(function (req, res) {
-//     res.sendFile(path.join(__dirname, "../client/build/index.html"))
-//   });
-// }
+    // If no API routes are hit, send the React app
+
+  router.use(function (req, res) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"))
+  });
 
 
-// THIS IS THE CUSTOM ROUTE WE DOCTORED, AND BREAKS THE API WHEN ROUTES ARE CORRECTLY WRITTEN
+    // THIS IS THE CUSTOM ROUTE WE DOCTORED, AND BREAKS THE API WHEN ROUTES ARE CORRECTLY WRITTEN
 
-// router.use(function(req, res) {
-//   res.sendFile(path.join(__dirname, "../client/public/index.html"));
-// });
+    // router.use(function(req, res) {
+    //   res.sendFile(path.join(__dirname, "../client/public/index.html"));
+    // });
 
 module.exports = router;

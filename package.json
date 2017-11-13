@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/DizDonut/tutorBook/issues"
   },
-  "homepage": "https://github.com/DizDonut/tutorBook#readme",
+  "homepage": "https://baobaotutor.herokuapp.com/",
   "dependencies": {
     "axios": "^0.17.0",
     "bcrypt-nodejs": "0.0.3",
