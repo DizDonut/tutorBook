@@ -68,7 +68,7 @@ class Tutors extends Component {
     return(
       <div>
         <Nav/>
-        <div > {/*  className="tutorbg" */}
+        <div>
         <Container>
           <Row>
             <Col s={12}>
