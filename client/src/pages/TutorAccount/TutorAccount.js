@@ -27,7 +27,9 @@ class TutorAccount extends Component {
         })
     }
     else{
-      window.location = "/";
+      this.setState({
+        redirectTo: "/"
+      });
     }
   }
 _tutorProfileUpdate(profile) {

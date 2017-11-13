@@ -1,15 +1,14 @@
 import React from "react";
-import { Card, CardTitle, Col } from "react-materialize";
+import { Card, CardTitle, Col,Tag } from "react-materialize";
 import "./StudentCard.css";
 import StudentModal from "../StudentModal";
 
 class StudentCard extends React.Component {
-
   render() {
     return(
       <Col s={4}>
         <Card
-          header={<CardTitle reveal image={this.props.header} />}
+          header={<CardTitle reveal image={'http://api.adorable.io/avatar/200/' + this.props.title} />}
           title={this.props.title}
           reveal={this.props.reveal}>
           <StudentModal
@@ -27,3 +26,5 @@ class StudentCard extends React.Component {
 }; //end StudentCard const
 
 export default StudentCard;
+{/* http://api.adorable.io/avatars/200/ - larger library at this API, but they're even more rwierd*/ }
+{/* we should map out the description array, and change the input to add tags for each new descriptor */ }

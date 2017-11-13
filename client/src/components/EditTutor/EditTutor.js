@@ -25,33 +25,42 @@ constructor (props) {
       "/Images/avatars/male/mAvatar5.png",
       "/Images/avatars/male/mAvatar6.png"
     ],
-    tutorPic: "",
+    image: "",
+    tutorPic: null,
     contract: "",
     totalStudents: "",
-    myClass: "active"
+    myClass: "active",
+    toggle: false
   };
 
   this.handleInputChange = this.handleInputChange.bind(this)
   this.hasActiveClass = this.hasActiveClass.bind(this)
+  this.changeImage = this.changeImage.bind(this)
 }
 
-
-hasActiveClass = () => {
-  for (var i = 0; i < this.state.images.length; i++) {
-    console.log(this.state.images[i]);
-    if (this.state.images[i].classList.contains(this.state.myClass)) {
-      console.log(`${this.state.images[i]} is currently active`);
-      this.setState({
-        tutorPic: this.state.images[i]
-      })
-    } else {
-      alert("At least I know the function was called");
-    }
+//on button click assign the img src for the active class to the state, fire an alert
+hasActiveClass = (e) => {
+  e.preventDefault();
+  const elem = document.getElementsByClassName("carousel-item")
+  if (elem) {
+    let activeElem = document.getElementsByClassName("carousel-item active")
+    let activeElemSrc = activeElem["0"].firstChild.attributes["0"].nodeValue
+    this.setState({
+      tutorPic: activeElemSrc,
+      toggle: false
+    })
   }
 }
 
+changeImage = (e) => {
+  e.preventDefault();
+  this.setState({
+    toggle:true
+  })
+}
 //handleinputchange
 handleInputChange = event => {
+  event.preventDefault();
 	const{name,value} = event.target;
 	this.setState({
 		[name]:value
@@ -89,20 +98,35 @@ handleFormSubmit = event => {
 //   }
 // };
 
+
 render(){
   
     return (
       <div>
         <Container>
+        <Row>
+          {!this.state.toggle && <img src={!this.state.tutorPic ? this.props.tutor.tutorPic : this.state.tutorPic}/>}
+        </Row>
+        <Row>
+            {!this.state.toggle && <Button onClick={this.changeImage.bind(this)} >Change Avatar</Button> }
+        </Row>
         <div className="header">Edit My Account</div>
           <form>
             <Row>
               <Input name="username" onChange={this.handleInputChange} value={this.props.tutor.username} placeholder="" s={6} label="" disabled/>
               <Input name="email" onChange={this.handleInputChange} value={this.props.tutor.email} placeholder="" s={12} label="" disabled/>
-              <Carousel
-                fixedItem={<Button disabled>Choose an Avatar</Button>}
-                images={this.state.images}
-              />
+              {this.state.toggle && (
+                  <Carousel
+                    name="images"
+                    onClick={this.hasActiveClass.bind(this)}
+                    value={this.state.tutorPic}
+                    fixedItem={<div>Scroll to choose an Avatar</div>}
+                    images={this.state.images}
+                  />
+                  
+                )
+              }
+              {this.state.toggle && <Button onClick={this.hasActiveClass} >Click here to select Avatar</Button>}
               <Input name="contract" onChange={this.handleInputChange} value={this.state.contract} placeholder={this.props.tutor.contract} s={12} label="Contract" />
               <Input name="totalStudents" onChange={this.handleInputChange} value={this.state.totalStudents} placeholder={this.props.tutor.totalStudents} s={12} label="Total Students" disabled/>
            </Row>
