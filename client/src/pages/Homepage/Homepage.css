@@ -1,6 +1,6 @@
 body::after {
 	content: "";
-	background-image: url("tutorbg5.png");
+	background-image: url("newCover.jpg");
 	background-attachment: fixed;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -14,7 +14,13 @@ body::after {
 	bottom: 0;
 	right: 0;
 	position: fixed;
+	height:50%;
 	z-index: -1;  
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
 }
 
 .homepage .centered {
@@ -35,6 +41,10 @@ body::after {
 form {
 	background-color: #ffffff;
 	opacity: 1.0;
+}
+footer {
+	margin-top: 10%;
+	position:relative;
 }
 .rbc-calendar {
 	background-color: #ffffff;
@@ -61,11 +71,7 @@ form {
 
 
 
-/* .clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-} */
+
 
 
 
