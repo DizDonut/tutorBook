@@ -21,7 +21,7 @@ class StudentCard extends React.Component {
             age={this.props.age}
             birthday={this.props.birthday}
           />
-          <p><a className="student-links" href={'/Tutors/addStudent/' + this.props.link}>Edit Student</a></p>
+          {/* <p><a className="student-links" href={'/Tutors/addStudent/' + this.props.link}>Edit Student</a></p> */}
           {/* <p><a className="student-links" href={'/students/deleteStudent/' + this.props.link}>Delete Student</a></p> */}
         </Card>
       </Col>
