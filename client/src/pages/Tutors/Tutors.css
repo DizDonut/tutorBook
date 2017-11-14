@@ -9,7 +9,7 @@ ul, .blue {
   word-break: break-all;
 }
 
-hr{
+.page-divider{
   background-color: #FF0000;
   height: 7px;
 }

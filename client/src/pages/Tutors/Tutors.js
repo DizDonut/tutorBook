@@ -91,7 +91,7 @@ class Tutors extends Component {
               </TutorCard>)}
             </Col>
           </Row>
-          <hr/>
+          <hr className="page-divider"/>
           <Row>
             <Col s={12} m={12} l={12}>
               <Input value="Student search bar"/>

@@ -41,7 +41,7 @@ class StudentDialog extends React.Component {
 
     return(
       <div>
-        <RaisedButton id="modal-btn" label="See Student" onClick={this.handleOpen} />
+        <RaisedButton className="modal-btn" label="See Student" onClick={this.handleOpen} />
         <Dialog
           title="Student Details"
           actions={actions}
@@ -70,10 +70,10 @@ class StudentDialog extends React.Component {
               {this.props.likes}
             </div>
             <div>
-              <p>Mother: {this.props.family.mom ? `Yup` : `None`}</p>
-              <p>Father: {this.props.family.dad ? `Yup` : `None`}</p>
-              <p>Sister: {this.props.family.sister ? `Yup` : `None`}</p>
-              <p>Brother: {this.props.family.brother ? `Yup` : `None`}</p>
+              <p>Mother: {this.props.family.mom ? `Yup!` : `None`}</p>
+              <p>Father: {this.props.family.dad ? `Yup!` : `None`}</p>
+              <p>Sister: {this.props.family.sister ? `Yup!` : `None`}</p>
+              <p>Brother: {this.props.family.brother ? `Yup!` : `None`}</p>
             </div>
             <div>
               <p>Location: {this.props.location}</p>
