@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row, Container, Input } from "react-materialize";
 import Nav from "../../components/Navbar";
 import StudentCard from "../../components/StudentCard";
+import DeleteBtn from "../../components/DeleteBtn";
 import TutorCard from "../../components/Tutor";
 import "./Tutors.css";
 import API from "../../utils/API";
@@ -52,6 +53,14 @@ class Tutors extends Component {
       });
     }
   }
+
+  deleteStudent = id => {
+    API.deleteStudent(id)
+      .then(res => {
+        window.location = "/Tutors";
+      })
+      .catch(err => console.log(err));
+  };
 
   // counts the number of students the tutor has taught/input
   countStudents = () => {
@@ -105,6 +114,7 @@ class Tutors extends Component {
               age={result.age}
               location={result.location}>
             </StudentCard>
+            <DeleteBtn onClick={() => this.deleteStudent(result._id)} />
            </div>
           ))}
 
