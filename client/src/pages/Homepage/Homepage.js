@@ -11,6 +11,7 @@ import { Redirect } from 'react-router-dom'
 import "./Homepage.css";
 import { Alert } from 'react-bootstrap';
 
+// const url = require("/Images/tutorbg5.png")
 
 class Homepage extends Component {
   constructor(props) {
@@ -89,22 +90,30 @@ class Homepage extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
       return (
-
-        <div className="clearfix">
-        {/* <container className="bgimg"> */}
-
+        <div className="clearfix homepage">
          <Container>
-        <Card className="large z-depth-0 blurb"
-        header={<CardTitle image={"Images/Cover.jpg"}>  </CardTitle>}>
-          <Login _login={this._login} />
-          {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
-          {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
-          {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-          {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-        </Card>
-          {/* </container > */}
+            <Row>
+              <Col s={12}>
+                <div className="row center">
+                  <Row>
+                    <div className="centered"> </div>
+                  </Row>
+                  <Row>
+                    <Col s={6}>
+                      <Login _login={this._login} />
+                    </Col>
+                    <Col s={6}>
+                      {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
+                      {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
+                      {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+                      {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+                    </Col>
+                  </Row>
+                </div>
+              </Col>
+            </Row>
           </Container>
-       </div>   
+        </div>  
     );
   }
 };
