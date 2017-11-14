@@ -1,5 +1,3 @@
-
-
 ul, .blue {
   text-align: center;
   white-space: nowrap;
@@ -25,3 +23,19 @@ ul, .blue {
 	z-index: -10000;
 	opacity: 0.98;
 	}
+
+  .search{
+    border: solid 4px darkgray !important;
+    border-radius: 20px !important;
+    background-color: aliceblue !important;
+    width: 200% !important;
+  }
+
+.input-field.col label{
+  font-size: 1vw !important;
+  margin: 5%;
+  word-break: break-all;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

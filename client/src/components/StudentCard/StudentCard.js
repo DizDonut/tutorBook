@@ -8,7 +8,7 @@ class StudentCard extends React.Component {
 
   render() {
     return(
-      <Col s={4}>
+      <Col  xs={12} s={12} m={6} l={4} xl={3}>
         <Card
           header={<CardTitle reveal image={'http://api.adorable.io/avatar/200/' + this.props.title} />}
           title={this.props.title}

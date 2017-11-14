@@ -1,5 +1,5 @@
 .student-links {
-  font-size: 2vw;
+  font-size: 1.75vw;
 }
 
 a:focus {
@@ -8,6 +8,6 @@ a:focus {
 
 .card .card-content .card-title {
   line-height: 16px;
-  font-size: 2vw;
+  font-size: 1.75vw;
   margin: 10% 0 10% 0;
 }
