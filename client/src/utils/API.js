@@ -8,10 +8,14 @@ export default {
   // Gets the student with the given id
   getStudent: function(id) {
     return axios.get("/api/students/" + id);
-  },
+  },  
   // Deletes the student with the given id
   deleteStudent: function(id) {
     return axios.delete("/api/students/" + id);
+  },
+  removeStudent: function (query) {
+    // alert(JSON.stringify(query));
+    return axios.delete("/api/tutors/" + query.studentId, query.tutorId);
   },
   // Saves a student to the database - USE THIS FUNCTION TO CREATE A NEW STUDENT!
   saveStudent: function(studentData) {

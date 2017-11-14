@@ -44,6 +44,7 @@ class Tutors extends Component {
             event.start = new Date(event.start.replace(/"/g, ""));
             event.end = new Date(event.end.replace(/"/g, ""));
           })
+          console.log(res.data);
           this.setState({
             totalStudents: res.data.students.length,
             tutor: res.data,
@@ -59,12 +60,20 @@ class Tutors extends Component {
   }
 
   deleteStudent = id => {
+    // console.log(id);
+    // const query = {
+    //   studentId: id,
+    //   tutorId: this.state.tutor._id
+    // }
     API.deleteStudent(id)
-      .then(res => {
-        console.log(res.data)
-        this.setState({
-          tutor: res.data
-        })
+      .then((res,err) => {
+        console.log(res.data) //not seeing a response from the delete route 
+        // this.setState({
+        //   tutor: res.data
+        // })
+        // this.forceUpdate(); 
+        window.location = "/Tutors"
+        // if page doesn't refresh, force a re-rendering
       })
       .catch(err => console.log(err));
   };
@@ -80,21 +89,16 @@ class Tutors extends Component {
     return `Total Students: ${this.state.totalStudents}`;
   }
 
-  render(){
-    const tutor = this.props.tutor;
-    let results = [];
-    if (tutor !==null) {
-      // const filteredStudents = tutor.students
-      if (tutor.students !==null) {
-        results = tutor.students.filter(
-          (match) => {
-            console.log("this function is running")
-           return match.firstName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-        });
-        console.log(tutor)
+  filterStudents = (students) => {
+    let results = students.filter(
+      (match) => {
+        return match.firstName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
       }
-    }
+    )
+    return results;
+  }
 
+  render(){
     return(
       <div>
         <Nav/>
@@ -120,9 +124,8 @@ class Tutors extends Component {
             </Row>
             <Row>
                {/* <Collection> */}
-                {this.props.tutor && this.props.tutor.students && 
-                  tutor && tutor.students && results.map((match) => {
-                  return (
+               {this.state && this.state.tutor && this.state.tutor.students && this.filterStudents(this.state.tutor.students).map((match) => {
+                 return (
                   <div>
                     <StudentCard
                       key={match._id}
