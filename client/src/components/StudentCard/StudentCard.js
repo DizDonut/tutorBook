@@ -1,9 +1,11 @@
 import React from "react";
 import { Card, CardTitle, Col,Tag } from "react-materialize";
+import API from "../../utils/API";
 import "./StudentCard.css";
 import StudentModal from "../StudentModal";
 
 class StudentCard extends React.Component {
+  
   render() {
     return(
       <Col s={4}>
@@ -20,6 +22,7 @@ class StudentCard extends React.Component {
             birthday={this.props.birthday}
           />
           <p><a className="student-links" href={'/Tutors/addStudent/' + this.props.link}>Edit Student</a></p>
+          {/* <p><a className="student-links" href={'/students/deleteStudent/' + this.props.link}>Delete Student</a></p> */}
         </Card>
       </Col>
     );

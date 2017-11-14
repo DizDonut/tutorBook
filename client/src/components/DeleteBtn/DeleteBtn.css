@@ -1,0 +1,12 @@
+.delete-btn {
+    float: left;
+    background-color: #e74944;
+    color: white;
+    padding: .25em;
+    border: .25em solid;
+    border-radius: .25em;
+    margin-top: .48em;
+    margin-left: -2.3em;
+    z-index: 1;
+    position: relative;
+  }
