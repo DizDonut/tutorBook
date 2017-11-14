@@ -78,10 +78,10 @@ class AddStudent extends Component {
         likes: this.state.likes,
         notes: this.state.notes
       }
-      if (!this.state.editStudentPage) {
+      // if (!this.state.editStudentPage) {
       console.log("new student route")
       this.props._tutorStudentProfileUpdate(studentProfile);
-    }
+    // }
     //alert(this.state.mom);
 
 
@@ -141,24 +141,24 @@ render(){
                     <Input id="notes" name="notes" type="textarea" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].notes : this.state.notes} placeholder={"Additional Notes"} s={12} />
                     <label for="notes">Notes</label>
                   </div>
-                  <Row>
-                    <Input name="mom" type="checkbox" value="Mom" label="Mom" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.mom ? "checked" : ""}/>
+                  <div className="input-field col s12">
+                    <Input id="family" name="mom" type="checkbox" value="Mom" label="Mom" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.mom ? "checked" : ""}/>
                     <Input name="dad" type="checkbox" value="Dad" label="Dad" onChange={this.handleInputChange} defaultChecked={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.dad ? "checked" : ""} data-value={this.state.family.dad}/>
                     <Input name="sister" type="checkbox" value="Sister" label="Sister" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.sister ? "checked" : ""} data-value={this.state.family.sister}/>
                     <Input name="brother" type="checkbox" value="Brother" label="Brother" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.brother ? "checked" : ""} data-value={this.state.family.brother}/>
-                  </Row>
+                  </div>
                   <div className="input-field col s12">
                     <Input id="picture" name="picture" onChange={this.handleInputChange} value={this.state.picture} placeholder="Profile image - e.g. http://moziru.com/images/drawn-panda-cartoon-5.jpg" s={12} />
                     <label for="picture">Picture</label>
                   </div>
                 </Row>
               </form>
+              <Row>
+                {this.props.studentData.length > 0 && <Button className="updateForm" waves="light" onClick={this.handleFormSubmit.bind(this)}>Update Profile</Button>}
+                {this.props.studentData.length < 1 && <Button className="newForm" waves="light" onClick={this.handleFormSubmit.bind(this)}>Submit</Button>}
+              </Row>
             </CollapsibleItem>
           </Collapsible>
-          <Row>
-            {this.props.studentData.length > 0 && <Button className="updateForm" waves="light" onClick={this.handleFormSubmit.bind(this)}>Update Profile</Button>}
-            {this.props.studentData.length < 1 && <Button className="newForm" waves="light" onClick={this.handleFormSubmit.bind(this)}>Submit</Button>}
-          </Row>
         </Container>
       </div>
     )

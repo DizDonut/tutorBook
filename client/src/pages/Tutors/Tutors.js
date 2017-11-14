@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Col, Row, Container, Input } from "react-materialize";
+import { Col, Row, Container, Input, Collection, CollectionItem } from "react-materialize";
 import Nav from "../../components/Navbar";
 import StudentCard from "../../components/StudentCard";
 import DeleteBtn from "../../components/DeleteBtn";
@@ -16,9 +16,13 @@ class Tutors extends Component {
       teacherKey: "",
       tutor: {},
       loggedIn: false,
-
+      search: ""
     };
     this._tutorEventUpdate = this._tutorEventUpdate.bind(this)
+  }
+
+  updateSearch(event) {
+    this.setState({search: event.target.value})
   }
 
   _tutorEventUpdate () {
@@ -57,7 +61,10 @@ class Tutors extends Component {
   deleteStudent = id => {
     API.deleteStudent(id)
       .then(res => {
-        window.location = "/Tutors";
+        console.log(res.data)
+        this.setState({
+          tutor: res.data
+        })
       })
       .catch(err => console.log(err));
   };
@@ -74,6 +81,20 @@ class Tutors extends Component {
   }
 
   render(){
+    const tutor = this.props.tutor;
+    let results = [];
+    if (tutor !==null) {
+      // const filteredStudents = tutor.students
+      if (tutor.students !==null) {
+        results = tutor.students.filter(
+          (match) => {
+            console.log("this function is running")
+           return match.firstName.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
+        console.log(tutor)
+      }
+    }
+
     return(
       <div>
         <Nav/>
@@ -93,31 +114,34 @@ class Tutors extends Component {
           </Row>
           <hr className="page-divider"/>
           <Row>
-            <Col s={12} m={12} l={12}>
-              <Input value="Student search bar"/>
+            <Col s={12}>
+            <Row>
+              <Input type="text" label="Search for a student by name" placeholder={" "} value={this.state.search} onChange={this.updateSearch.bind(this)} />
+            </Row>
+            <Row>
+               {/* <Collection> */}
+                {this.props.tutor && this.props.tutor.students && 
+                  tutor && tutor.students && results.map((match) => {
+                  return (
+                  <div>
+                    <StudentCard
+                      key={match._id}
+                      link={match._id}
+                      header={match.picture}
+                      reveal={match.notes}
+                      title={match.firstName}
+                      notes={match.notes}
+                      likes={match.likes}
+                      family={match.family}
+                      birthday={match.birthday}
+                      age={match.age}
+                      location={match.location}>
+                    </StudentCard>
+                    <DeleteBtn onClick={() => this.deleteStudent(match._id)} />
+                  </div>)
+                })}
+              </Row>
             </Col>
-          </Row>
-          <Row>
-
-          {this.state.tutor && this.state.tutor.students && this.state.tutor.students.map(result => (
-            <div>
-            <StudentCard
-              key={result._id}
-              link={result._id}
-              header={result.picture}
-              reveal={result.notes}
-              title={result.firstName}
-              notes={result.notes}
-              likes={result.likes}
-              family={result.family}
-              birthday={result.birthday}
-              age={result.age}
-              location={result.location}>
-            </StudentCard>
-            <DeleteBtn onClick={() => this.deleteStudent(result._id)} />
-           </div>
-          ))}
-
           </Row>
         </Container>
         </div>

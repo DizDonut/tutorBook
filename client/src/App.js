@@ -48,7 +48,7 @@ class App extends Component {
               <Switch>
                 {/* _logout={this._logout} loggedIn={this.state.loggedIn} tutor={this.state.tutor} */}
                 <Route exact path="/"  tutor={this.state.tutor} component={Homepage} />
-                <Route exact path="/Tutors" tutor={this.state.tutor} component={Tutors} />
+                <Route exact path="/Tutors" render={(props) => (<Tutors tutor={this.state.tutor} pass_to_page_content='hi'/>)} />
                 <Route exact path="/Tutors/account" tutor={this.state.tutor} component={TutorAccount} />
                 <Route exact path="/Tutors/addStudent" tutor={this.state.tutor} component={AddStudentPage} />
                 <Route exact path="/Tutors/addStudent/:id" tutor={this.state.tutor} component={AddStudentPage} />
