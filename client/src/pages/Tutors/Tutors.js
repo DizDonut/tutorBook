@@ -67,11 +67,11 @@ class Tutors extends Component {
     // }
     API.deleteStudent(id)
       .then((res,err) => {
-        console.log(res.data) //not seeing a response from the delete route 
+        console.log(res.data) //not seeing a response from the delete route
         // this.setState({
         //   tutor: res.data
         // })
-        // this.forceUpdate(); 
+        // this.forceUpdate();
         window.location = "/Tutors"
         // if page doesn't refresh, force a re-rendering
       })
@@ -120,7 +120,7 @@ class Tutors extends Component {
           <Row>
             <Col s={12}>
             <Row>
-              <Input type="text" label="Search for a student by name" placeholder={" "} value={this.state.search} onChange={this.updateSearch.bind(this)} />
+              <Input className="search" type="text" placeholder={"Search student by name..."} value={this.state.search} onChange={this.updateSearch.bind(this)} />
             </Row>
             <Row>
                {/* <Collection> */}
