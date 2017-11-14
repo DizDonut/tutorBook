@@ -105,8 +105,14 @@ render(){
             <CollapsibleItem header="Student Name" icon='add'>
               <form>
                 <Row>
-                  <Input name="firstName" onChange={this.handleInputChange} value={this.state.firstName} placeholder={this.state.editStudentPage ? this.props.studentData[0].firstName : "First Name"} s={12} />
-                  <Input name="studentId" onChange={this.handleInputChange} value={this.state.studentId} placeholder={this.state.editStudentPage ? this.props.studentData[0].studentId :"6 digit Student Id"} s={12} />
+                  <div className="input-field col s12">
+                    <Input id="firstName" name="firstName" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].firstName : this.state.firstName} placeholder={"First Name"} />
+                    <label for="firstName">Name</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <Input id="studentId" name="studentId" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].studentId :this.state.studentId} placeholder={"6 digit Student Id"}/>
+                    <label for="studentId">Student Id</label>
+                  </div>
                 </Row>
               </form>
             </CollapsibleItem>
@@ -115,18 +121,36 @@ render(){
             <CollapsibleItem header="Student Details" icon='add'>
               <form>
                 <Row>
-                  <Input name="birthday" type="date" onChange={this.handleInputChange} value={this.state.birthday} placeholder={this.state.editStudentPage ? this.props.studentData[0].birthday : "Birthday"} s={12} />
-                  <Input name="age" onChange={this.handleInputChange} value={this.state.age} placeholder={this.state.editStudentPage ? this.props.studentData[0].age : "Age"} s={12} />
-                  <Input name="location" onChange={this.handleInputChange} value={this.state.location} placeholder={this.state.editStudentPage ? this.props.studentData[0].location : " Location - e.g. 'City/State/Region/Province'"} s={12} />
-                  <Input name="likes" type="textarea" onChange={this.handleInputChange} value={this.state.likes} placeholder={this.state.editStudentPage ? this.props.studentData[0].likes : "Likes"} s={12} />
-                  <Input name="notes" type="textarea" onChange={this.handleInputChange} value={this.state.notes} placeholder={this.state.editStudentPage ? this.props.studentData[0].notes : "Additional Notes"} s={12} />
+                  <div className="input-field col s12">
+                    <Input id="birthday" name="birthday" type="date" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].birthday : this.state.birthday} placeholder={"Birthday"} s={12} />
+                    <label for="birthdy">Birthday</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <Input id="age" name="age" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].age : this.state.age} placeholder={"Age"} s={12} />
+                    <label for="age">Age</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <Input id="location" name="location" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].location : this.state.location} placeholder={"Location - e.g. 'City/State/Region/Province'"} s={12} />
+                    <label for="location">Location</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <Input id="likes" name="likes" type="textarea" onChange={this.handleInputChange} value={this.state.likes} placeholder={this.state.editStudentPage ? this.props.studentData[0].likes : "Likes"} s={12} />
+                    <label for="likes">Likes</label>
+                  </div>
+                  <div className="input-field col s12">
+                    <Input id="notes" name="notes" type="textarea" onChange={this.handleInputChange} value={this.state.notes} placeholder={this.state.editStudentPage ? this.props.studentData[0].notes : "Additional Notes"} s={12} />
+                    <label for="notes">Notes</label>
+                  </div>
                   <Row>
                     <Input name="mom" type="checkbox" value="Mom" label="Mom" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.mom ? "checked" : ""}/>
                     <Input name="dad" type="checkbox" value="Dad" label="Dad" onChange={this.handleInputChange} defaultChecked={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.dad ? "checked" : ""} data-value={this.state.family.dad}/>
                     <Input name="sister" type="checkbox" value="Sister" label="Sister" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.sister ? "checked" : ""} data-value={this.state.family.sister}/>
                     <Input name="brother" type="checkbox" value="Brother" label="Brother" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.brother ? "checked" : ""} data-value={this.state.family.brother}/>
                   </Row>
-                  <Input name="picture" onChange={this.handleInputChange} value={this.state.picture} placeholder="Profile image - e.g. http://moziru.com/images/drawn-panda-cartoon-5.jpg" s={12} />
+                  <div className="input-field col s12">
+                    <Input id="picture" name="picture" onChange={this.handleInputChange} value={this.state.picture} placeholder="Profile image - e.g. http://moziru.com/images/drawn-panda-cartoon-5.jpg" s={12} />
+                    <label for="picture">Picture</label>
+                  </div>
                 </Row>
               </form>
             </CollapsibleItem>
