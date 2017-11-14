@@ -5,7 +5,7 @@ import "./StudentCard.css";
 import StudentModal from "../StudentModal";
 
 class StudentCard extends React.Component {
-  
+
   render() {
     return(
       <Col s={4}>

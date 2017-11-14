@@ -1,9 +1,13 @@
 .student-links {
-  font-size: xx-small !important;
+  font-size: 2vw;
+}
+
+a:focus {
+  text-decoration: none;
 }
 
 .card .card-content .card-title {
   line-height: 16px;
-  font-size: medium;
+  font-size: 2vw;
+  margin: 10% 0 10% 0;
 }
-

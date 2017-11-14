@@ -1,4 +1,10 @@
-#modal-btn{
+.modal-btn{
+  font-size: 2vw !important;
+  margin: 5% 0% 10% 0% !important;
+  background-color: gainsboro !important;
   word-break: break-all;
-  white-space: nowrap;
+  white-space: normal;
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle;
 }
