@@ -134,11 +134,11 @@ render(){
                     <label for="location">Location</label>
                   </div>
                   <div className="input-field col s12">
-                    <Input id="likes" name="likes" type="textarea" onChange={this.handleInputChange} value={this.state.likes} placeholder={this.state.editStudentPage ? this.props.studentData[0].likes : "Likes"} s={12} />
+                    <Input id="likes" name="likes" type="textarea" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].likes : this.state.likes} placeholder={"Likes"} s={12} />
                     <label for="likes">Likes</label>
                   </div>
                   <div className="input-field col s12">
-                    <Input id="notes" name="notes" type="textarea" onChange={this.handleInputChange} value={this.state.notes} placeholder={this.state.editStudentPage ? this.props.studentData[0].notes : "Additional Notes"} s={12} />
+                    <Input id="notes" name="notes" type="textarea" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].notes : this.state.notes} placeholder={"Additional Notes"} s={12} />
                     <label for="notes">Notes</label>
                   </div>
                   <Row>
