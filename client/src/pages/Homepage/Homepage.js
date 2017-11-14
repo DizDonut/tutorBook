@@ -4,7 +4,7 @@ import Join from "../../components/Join";
 import Footer from "../../components/Footer";
 // import 'materialize-css'; // It installs the JS asset only
 // import 'materialize-css/dist/css/materialize.min.css';
-import { Card, CardTitle, Container, Col, Row } from "react-materialize";
+import { Card, CardTitle, CardPanel, Container, Col, Row } from "react-materialize";
 import API from "../../utils/API";
 
 import { Redirect } from 'react-router-dom'
@@ -92,7 +92,49 @@ class Homepage extends Component {
       return (
         <div className="clearfix homepage">
          <Container>
-            <Row>
+             <Row>
+                <Col l={6} m={6} s={12} >
+                <Card className="large red  z-depth-0"
+             header={<CardTitle image={"Images/Cover.jpg"}> </CardTitle>}>
+           
+            {/* <img src={'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png'} /> */}
+             <a class="github-button" href="https://github.com/kaibrown" aria-label="Follow @kaibrown on GitHub">Follow @kaibrown</a>
+             <a class="github-button" href="https://github.com/tbphokie" aria-label="Follow @tbphokie on GitHub">Follow @tbphokie</a> 
+             <a class="github-button" href="https://github.com/jbcurrie" aria-label="Follow @jbcurrie on GitHub">Follow @jbcurrie</a> 
+             <a class="github-button" href="https://github.com/AgesilausDrako" aria-label="Follow @AgesilausDrako on GitHub">Follow @AgesilausDrako</a> 
+             <a class="github-button" href="https://github.com/RubyDease" aria-label="Follow @RubyDease on GitHub">Follow @RubyDease</a> 
+             <a class="github-button" href="https://github.com/DizDonut" aria-label="Follow @DizDonut on GitHub">Follow @DizDonut</a> 
+
+           </Card>
+                </Col>
+                <Col l={6} m={6} s={12}>
+                <Card className="large red z-depth-0">
+                <Login _login={this._login} />
+                {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
+                      {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
+                      {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+                      {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+           </Card>
+                </Col>
+               </Row>  
+        </Container>
+</div>
+
+         //  header={<CardTitle image={"Images/Cover.jpg"}> </CardTitle>}>
+
+
+      )
+{/* 
+
+
+         <Row>
+		   <Col s={12} m={5}>
+				 <CardPanel image="/Homepage/Tag.png" className="teal lighten-4 black-text">
+						<image height="200px" width="200px" src="Homepage/Tag.png" />
+				 </CardPanel>
+		   </Col>
+	    	<Col s={12} m={7}>
+        <Row>
               <Col s={12}>
                 <div className="row center">
                   <Row>
@@ -111,13 +153,41 @@ class Homepage extends Component {
                   </Row>
                 </div>
               </Col>
-            </Row>
-          </Container>
+            </Row> 
+	     	</Col>
+             </Row>
+        </Container>
         </div>  
-    );
+    ); */}
   }
 };
 };
+
+ {/* <Row>
+              <Col s={12}>
+                <div className="row center">
+                  <Row>
+                    <div className="centered"> </div>
+                  </Row>
+                  <Row>
+                    <Col s={6}>
+                      <Login _login={this._login} />
+                    </Col>
+                    <Col s={6}>
+                      {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
+                      {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
+                      {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+                      {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+                    </Col>
+                  </Row>
+                </div>
+              </Col>
+            </Row> */}
+
+
+
+
+
 
 
 //       <div className="clearfix">
