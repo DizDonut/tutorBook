@@ -77,27 +77,6 @@ handleFormSubmit = event => {
   this.props._tutorProfileUpdate(profile)
 }
 
-// handleFormSubmit = event => {
-//   //_tutorProfileUpdate()
-//   event.preventDefault();
-//   if (this.state.username && this.state.password) {
-//     console.log("editTutor");
-//     API.updateTutor({
-//       username: this.state.username,
-//       password: this.state.password,
-//       email: this.state.email,
-//       tutorPic: this.state.tutorPic,
-//       contract: this.state.contract,
-//       totalStudents: this.state.totalStudents
-//     })
-//       // .then(res =>
-//       //   {
-//       //       window.location= "/Tutors/:id";
-//       //   })
-//       // .catch(err => console.log(err));
-//   }
-// };
-
 
 render(){
   
