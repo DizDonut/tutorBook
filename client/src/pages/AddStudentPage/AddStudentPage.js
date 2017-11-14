@@ -51,7 +51,7 @@ class AddStudentPage extends Component {
       if (res.data.error) {
         console.log(res.data.error)
       }
-      console.log(res.data.error)
+      console.log(res.data)
       this.setState({
         tutor: res.data,
         redirectTo: "/Tutors"

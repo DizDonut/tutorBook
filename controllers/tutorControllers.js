@@ -84,11 +84,29 @@ module.exports = {
         });
     },
     remove: function(req, res) {
-      db.Tutor
-        .findById({ _id: req.params.id })
-        .then(dbModel => dbModel.remove())
-        .then(dbModel => res.json(dbModel))
-        .catch(err => res.status(422).json(err));
+      console.log(req.params)
+      db.Tutor.findById(req.body.tutorId, function (err,tutor) {
+        console.log(tutor)
+        tutor.students.remove(req.params.id)
+        tutor.save(function(err,data) {
+          if (err) {
+            res.status(422).json(err)
+          }
+          res.json(data)
+        })
+      })
+      // console.log(' got this far with ' + req.params.id)
+      // db.Tutor.update({_id: req.body.tutorId},
+      //   { $pull: { "students._id": {_id: req.params.id}}},
+      // function(err, doc) {
+      //   console.log(doc)
+      //   if (err) {
+      //     res.status(422).json(err);
+      //   }
+      //   res.json(doc);
+      // })
+        // .save(function (err,doc) {
+        // res.json(doc)
     },
     addEvent: function(req, res) {
       console.log("tutorControllers Add EVent: ");
