@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Carousel, Container, Input, Row } from "react-materialize";
+import { Button, Carousel, Container, Input, Row, Collapsible, CollapsibleItem } from "react-materialize";
 import "materialize-css";
 //import API from "../../utils/API";
 import "./EditTutor.css";
@@ -90,30 +90,32 @@ render(){
             {!this.state.toggle && <Button onClick={this.changeImage.bind(this)} >Change Avatar</Button> }
         </Row>
         <div className="header">Edit My Account</div>
-          <form>
-            <Row>
-              <Input name="username" onChange={this.handleInputChange} value={this.props.tutor.username} placeholder="" s={6} label="" disabled/>
-              <Input name="email" onChange={this.handleInputChange} value={this.props.tutor.email} placeholder="" s={12} label="" disabled/>
-              {this.state.toggle && (
-                  <Carousel
-                    name="images"
-                    onClick={this.hasActiveClass.bind(this)}
-                    value={this.state.tutorPic}
-                    fixedItem={<div>Scroll to choose an Avatar</div>}
-                    images={this.state.images}
-                  />
-                  
-                )
-              }
-              {this.state.toggle && <Button onClick={this.hasActiveClass} >Click here to select Avatar</Button>}
-              <Input name="contract" onChange={this.handleInputChange} value={this.state.contract} placeholder={this.props.tutor.contract} s={12} label="Contract" />
-              <Input name="totalStudents" onChange={this.handleInputChange} value={this.state.totalStudents} placeholder={this.props.tutor.totalStudents} s={12} label="Total Students" disabled/>
-           </Row>
-          </form>
-
-          <Row>
-            <Button onClick={this.handleFormSubmit}>Submit</Button>
-          </Row>
+        <Collapsible>
+          <CollapsibleItem header="Edit Profile" icon='add'>
+            <form>
+              <Row>
+                <Input name="username" onChange={this.handleInputChange} value={this.props.tutor.username} placeholder="" s={6} label="" disabled/>
+                <Input name="email" onChange={this.handleInputChange} value={this.props.tutor.email} placeholder="" s={12} label="" disabled/>
+                {this.state.toggle && (
+                    <Carousel
+                      name="images"
+                      onClick={this.hasActiveClass.bind(this)}
+                      value={this.state.tutorPic}
+                      fixedItem={<div>Scroll to choose an Avatar</div>}
+                      images={this.state.images}
+                    />
+                  )
+                }
+                {this.state.toggle && <Button onClick={this.hasActiveClass} >Click here to select Avatar</Button>}
+                <Input name="contract" onChange={this.handleInputChange} value={this.state.contract} placeholder={this.props.tutor.contract} s={12} label="Contract" />
+                <Input name="totalStudents" onChange={this.handleInputChange} value={this.state.totalStudents} placeholder={this.props.tutor.totalStudents} s={12} label="Total Students" disabled/>
+            </Row>
+            </form>
+              <Row>
+                <Button onClick={this.handleFormSubmit}>Submit</Button>
+              </Row>
+            </CollapsibleItem>
+          </Collapsible>
         </Container>
       </div>
     )
