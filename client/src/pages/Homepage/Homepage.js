@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import Login from "../../components/Login";
 import Join from "../../components/Join";
-import Footer from "../../components/Footer";
+// import Footer from "../../components/Footer";
 // import 'materialize-css'; // It installs the JS asset only
 // import 'materialize-css/dist/css/materialize.min.css';
-import { Card, CardTitle, CardPanel, Container, Col, Row } from "react-materialize";
+import { Card, CardTitle, CardPanel, Container, Col, Row,Footer } from "react-materialize";
 import API from "../../utils/API";
 
 import { Redirect } from 'react-router-dom'
 import "./Homepage.css";
 import { Alert } from 'react-bootstrap';
+import logoPic from "./logo.png"
 
 // const url = require("/Images/tutorbg5.png")
 
@@ -90,156 +91,54 @@ class Homepage extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
       return (
+        <div>
         <div className="clearfix homepage">
-         <Container>
-             <Row>
-                <Col l={6} m={6} s={12} >
-                <Card className="large red  z-depth-0"
-             header={<CardTitle image={"Images/Cover.jpg"}> </CardTitle>}>
-           
-            {/* <img src={'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png'} /> */}
-             <a class="github-button" href="https://github.com/kaibrown" aria-label="Follow @kaibrown on GitHub">Follow @kaibrown</a>
-             <a class="github-button" href="https://github.com/tbphokie" aria-label="Follow @tbphokie on GitHub">Follow @tbphokie</a> 
-             <a class="github-button" href="https://github.com/jbcurrie" aria-label="Follow @jbcurrie on GitHub">Follow @jbcurrie</a> 
-             <a class="github-button" href="https://github.com/AgesilausDrako" aria-label="Follow @AgesilausDrako on GitHub">Follow @AgesilausDrako</a> 
-             <a class="github-button" href="https://github.com/RubyDease" aria-label="Follow @RubyDease on GitHub">Follow @RubyDease</a> 
-             <a class="github-button" href="https://github.com/DizDonut" aria-label="Follow @DizDonut on GitHub">Follow @DizDonut</a> 
-
-           </Card>
-                </Col>
-                <Col l={6} m={6} s={12}>
-                <Card className="large red z-depth-0">
-                <Login _login={this._login} />
-                {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
-                      {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
-                      {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-                      {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-           </Card>
-                </Col>
-               </Row>  
-        </Container>
-</div>
-
-         //  header={<CardTitle image={"Images/Cover.jpg"}> </CardTitle>}>
-
-
-      )
-{/* 
-
-
-         <Row>
-		   <Col s={12} m={5}>
-				 <CardPanel image="/Homepage/Tag.png" className="teal lighten-4 black-text">
-						<image height="200px" width="200px" src="Homepage/Tag.png" />
-				 </CardPanel>
-		   </Col>
-	    	<Col s={12} m={7}>
-        <Row>
+          <Container>
+            <Row>
+              <Col l={3} m={3} s={3} ></Col>
+              <Col l={6} m={6} s={6} >
+                <Card className="z-depth-0" 
+                    header={<CardTitle image={"Images/logo.png"} > </CardTitle>}>
+                </Card>
+              </Col>
+            </Row>
+            <Row>
               <Col s={12}>
                 <div className="row center">
-                  <Row>
+                  {/* <Row>
                     <div className="centered"> </div>
-                  </Row>
-                  <Row>
-                    <Col s={6}>
-                      <Login _login={this._login} />
-                    </Col>
-                    <Col s={6}>
-                      {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
-                      {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
-                      {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-                      {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-                    </Col>
-                  </Row>
+                  </Row> */}
+                  <Col s={6}>
+                    <Login _login={this._login} />
+                  </Col>
+                  <Col s={6}>
+                    {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
+                    {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
+                    {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+                    {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
+                  </Col>
                 </div>
               </Col>
             </Row> 
-	     	</Col>
-             </Row>
-        </Container>
-        </div>  
-    ); */}
-  }
-};
-};
-
- {/* <Row>
-              <Col s={12}>
-                <div className="row center">
-                  <Row>
-                    <div className="centered"> </div>
-                  </Row>
-                  <Row>
-                    <Col s={6}>
-                      <Login _login={this._login} />
-                    </Col>
-                    <Col s={6}>
-                      {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
-                      {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
-                      {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-                      {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-                    </Col>
-                  </Row>
-                </div>
+          </Container>
+        </div>
+          <Footer 
+            copyrights="copyright 2017 Super Group">
+            <Row>
+            {/* <Col l={3} m={3} s={3}></Col> */}
+            <Col l={12} m={12} s={12}>
+              <a class="github-button" href="https://github.com/kaibrown" aria-label="Follow @kaibrown on GitHub">Follow @kaibrown</a>
+              <a class="github-button" href="https://github.com/tbphokie" aria-label="Follow @tbphokie on GitHub">Follow @tbphokie</a>
+              <a class="github-button" href="https://github.com/jbcurrie" aria-label="Follow @jbcurrie on GitHub">Follow @jbcurrie</a>
+              <a class="github-button" href="https://github.com/AgesilausDrako" aria-label="Follow @AgesilausDrako on GitHub">Follow @AgesilausDrako</a>
+              <a class="github-button" href="https://github.com/RubyDease" aria-label="Follow @RubyDease on GitHub">Follow @RubyDease</a>
+              <a class="github-button" href="https://github.com/DizDonut" aria-label="Follow @DizDonut on GitHub">Follow @DizDonut</a>
               </Col>
-            </Row> */}
-
-
-
-
-
-
-
-//       <div className="clearfix">
-//       <Container>
-//           <Card className="large red lighten-5"
-//         header={<CardTitle image={"Images/homepage.jpg"}><h1>Welcome to Bao Bao Book!</h1> </CardTitle>}
-//        >
-//        <h5> Welcome to Bao Bao Book the Learning management system</h5>
-//         <p>Experience the uniqueness of our Learning Management system where technology is no more an exclusive tool to embrace education
-//         Tutors can keep track of student progress, access course calendars, connect 
-//         with all resources within the network, access e-resources related to lessons and
-//         a login to the Learning Management System by entering username and password</p>
-//        </Card>
-//           <Row>
-//             <Col s={12}>
-//               {/*<Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*//*}*/}
-//               <div className="row center">
-//                 <Row>
-//                   <Col s={6}>
-//                     <Login _login={this._login} />
-//                   </Col>
-//                   <Col s={6}>
-//                     {!this.state.register && 
-//                         <Join msg={this.state.register} _join={this._join} />
-//                     }
-//                     {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
-//                     {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-//                     {this.state.register && !this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
-//                   </Col>
-//                 </Row>
-//               </div>
-//             </Col>
-//           </Row>
-//       </Container>
-//       <Footer />
-//       </div>
-
-
-//    );
- // }
-//};
-//};
-
-
-
-//  {/*<Link to={"/tutors/"}>To get to tutors page</Link> {/* will need to add + tutors._id*//*}*/}
-//  <Footer />
-
-// <h5> Welcome to Bao Bao Book the Learning management system</h5>
-//         <p>Experience the uniqueness of our Learning Management system where technology is no more an exclusive tool to embrace education
-//         Tutors can keep track of student progress, access course calendars, connect 
-//         with all resources within the network, access e-resources related to lessons and
-//         a login to the Learning Management System by entering username and password</p>
-
+           </Row>
+            </Footer>
+        </div>
+      )
+    }
+  }
+}
 export default Homepage;
