@@ -22,23 +22,29 @@ body::after {
 }
 
 .clearfix>.container {
-	padding: 10% 0%;
+	padding: 2% 0%;
 	opacity:1;
 	/* background-color: #ffffff; */
 }
 
 .collapsible {
 	background-color: #ffffff;
-	opacity: 0.9;
+	opacity: 1.0;
 }
 
 form {
 	background-color: #ffffff;
-	opacity: 0.9;
+	opacity: 1.0;
 }
 .rbc-calendar {
 	background-color: #ffffff;
 	opacity: 0.95;
+}
+
+.btn, .btn-large{
+	/* background-color: #ff0000; */
+	background-color: #F9D285;
+	color: #696969;
 }
 
 .bgimg {
@@ -55,11 +61,11 @@ form {
 
 
 
-.clearfix::after {
+/* .clearfix::after {
     content: "";
     clear: both;
     display: table;
-}
+} */
 
 
 
