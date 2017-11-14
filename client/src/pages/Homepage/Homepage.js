@@ -98,7 +98,7 @@ class Homepage extends Component {
               <Col l={3} m={3} s={3} ></Col>
               <Col l={6} m={6} s={6} >
                 <Card className="z-depth-0" 
-                    header={<CardTitle image={"Images/logo.png"} > </CardTitle>}>
+                    header={<CardTitle image={logoPic} > </CardTitle>}>
                 </Card>
               </Col>
             </Row>
