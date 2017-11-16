@@ -121,7 +121,7 @@ class Homepage extends Component {
             </Row> 
           </Container>
           <Footer
-            copyrights="copyright 2017 Super Group">
+            copyrights="© 2017 Super Group">
             <Row>
               {/* <Col l={3} m={3} s={3}></Col> */}
               <Col l={12} m={12} s={12}>

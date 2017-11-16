@@ -19,6 +19,7 @@ class Tutors extends Component {
       search: ""
     };
     this._tutorEventUpdate = this._tutorEventUpdate.bind(this)
+    this.deleteStudent = this.deleteStudent.bind(this)
   }
 
   updateSearch(event) {
@@ -72,6 +73,7 @@ class Tutors extends Component {
         //   tutor: res.data
         // })
         // this.forceUpdate();
+        // this.componentWillUnmount()
         window.location = "/Tutors"
         // if page doesn't refresh, force a re-rendering
       })
@@ -127,7 +129,7 @@ class Tutors extends Component {
                {this.state && this.state.tutor && this.state.tutor.students && this.filterStudents(this.state.tutor.students).map((match) => {
                  return (
                   <div>
-                    <StudentCard
+                     <StudentCard _tutorEventUpdate={this._tutorEventUpdate}
                       key={match._id}
                       link={match._id}
                       header={match.picture}

@@ -21,7 +21,7 @@ const TutorCard = props => {
         <Col m={4}>
           <Card className="large"
             header={
-                  <CardTitle image={props.header}>
+              <CardTitle image={props.header}>
                     {props.title}
                   </CardTitle>
                   }>

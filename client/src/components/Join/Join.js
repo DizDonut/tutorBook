@@ -40,28 +40,28 @@ class Join extends Component {
           <form className="registerForm">
               <Row>
               <Input
+                id="email"
                 name="email"
                 onChange={this.handleInputChange}
                 value={this.state.email}
-                placeholder=""
+                placeholder="Email Address"
                 s={12}
-                label="Email Address"
               />
               <Input
+                id="username"
                 name="username"
                 onChange={this.handleInputChange}
                 value={this.state.username}
-                placeholder=""
+                placeholder="username"
                 s={12}
-                label="Username"
               />
               <Input
+                id="password"
                 name="password"
                 onChange={this.handleInputChange}
                 value={this.state.password}
-                placeholder=""
+                placeholder="password"
                 type="password"
-                label="Password"
                 s={12}
               />
             </Row>

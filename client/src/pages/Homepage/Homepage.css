@@ -2,7 +2,7 @@ body::after {
 	content: "";
 	background-image: url("newCover.jpg");
 	background-attachment: fixed;
-	background-position: center;
+	/* background-position: center; */
 	background-repeat: no-repeat;
 	background-size: cover;
 	-webkit-background-size: cover;
@@ -25,10 +25,10 @@ body::after {
     display: table;
 }
 div.homepage {
-	min-height:900px;
+	min-height:1000px;
 }
 .homepage>.container {
-	min-height:700px;
+	min-height:1000px;
 }
 
 .homepage .centered {
@@ -51,8 +51,12 @@ form {
 	opacity: 1.0;
 }
 footer {
-	margin-top: 10%;
+	/* margin-top: 10%; */
 	position:relative;
+	 /* position: absolute; */
+  /* right: 0;
+  bottom: 0;
+  left: 0; */
 }
 .rbc-calendar {
 	background-color: #ffffff;

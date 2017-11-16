@@ -29,6 +29,7 @@ ul, .blue {
     border-radius: 20px !important;
     background-color: aliceblue !important;
     width: 200% !important;
+    text-align: center;
   }
 
 .input-field.col label{

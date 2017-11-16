@@ -2,9 +2,16 @@
     box-sizing: border-box;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body {
   height: 100%;
   position:relative;
+  padding-bottom: 6rem;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -14,7 +21,11 @@ body {
 
 body,
 html{
-  height: 100%;
+  min-height: 100%;
   font-size: 1.1rem;
+}
+
+.wrapper {
+  min-height: 100%;
 }
 

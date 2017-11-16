@@ -30,7 +30,8 @@ constructor (props) {
     contract: "",
     totalStudents: "",
     myClass: "active",
-    toggle: false
+    toggle: false,
+    tutor: {}
   };
 
   this.handleInputChange = this.handleInputChange.bind(this)
@@ -77,9 +78,19 @@ handleFormSubmit = event => {
   this.props._tutorProfileUpdate(profile)
 }
 
+// componentDidMount() {
+//   if (this.props) {
+//     if (this.props.tutor.hasOwnProperty("students")) {
+//       const tutor = this.props.tutor
+//       this.setState({
+//         tutor: tutor
+//       })
+//     }
+//   }
+// }
 
 render(){
-  
+
     return (
       <div>
         <Container>
@@ -107,8 +118,8 @@ render(){
                   )
                 }
                 {this.state.toggle && <Button onClick={this.hasActiveClass} >Click here to select Avatar</Button>}
-                <Input name="contract" onChange={this.handleInputChange} value={this.state.contract} placeholder={this.props.tutor.contract} s={12} label="Contract" />
-                <Input name="totalStudents" onChange={this.handleInputChange} value={this.state.totalStudents} placeholder={this.props.tutor.totalStudents} s={12} label="Total Students" disabled/>
+                  <Input name="contract" onChange={this.handleInputChange} value={this.state.contract} placeholder={this.props.tutor.contract ? this.props.tutor.contract: "Contract length (e.g. 11/07/2016 - 11/07/2017)" } s={12}/>
+                  <Input name="totalStudents" onChange={this.handleInputChange} value={this.state.totalStudents} placeholder={this.props.tutor && this.props.tutor.students ? this.props.tutor.students.length : "No Students yet" } s={12} disabled/>
             </Row>
             </form>
               <Row>
