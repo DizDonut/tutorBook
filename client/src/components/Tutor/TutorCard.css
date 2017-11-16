@@ -2,6 +2,16 @@
   height: auto;
 }
 
+.card.large .card-title {
+  padding:1%;
+  border:solid #e5e5e5;
+  left:2%;
+  bottom: 2%;
+  background-color: white;
+  color: #23527c;
+  font-weight:bold;
+}
+
 .tutor-link, .content-content {
   font-size: smaller !important;
 }

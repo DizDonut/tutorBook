@@ -4,7 +4,6 @@ import Homepage from "./pages/Homepage";
 import Tutors from "./pages/Tutors";
 // import Student from "./pages/Student";
 import AddStudentPage from "./pages/AddStudentPage";
-// import Footer from "./components/Footer";
 import TutorAccount from "./pages/TutorAccount";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import API from "./utils/API";
@@ -42,6 +41,7 @@ class App extends Component {
 
   render() {
     return (
+      <div className="wrapper">
         <Router>
           <MuiThemeProvider>
             <div>
@@ -57,6 +57,7 @@ class App extends Component {
             </div>
           </MuiThemeProvider>
         </Router>
+        </div>
     )
   }
 }

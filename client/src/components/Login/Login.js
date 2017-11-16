@@ -34,8 +34,19 @@ class Login extends Component {
           <CollapsibleItem header='Login Here' icon='perm_identity'>
           <form className="loginForm">
             <Row>
-              <Input name="username" onChange={this.handleInputChange} value={this.state.username} placeholder="username" s={12} label="username" />
-              <Input name="password" onChange={this.handleInputChange} value={this.state.password} type="password" label="password" s={12} />
+              <Input  
+              name="username" 
+              onChange={this.handleInputChange} 
+              value={this.state.username} 
+              placeholder={"Enter Username"} 
+              s={12} 
+              />
+              <Input 
+              name="password" 
+              onChange={this.handleInputChange} 
+              value={this.state.password} 
+              placeholder={"Enter Password"} 
+              type="password" s={12} />
             </Row>
             <Row>
               <Button waves="light" onClick={this.handleFormSubmit}>Submit</Button>
