@@ -31,12 +31,13 @@ constructor (props) {
     totalStudents: "",
     myClass: "active",
     toggle: false,
-    tutor: {}
+    tutor: this.props.tutor
   };
 
   this.handleInputChange = this.handleInputChange.bind(this)
   this.hasActiveClass = this.hasActiveClass.bind(this)
   this.changeImage = this.changeImage.bind(this)
+  this.handleFormSubmit = this.handleFormSubmit.bind(this)
 }
 
 //on button click assign the img src for the active class to the state, fire an alert
@@ -53,7 +54,7 @@ hasActiveClass = (e) => {
   }
 }
 
-changeImage = (e) => {
+changeImage(e) {
   e.preventDefault();
   this.setState({
     toggle:true
@@ -65,29 +66,36 @@ handleInputChange = event => {
 	const{name,value} = event.target;
 	this.setState({
 		[name]:value
-	})
+  })
 }
 
 //submit form
 handleFormSubmit = event => {
   event.preventDefault()
-  const profile = {
-    tutorPic: this.state.tutorPic,
-    contract: this.state.contract
-  }
-  this.props._tutorProfileUpdate(profile)
+  // this.checkForBlanks(this.state.contract,this.state.tutorPic,() => {
+    const profile = {
+      tutorPic: this.state.tutorPic,
+      contract: this.state.contract
+    }
+    this.props._tutorProfileUpdate(profile)
+  // })
 }
 
-// componentDidMount() {
-//   if (this.props) {
-//     if (this.props.tutor.hasOwnProperty("students")) {
-//       const tutor = this.props.tutor
-//       this.setState({
-//         tutor: tutor
-//       })
-//     }
+// checkForBlanks(contract,tutorPic,cb) {
+
+//   if (contract === "") {
+//     this.setState({
+//       contract: "bubbles"
+//     })
 //   }
+//   if (tutorPic === null) {
+//     this.setState({
+//       tutorPic: '/Images/avatars/male/mAvatar6.png'
+//     })
+//   }
+//   cb();
 // }
+
 
 render(){
 
@@ -98,7 +106,7 @@ render(){
           {!this.state.toggle && <img src={!this.state.tutorPic ? this.props.tutor.tutorPic : this.state.tutorPic}/>}
         </Row>
         <Row>
-            {!this.state.toggle && <Button onClick={this.changeImage.bind(this)} >Change Avatar</Button> }
+            {!this.state.toggle && <Button onClick={this.changeImage} >Change Avatar</Button> }
         </Row>
         <div className="header">Edit My Account</div>
         <Collapsible>
@@ -111,7 +119,7 @@ render(){
                     <Carousel
                       name="images"
                       onClick={this.hasActiveClass.bind(this)}
-                      value={this.state.tutorPic}
+                       value={this.state.tutorPic} 
                       fixedItem={<div>Scroll to choose an Avatar</div>}
                       images={this.state.images}
                     />
