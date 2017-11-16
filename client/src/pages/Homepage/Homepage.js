@@ -91,8 +91,7 @@ class Homepage extends Component {
       return <Redirect to={{ pathname: this.state.redirectTo }} />
     } else {
       return (
-        <div>
-        <div className="clearfix homepage">
+        <div className="homepage">
           <Container>
             <Row>
               <Col l={3} m={3} s={3} ></Col>
@@ -108,10 +107,10 @@ class Homepage extends Component {
                   {/* <Row>
                     <div className="centered"> </div>
                   </Row> */}
-                  <Col s={6}>
+                  <Col s={12} m={12} l={6}>
                     <Login _login={this._login} />
                   </Col>
-                  <Col s={6}>
+                  <Col s={12} m={12} l={6}>
                     {!this.state.register && <Join msg={this.state.register} _join={this._join} />}
                     {this.state.register && this.state.error && <Join msg={this.state.register} _join={this._join} />}
                     {this.state.register && this.state.error && <Alert bstyle={this.state.bstyle}>{this.state.register}</Alert>}
@@ -121,21 +120,20 @@ class Homepage extends Component {
               </Col>
             </Row> 
           </Container>
-        </div>
-          <Footer 
+          <Footer
             copyrights="copyright 2017 Super Group">
             <Row>
-            {/* <Col l={3} m={3} s={3}></Col> */}
-            <Col l={12} m={12} s={12}>
-              <a class="github-button" href="https://github.com/kaibrown" aria-label="Follow @kaibrown on GitHub">Follow @kaibrown</a>
-              <a class="github-button" href="https://github.com/tbphokie" aria-label="Follow @tbphokie on GitHub">Follow @tbphokie</a>
-              <a class="github-button" href="https://github.com/jbcurrie" aria-label="Follow @jbcurrie on GitHub">Follow @jbcurrie</a>
-              <a class="github-button" href="https://github.com/AgesilausDrako" aria-label="Follow @AgesilausDrako on GitHub">Follow @AgesilausDrako</a>
-              <a class="github-button" href="https://github.com/RubyDease" aria-label="Follow @RubyDease on GitHub">Follow @RubyDease</a>
-              <a class="github-button" href="https://github.com/DizDonut" aria-label="Follow @DizDonut on GitHub">Follow @DizDonut</a>
+              {/* <Col l={3} m={3} s={3}></Col> */}
+              <Col l={12} m={12} s={12}>
+                <a class="github-button" href="https://github.com/kaibrown" aria-label="Follow @kaibrown on GitHub">Follow @kaibrown</a>
+                <a class="github-button" href="https://github.com/tbphokie" aria-label="Follow @tbphokie on GitHub">Follow @tbphokie</a>
+                <a class="github-button" href="https://github.com/jbcurrie" aria-label="Follow @jbcurrie on GitHub">Follow @jbcurrie</a>
+                <a class="github-button" href="https://github.com/AgesilausDrako" aria-label="Follow @AgesilausDrako on GitHub">Follow @AgesilausDrako</a>
+                <a class="github-button" href="https://github.com/RubyDease" aria-label="Follow @RubyDease on GitHub">Follow @RubyDease</a>
+                <a class="github-button" href="https://github.com/DizDonut" aria-label="Follow @DizDonut on GitHub">Follow @DizDonut</a>
               </Col>
-           </Row>
-            </Footer>
+            </Row>
+          </Footer>
         </div>
       )
     }
