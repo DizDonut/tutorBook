@@ -7,7 +7,6 @@ import "./AddStudent.css";
 class AddStudent extends Component {
   constructor (props) {
     super(props)
-
     this.state = {
       firstName: "",
       studentId: null,
@@ -23,10 +22,13 @@ class AddStudent extends Component {
       },
       likes: "",
       notes: "",
-      editStudentPage:false
+      editStudentPage:false,
+      studentData: props.studentData
     };
     this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleFormUpdatechange = this.handleInputChange.bind(this);
   }
+  
   handleInputChange = event => {
     const target = event.target;
     const{name,value} = event.target;
@@ -59,7 +61,7 @@ class AddStudent extends Component {
   //      }
   //   }
   // }
-
+  
   handleFormSubmit = event => {
     event.preventDefault();
       const studentProfile = {
@@ -106,11 +108,11 @@ render(){
               <form>
                 <Row>
                   <div className="input-field col s12">
-                    <Input id="firstName" name="firstName" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].firstName : this.state.firstName} placeholder={"First Name"} />
+                    <Input ref="firstName" id="firstName" name="firstName" onChange={this.state.editStudentPage ? this.handleFormUpdateChange : this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].firstName : this.state.firstName} placeholder={"First Name"} />
                     <label for="firstName">Name</label>
                   </div>
                   <div className="input-field col s12">
-                    <Input id="studentId" name="studentId" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].studentId :this.state.studentId} placeholder={"6 digit Student Id"}/>
+                    <Input ref="studentId" id="studentId" name="studentId" onChange={this.state.editStudentPage ? this.handleFormUpdateChange :this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].studentId :this.state.studentId} placeholder={"6 digit Student Id"}/>
                     <label for="studentId">Student Id</label>
                   </div>
                 </Row>
@@ -122,30 +124,30 @@ render(){
               <form>
                 <Row>
                   <div className="input-field col s12">
-                    <Input id="birthday" name="birthday" type="date" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].birthday : this.state.birthday} placeholder={"Birthday"} s={12} />
-                    <label for="birthdy">Birthday</label>
+                    <Input ref="birthday" id="birthday" name="birthday" type="date" onChange={this.state.editStudentPage ? this.handleFormUpdateChange :this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].birthday : this.state.birthday} placeholder={"Birthday"} s={12} />
+                    <label for="birthday">Birthday</label>
                   </div>
                   <div className="input-field col s12">
-                    <Input id="age" name="age" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].age : this.state.age} placeholder={"Age"} s={12} />
+                    <Input ref="age" id="age" name="age" onChange={this.state.editStudentPage ? this.handleFormUpdateChange :this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].age : this.state.age} placeholder={"Age"} s={12} />
                     <label for="age">Age</label>
                   </div>
                   <div className="input-field col s12">
-                    <Input id="location" name="location" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].location : this.state.location} placeholder={"Location - e.g. 'City/State/Region/Province'"} s={12} />
+                    <Input ref="location" id="location" name="location" onChange={this.state.editStudentPage ? this.handleFormUpdateChange :this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].location : this.state.location} placeholder={"Location - e.g. 'City/State/Region/Province'"} s={12} />
                     <label for="location">Location</label>
                   </div>
                   <div className="input-field col s12">
-                    <Input id="likes" name="likes" type="textarea" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].likes : this.state.likes} placeholder={"Likes"} s={12} />
+                    <Input ref="likes" id="likes" name="likes" type="textarea" onChange={this.state.editStudentPage ? this.handleFormUpdateChange :this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].likes : this.state.likes} placeholder={"Likes"} s={12} />
                     <label for="likes">Likes</label>
                   </div>
                   <div className="input-field col s12">
-                    <Input id="notes" name="notes" type="textarea" onChange={this.handleInputChange} value={this.state.editStudentPage ? this.props.studentData[0].notes : this.state.notes} placeholder={"Additional Notes"} s={12} />
+                    <Input ref="notes" id="notes" name="notes" type="textarea" onChange={this.state.editStudentPage ? this.handleFormUpdateChange :this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].notes : this.state.notes} placeholder={"Additional Notes"} s={12} />
                     <label for="notes">Notes</label>
                   </div>
                   <div className="input-field col s12">
-                    <Input id="family" name="mom" type="checkbox" value="Mom" label="Mom" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.mom ? "checked" : ""}/>
-                    <Input name="dad" type="checkbox" value="Dad" label="Dad" onChange={this.handleInputChange} defaultChecked={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.dad ? "checked" : ""} data-value={this.state.family.dad}/>
-                    <Input name="sister" type="checkbox" value="Sister" label="Sister" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.sister ? "checked" : ""} data-value={this.state.family.sister}/>
-                    <Input name="brother" type="checkbox" value="Brother" label="Brother" onChange={this.handleInputChange} defaultChecked={this.props.studentMatch !== null && this.props.studentData[0].family.brother ? "checked" : ""} data-value={this.state.family.brother}/>
+                    <Input id="family" name="mom" type="checkbox" value="Mom" label="Mom" onChange={this.handleInputChange}  data-value={this.state.family.mom}/>
+                    <Input name="dad" type="checkbox" value="Dad" label="Dad" onChange={this.handleInputChange}   data-value={this.state.family.dad}/>
+                    <Input name="sister" type="checkbox" value="Sister" label="Sister" onChange={this.handleInputChange}  data-value={this.state.family.sister}/>
+                    <Input name="brother" type="checkbox" value="Brother" label="Brother" onChange={this.handleInputChange} data-value={this.state.family.brother}/>
                   </div>
                   <div className="input-field col s12">
                     <Input id="picture" name="picture" onChange={this.handleInputChange} value={this.state.picture} placeholder="Profile image - e.g. http://moziru.com/images/drawn-panda-cartoon-5.jpg" s={12} />
