@@ -5,7 +5,8 @@ import AddStudent from "../../components/AddStudent";
 // import Footer from "../../components/Footer";
 import "./AddStudentPage.css";
 import API from "../../utils/API";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+
 
 
 class AddStudentPage extends Component {
@@ -15,7 +16,8 @@ class AddStudentPage extends Component {
       tutor: [],
       student: [],
       studentId: null,
-      redirectTo: ""
+      redirectTo: "",
+      alert: null
     };
     //bind your api function here (see register and login components for an example)
     this._tutorStudentProfileUpdate = this._tutorStudentProfileUpdate.bind(this)
@@ -46,17 +48,22 @@ class AddStudentPage extends Component {
     const tutorId = this.state.tutor._id;
 //    alert(id);
 //    alert(studentProfile.firstName);
-
-    API.saveStudent({tutorId,profile}).then((res, err) => {
-      if (res.data.error) {
-        console.log(res.data.error)
-      }
-      console.log(res.data)
+    if (profile.firstName) {
+      API.saveStudent({tutorId,profile}).then((res, err) => {
+        if (res.data.error) {
+          console.log(res.data.error)
+        }
+        console.log(res.data)
+        this.setState({
+          tutor: res.data,
+          redirectTo: "/Tutors"
+        });
+      })
+    } else {
       this.setState({
-        tutor: res.data,
-        redirectTo: "/Tutors"
-      });
-    })
+        alert:"username required"
+      })
+    }
     //RES AND REDIRECT HAPPENS HERE
   }
 
@@ -82,6 +89,7 @@ class AddStudentPage extends Component {
                 <Col s={12}>
                 {this.state.tutor && this.state.tutor.students &&
                   <AddStudent 
+                  alert={this.state.alert}
                   _tutorStudentProfileUpdate={this._tutorStudentProfileUpdate} 
                   studentData={this.state.tutor.students.filter(match => {
                     return match._id === studentMatch ? match : null

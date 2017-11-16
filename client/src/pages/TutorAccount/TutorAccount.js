@@ -34,17 +34,17 @@ class TutorAccount extends Component {
   }
 _tutorProfileUpdate(profile) {
   // API CALL HERE/
-  const id = this.state.tutor._id;
-  API.updateTutor({id,profile}).then((res, err) => {
-    if (res.data.error) {
-      console.log(res.data.error)
-    }
-    this.setState({
-      loggedIn: res.data.loggedIn,
-      tutor: res.data,
-      redirectTo: "/Tutors"
-    });
-  })
+    const id = this.state.tutor._id;
+    API.updateTutor({ id, profile }).then((res, err) => {
+      if (res.data.error) {
+        console.log(res.data.error)
+      }
+      this.setState({
+        loggedIn: res.data.loggedIn,
+        tutor: res.data,
+        redirectTo: "/Tutors"
+      });
+    })
   //RES AND REDIRECT HAPPENS HERE
 }
   render(){

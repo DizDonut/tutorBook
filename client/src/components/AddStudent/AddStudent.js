@@ -3,6 +3,7 @@ import { Button, Container, Collapsible, CollapsibleItem, Input, Row } from "rea
 import "materialize-css";
 //import API from "../../utils/API";
 import "./AddStudent.css";
+import { Alert } from 'react-bootstrap';
 
 class AddStudent extends Component {
   constructor (props) {
@@ -158,6 +159,7 @@ render(){
               <Row>
                 {this.props.studentData.length > 0 && <Button className="updateForm" waves="light" onClick={this.handleFormSubmit.bind(this)}>Update Profile</Button>}
                 {this.props.studentData.length < 1 && <Button className="newForm" waves="light" onClick={this.handleFormSubmit.bind(this)}>Submit</Button>}
+                {this.props.alert !== null && <Alert>{this.props.alert}</Alert>}
               </Row>
             </CollapsibleItem>
           </Collapsible>
