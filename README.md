@@ -1,23 +1,12 @@
-# Teammates, Please Read
 
-1. Install nodemon globally; this will help us run back end server code while react app is running in development; will allow us to make changes to the back end, and restart react app automatically. 
-    a. https://www.npmjs.com/package/nodemon
-        i. npm install -g nodemon
-    b. no need to run 'nodemon' command from bash, we'll actually throw it in the package.json. 
+![Bao Bao](./client/src/pages/Homepage/logo.png)
 
-2. install front and backend dependencies. While in the root directory, run the following commands:
+## Collaborators: [AgesilausDrako](https://github.com/AgesilausDrako) | [dizDonut](https://github.com/dizDonut) | [jbcurrie](https://github.com/jbcurrie) | [kaibrown](https://github.com/kaibrown) | [RubyDease](https://github.com/RubyDease) | [tbphokie](https://github.com/tbphokie) 
 
-```
-yarn install
-cd client
-yarn install
-cd ..
-``
+Bao Bao, a full stack application built with the React JS library, is a student management system for VIPKID tutors. 
 
-3. After both installations complete, run the following command in your terminal:
+# [Demo the App](https://baobaotutor.herokuapp.com/)
 
-```
-yarn start
-```
+# [Slide Deck](http://prezi.com/fz9ktptfsuch/?utm_campaign=share&utm_medium=copy&rc=ex0share)
 
-4. Express server should intercept any AJAX requests from the client (our react app).
+**Technologies:** *React.js, React Router, mongoDB, Mongoose, RESTful APIs, Material UI, React Materialize, React Big Calendar, Moment.js, Node.js, Express.js, bcrypt, heroku, webflow*
