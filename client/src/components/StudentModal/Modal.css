@@ -1,10 +1,4 @@
-.modal-btn{
-  font-size: 2vw !important;
-  margin: 5% 0% 10% 0% !important;
-  background-color: gainsboro !important;
-  word-break: break-all;
-  white-space: normal;
-  overflow: hidden;
-  display: table-cell;
-  vertical-align: middle;
+.details-title {
+  text-align: center;
+  font-weight: bolder !important;
 }

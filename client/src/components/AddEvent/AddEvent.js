@@ -1,6 +1,8 @@
 import React from "react";
 import { Button, Collapsible, CollapsibleItem, Col, Input, Row } from "react-materialize";
 import API from "../../utils/API.js";
+import DatePicker from "material-ui/DatePicker";
+import TextField from "material-ui/TextField";
 import TimePicker from 'material-ui/TimePicker';
 import "./AddEvent.css";
 import moment from "moment";
@@ -49,15 +51,20 @@ handleEndDate(event, date){
 	this.setState({
 		endDate: date
 	})
-}handleStartTime(event, time){
+}
+
+handleStartTime(event, time){
 	this.setState({
 		startTime: time
 	})
-}handleEndTime(event, time){
+}
+
+handleEndTime(event, time){
 	this.setState({
 		endTime: time
 	})
 }
+
 //submit form
 handleFormSubmit = event => {
 	event.preventDefault();
@@ -116,7 +123,7 @@ handleFormSubmit = event => {
 					// document.write(JSON.stringify(res));
 				})
 			})
-			
+
 		}
 	}
 }
@@ -127,32 +134,59 @@ handleFormSubmit = event => {
         <Collapsible>
           <CollapsibleItem header="Add New Event">
             <Row>
-              <Input name="title" onChange={this.handleInputChange} value={this.state.title} placeholder="" s={12} label="Description" />
-              <Input name="allDay" id="allDayCheck" type="checkbox" className="filled-in" onChange={this.handleInputChange} value={this.state.allday} placeholder="" s={12} label="All Day Event?" />
+							<Col s={12}>
+								<TextField
+									className="event-input"
+								 	name="title"
+									onChange={this.handleInputChange}
+									value={this.state.title}
+									floatingLabelText="Description" />
+							</Col>
 						</Row>
 						<Row>
-							<Input name="startDate" onChange={this.handleStartDate} value={this.state.startDate} type="date" label="Start Date" s={6} />
+							<Col s={6}>
+								<DatePicker
+									fullWidth={true}
+									hintText="Start Date"
+									openToYearSelection={false}
+									name="startDate"
+									onChange={this.handleStartDate}
+									value={this.state.startDate}/>
+							</Col>
 							<Col s={6}>
 								<TimePicker
-									className="timepicker"
 									hintText="Start Time"
 									autoOk={true}
 									onChange={this.handleStartTime}
 									value={this.state.startTime}
+									textFieldStyle={{
+										width: "100%",
+									}}
 								/>
 							</Col>
 						</Row>
 						<Row>
-							<Input name="end" onChange={this.handleEndDate} value={this.state.endDate} type="date" label="End Date" s={6} />
+							<Col s={6}>
+								<DatePicker
+									fullWidth={true}
+									hintText="End Date"
+									openToYearSelection={false}
+									name="endDate"
+									onChange={this.handleEndDate}
+									value={this.state.endDate}/>
+							</Col>
 							<Col s={6}>
 								<TimePicker
-									className="timepicker"
 									hintText="End Time"
 									autoOk={true}
 									onChange={this.handleEndTime}
 									value={this.state.endTime}
+									textFieldStyle={{
+										width: "100%",
+									}}
 								/>
 							</Col>
+							<Input name="allDay" id="allDayCheck" type="checkbox" className="filled-in" onChange={this.handleInputChange} value={this.state.allday} placeholder="" s={12} label="All Day Event?" />
 						</Row>
             <Row>
               <Button className="blue" onClick={this.handleFormSubmit}>Add Event</Button>

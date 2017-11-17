@@ -41,9 +41,15 @@ class StudentDialog extends React.Component {
 
     return(
       <div>
-        <RaisedButton className="modal-btn" label="See Student" onClick={this.handleOpen} />
+        <RaisedButton
+          label="See Student"
+          onClick={this.handleOpen}
+          backgroundColor="linen"
+          fullWidth={true}
+        />
         <Dialog
           title="Student Details"
+          titleClassName="details-title"
           actions={actions}
           modal={false}
           open={this.state.open}

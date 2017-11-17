@@ -17,12 +17,12 @@
 }
 
 .rbc-calendar{
-  height: 400px !important;
+  height: 600px !important;
   width: 135% !important;
 }
 
 .rbc-calendar *,
 .rbc-calendar *:before,
 .rbc-calendar *:after {
-  font-size: small !important;
+  font-size: medium !important;
 }

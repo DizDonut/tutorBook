@@ -7,11 +7,6 @@ ul, .blue {
   word-break: break-all;
 }
 
-.page-divider{
-  background-color: #FF0000;
-  height: 7px;
-}
-
 .tutorbg{
 	/* background-image: url("https://static.pexels.com/photos/139319/pexels-photo-139319.jpeg"); */
 	background-image: url("/Images/tutorbg5.png");
