@@ -1,9 +1,5 @@
-.timepicker {
-  width: 75% !important;
-  top: 32px;
-  word-break: break-all;
-  white-space: normal;
-  font-size: smaller !important;
+.event-input {
+  width: 100% !important;
 }
 
 button.btn.blue {

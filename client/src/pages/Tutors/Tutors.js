@@ -118,7 +118,6 @@ class Tutors extends Component {
               </TutorCard>)}
             </Col>
           </Row>
-          <hr className="page-divider"/>
           <Row>
             <Col s={12}>
             <Row>

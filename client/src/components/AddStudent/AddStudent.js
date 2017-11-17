@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Container, Collapsible, CollapsibleItem, Input, Row } from "react-materialize";
+import DatePicker from "material-ui/DatePicker";
 import "materialize-css";
 //import API from "../../utils/API";
 import "./AddStudent.css";
@@ -29,7 +30,7 @@ class AddStudent extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     // this.handleFormUpdatechange = this.handleInputChange.bind(this);
   }
-  
+
   handleInputChange = event => {
     const target = event.target;
     const{name,value} = event.target;
@@ -62,7 +63,7 @@ class AddStudent extends Component {
   //      }
   //   }
   // }
-  
+
   handleFormSubmit = event => {
     event.preventDefault();
       const studentProfile = {
@@ -125,8 +126,14 @@ render(){
               <form>
                 <Row>
                   <div className="input-field col s12">
-                    <Input ref="birthday" id="birthday" name="birthday" type="date" onChange={this.state.editStudentPage ? this.handleFormUpdateChange :this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].birthday : this.state.birthday} placeholder={"Birthday"} s={12} />
-                    <label for="birthday">Birthday</label>
+                    <DatePicker
+                      fullWidth={true}
+                      hintText="Birthday"
+                      id="birthday"
+                      mode="landscape"
+                      name="birthday"
+                      onChange={this.handleInputChange}
+                      value={this.state.birthday}/>
                   </div>
                   <div className="input-field col s12">
                     <Input ref="age" id="age" name="age" onChange={this.state.editStudentPage ? this.handleFormUpdateChange :this.handleInputChange} value={this.state.editStudentPage ? this.state.studentData[0].age : this.state.age} placeholder={"Age"} s={12} />
